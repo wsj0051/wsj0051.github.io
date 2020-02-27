@@ -6,7 +6,6 @@ var S = {
 
     S.Drawing.init('.canvas');
     document.body.classList.add('body--ready');
-
     if (i !== -1) {
       S.UI.simulate(decodeURI(action).substring(i + 3));
     } else {
