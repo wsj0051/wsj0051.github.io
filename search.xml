@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Termux终端hexo搭建</title>
+    <url>/2020/03/05/Termux%E6%90%AD%E5%BB%BAhexo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","video":{"url":"http://wsj0051.gitee.io/file/termux_hexo.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+      <tags>
+        <tag>termux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>药师经</title>
     <url>/2020/01/18/%E8%8D%AF%E5%B8%88%E7%BB%8F/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h3 id="药师琉璃光如来本愿功德经"><a href="#药师琉璃光如来本愿功德经" class="headerlink" title="药师琉璃光如来本愿功德经"></a>药师琉璃光如来本愿功德经</h3><div>
@@ -310,7 +318,7 @@
   <entry>
     <title>太上感应篇</title>
     <url>/2020/01/12/%E5%A4%AA%E4%B8%8A%E6%84%9F%E5%BA%94%E7%AF%87/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h3 id="太上感应篇"><a href="#太上感应篇" class="headerlink" title="太上感应篇"></a>太上感应篇</h3><p>〖 原文 〗</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h3 id="太上感应篇"><a href="#太上感应篇" class="headerlink" title="太上感应篇"></a>太上感应篇</h3><p>####〖 原文 〗</p>
 <p>太上曰：祸福无门，惟人自召；善恶之报，如影随形。</p>
 <p>是以天地有司过之神，依人所犯轻重，以夺人算。</p>
 <p>算减则贫耗，多逢忧患，人皆恶之，刑祸随之，吉庆避之，恶星灾之，算尽则死。</p>
@@ -335,7 +343,7 @@
 <p>又枉杀人者，是易刀兵而相杀也。取非义之财者，譬如漏脯救饥、鸩酒止渴，非不暂饱，死亦及之。</p>
 <p>夫心起于善，善虽未为，而吉神已随之。或心起于恶，恶虽未为，而凶神已随之。其有曾行恶事，后自改悔，诸恶莫作，众善奉行，久久必获吉庆，所谓转祸为福也。</p>
 <p>故吉人语善、视善、行善，一日有三善，三年天必降之福。凶人语恶、视恶、行恶，一日有三恶，三年天必降之祸。胡不勉而行之？</p>
-<p>〖 释义 〗</p>
+<p>####〖 释义 〗</p>
 <p>太上老君说：“人的福祸，本来就没有一定的门路，全都是自己招来的啊！”<br>善恶的报应，就如同影子一样，人到哪里，影子也就跟随到哪里，永远都不分离啊！ </p>
 <p>因为人的一生，无论是白天夜晚，时时刻刻，上下四旁，都有主管人间的神明在鉴察着，依照各人所犯过恶的轻重，来夺除人的寿算。（人活一百天叫一算，犯轻的就少夺，犯重的就多夺）。</p>
 <p>人的寿命，既然已经因为犯过而被减少，而且还要被惩罚生活贫苦，家庭破碎；又经常地遭逢到忧愁灾难啊！人人都讨厌造作恶事的人啊！</p>
@@ -523,12 +531,12 @@
 <p>引用电影《两只老虎》台词：人生就是一个字，能过则过。</p>
 </blockquote>
 
-        <div id="aplayer-TyPEQFKE" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-bdDouUWN" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-TyPEQFKE"),
+            element: document.getElementById("aplayer-bdDouUWN"),
             narrow: false,
             autoplay: true,
             showlrc: false,
