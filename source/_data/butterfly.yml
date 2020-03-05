@@ -11,7 +11,7 @@ menu:
   分类: /categories/ || fa fa-folder-open
   更多||fa fa-list:
     - 音乐 || /music/ || fa fa-music
-    - 视频 || /movies/ || fa fa-film
+    - 电影 || /movies/ || fa fa-film
     - 图片 || /gallery/ || fa fa-photo
   #Link: /link/ || fa fa-link  
   关于我: /about/ || fa fa-heart  
