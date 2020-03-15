@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://wsj0051.tk
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -124,14 +124,14 @@ douban:
   user: wsj0051
   builtin: true
   book:
-    title: '我的豆瓣书籍'
-    quote: '书籍清单'
+    title: 'This is my book title'
+    quote: 'This is my book quote'
   movie:
-    title: '我的豆瓣电影'
-    quote: '电影清单'
+    title: 'This is my movie title'
+    quote: 'This is my movie quote'
   game:
-    title: '我的豆瓣游戏'
-    quote: '游戏清单'
+    title: 'This is my game title'
+    quote: 'This is my game quote'
   timeout: 10000     
 
 # Deployment
