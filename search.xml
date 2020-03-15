@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Termux终端hexo搭建</title>
+    <title>Termux使用记录</title>
     <url>/2020/03/05/Termux%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="Termux使用记录"><a href="#Termux使用记录" class="headerlink" title="Termux使用记录"></a>Termux使用记录</h1><blockquote>
 <p>参考原文链接：<a href="https://www.sqlsec.com/2018/05/termux.html" target="_blank" rel="noopener">https://www.sqlsec.com/2018/05/termux.html</a></p>
@@ -28,11 +28,13 @@
 <p>或者：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pkg i -y wget &amp;&amp; bash -c &quot;$(wget -qO- &#39;https:&#x2F;&#x2F;gitee.com&#x2F;st1020&#x2F;Stone-Termux-Tool&#x2F;raw&#x2F;master&#x2F;st.sh&#39;)&quot;</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="使用atilo安装linux"><a href="#使用atilo安装linux" class="headerlink" title="使用atilo安装linux"></a>使用atilo安装linux</h2><blockquote>
-<p>在Termux安装Linux的bash脚本</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;echo &quot;deb [trusted&#x3D;yes] https:&#x2F;&#x2F;yadominjinta.github.io&#x2F;files&#x2F; termux extras&quot; &gt;&gt; $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">&gt;pkg in atilo-cn</span><br></pre></td></tr></table></figure></div>
+<h2 id="使用atilo安装linux"><a href="#使用atilo安装linux" class="headerlink" title="使用atilo安装linux"></a>使用atilo安装linux</h2><p>在Termux安装Linux的bash脚本</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;deb [trusted&#x3D;yes] https:&#x2F;&#x2F;yadominjinta.github.io&#x2F;files&#x2F; termux extras&quot; &gt;&gt; $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">pkg in atilo-cn</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;Atilo           2.0</span><br><span class="line">&gt;Usage: atilo [命令] [参数]</span><br><span class="line"></span><br><span class="line">&gt;Atilo 是一个用来帮助你在termux上安装不同的GNU&#x2F;Linux发行版的程序</span><br><span class="line"></span><br><span class="line">&gt;命令:</span><br><span class="line">&gt;list             列出可用镜像</span><br><span class="line">&gt;images           移除本地的镜像</span><br><span class="line">&gt;pull             拉取远的镜像</span><br><span class="line">&gt;run              运行镜像</span><br><span class="line">&gt;help             帮助</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>Atilo           2.0<br>Usage: atilo [命令] [参数]</p>
+<p>Atilo 是一个用来帮助你在termux上安装不同的GNU/Linux发行版的程序</p>
+<p>命令:<br>list             列出可用镜像<br>images           移除本地的镜像<br>pull             拉取远的镜像<br>run              运行镜像<br>help             帮助</p>
 </blockquote>
 <blockquote>
 <p>安装linux之后就可以配置java环境变量，安装tomcat了。</p>
@@ -563,12 +565,12 @@
 <p>引用电影《两只老虎》台词：人生就是一个字，能过则过。</p>
 </blockquote>
 
-        <div id="aplayer-GscwPQxZ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-HMRPPvOF" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-GscwPQxZ"),
+            element: document.getElementById("aplayer-HMRPPvOF"),
             narrow: false,
             autoplay: true,
             showlrc: false,
