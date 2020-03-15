@@ -1,5 +1,5 @@
 ---
-title: Termux终端hexo搭建
+title: Termux使用记录
 date: 2020-03-05 17:29:33
 tags: "termux"
 top_img: https://cdn.jsdelivr.net/gh/wsj0051/IMG/blog/20200305173536.jpg
@@ -63,30 +63,24 @@ pkg i -y wget && bash -c "$(wget -qO- 'https://gitee.com/st1020/Stone-Termux-Too
 
 ## 使用atilo安装linux
 
->在Termux安装Linux的bash脚本
+在Termux安装Linux的bash脚本
+
+```
+echo "deb [trusted=yes] https://yadominjinta.github.io/files/ termux extras" >> $PREFIX/etc/apt/sources.list
+pkg in atilo-cn
+```
+
+> Atilo           2.0
+> Usage: atilo [命令] [参数]
 >
->## 安装
+> Atilo 是一个用来帮助你在termux上安装不同的GNU/Linux发行版的程序
 >
->```
->echo "deb [trusted=yes] https://yadominjinta.github.io/files/ termux extras" >> $PREFIX/etc/apt/sources.list
->pkg in atilo-cn
->```
->
->## 使用方法
->
->```
->Atilo           2.0
->Usage: atilo [命令] [参数]
->
->Atilo 是一个用来帮助你在termux上安装不同的GNU/Linux发行版的程序
->
->命令:
->list             列出可用镜像
->images           移除本地的镜像
->pull             拉取远的镜像
->run              运行镜像
->help             帮助
->```
+> 命令:
+> list             列出可用镜像
+> images           移除本地的镜像
+> pull             拉取远的镜像
+> run              运行镜像
+> help             帮助
 
 >安装linux之后就可以配置java环境变量，安装tomcat了。
 
