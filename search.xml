@@ -2,8 +2,42 @@
 <search>
   <entry>
     <title>Termux终端hexo搭建</title>
-    <url>/2020/03/05/Termux%E6%90%AD%E5%BB%BAhexo/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","video":{"url":"http://wsj0051.gitee.io/file/termux_hexo.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+    <url>/2020/03/05/Termux%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="Termux使用记录"><a href="#Termux使用记录" class="headerlink" title="Termux使用记录"></a>Termux使用记录</h1><blockquote>
+<p>参考原文链接：<a href="https://www.sqlsec.com/2018/05/termux.html" target="_blank" rel="noopener">https://www.sqlsec.com/2018/05/termux.html</a></p>
+</blockquote>
+<h2 id="创建软链（直接跳转到手机内存卡目录的超链）"><a href="#创建软链（直接跳转到手机内存卡目录的超链）" class="headerlink" title="创建软链（直接跳转到手机内存卡目录的超链）"></a>创建软链（直接跳转到手机内存卡目录的超链）</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln -s &#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home&#x2F;storage&#x2F;shared&#x2F;wsj0051 wsj0051</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="修改启动问候语"><a href="#修改启动问候语" class="headerlink" title="修改启动问候语"></a>修改启动问候语</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim $PREFIX&#x2F;etc&#x2F;motd</span><br></pre></td></tr></table></figure></div>
+
+<p>如果没有安装vim的话会有提示，跟据提示安装：pkg install vim</p>
+<h2 id="手机已经root"><a href="#手机已经root" class="headerlink" title="手机已经root"></a>手机已经root</h2><blockquote>
+<p>安装tsu,这是一个su的termux版本,用来在termux上替代su:</p>
+</blockquote>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pkg install tsu</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="搭建Hexo-博客"><a href="#搭建Hexo-博客" class="headerlink" title="搭建Hexo 博客"></a>搭建Hexo 博客</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pkg install nodejs</span><br><span class="line">pkg install git</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line">mkdir hexoblog</span><br><span class="line">cd hexoblog</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>更多资料参考官方api:<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/index.html</a></p>
+</blockquote>
+<h2 id="也可以使用一键脚本"><a href="#也可以使用一键脚本" class="headerlink" title="也可以使用一键脚本"></a>也可以使用一键脚本</h2><p><a href="https://cdn.jsdelivr.net/gh/wsj0051/IMG/blog/20200315001.jpg" data-fancybox="group" data-caption="20191104004.jpg" class="fancybox"><img alt="20191104004.jpg" title="20191104004.jpg" data-src="https://cdn.jsdelivr.net/gh/wsj0051/IMG/blog/20200315001.jpg" class="lazyload"></a></p>
+<p>一键脚本直接用别人写好的，github或gitee有很多，直接在Termux内输入以下命令安装本工具：</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pkg i -y wget &amp;&amp; bash -c &quot;$(wget -qO- &#39;https:&#x2F;&#x2F;github.com&#x2F;st1020&#x2F;Stone-Termux-Tool&#x2F;raw&#x2F;master&#x2F;st.sh&#39;)&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>或者：</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pkg i -y wget &amp;&amp; bash -c &quot;$(wget -qO- &#39;https:&#x2F;&#x2F;gitee.com&#x2F;st1020&#x2F;Stone-Termux-Tool&#x2F;raw&#x2F;master&#x2F;st.sh&#39;)&quot;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="使用atilo安装linux"><a href="#使用atilo安装linux" class="headerlink" title="使用atilo安装linux"></a>使用atilo安装linux</h2><blockquote>
+<p>在Termux安装Linux的bash脚本</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;echo &quot;deb [trusted&#x3D;yes] https:&#x2F;&#x2F;yadominjinta.github.io&#x2F;files&#x2F; termux extras&quot; &gt;&gt; $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">&gt;pkg in atilo-cn</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;Atilo           2.0</span><br><span class="line">&gt;Usage: atilo [命令] [参数]</span><br><span class="line"></span><br><span class="line">&gt;Atilo 是一个用来帮助你在termux上安装不同的GNU&#x2F;Linux发行版的程序</span><br><span class="line"></span><br><span class="line">&gt;命令:</span><br><span class="line">&gt;list             列出可用镜像</span><br><span class="line">&gt;images           移除本地的镜像</span><br><span class="line">&gt;pull             拉取远的镜像</span><br><span class="line">&gt;run              运行镜像</span><br><span class="line">&gt;help             帮助</span><br></pre></td></tr></table></figure></div>
+</blockquote>
+<blockquote>
+<p>安装linux之后就可以配置java环境变量，安装tomcat了。</p>
+</blockquote>
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","video":{"url":"http://wsj0051.gitee.io/file/termux_hexo.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       <tags>
         <tag>termux</tag>
       </tags>
@@ -318,8 +352,7 @@
   <entry>
     <title>太上感应篇</title>
     <url>/2020/01/12/%E5%A4%AA%E4%B8%8A%E6%84%9F%E5%BA%94%E7%AF%87/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h3 id="太上感应篇"><a href="#太上感应篇" class="headerlink" title="太上感应篇"></a>太上感应篇</h3><p>####〖 原文 〗</p>
-<p>太上曰：祸福无门，惟人自召；善恶之报，如影随形。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h3 id="太上感应篇"><a href="#太上感应篇" class="headerlink" title="太上感应篇"></a>太上感应篇</h3><h4 id="〖-原文-〗"><a href="#〖-原文-〗" class="headerlink" title="〖 原文 〗"></a>〖 原文 〗</h4><p>太上曰：祸福无门，惟人自召；善恶之报，如影随形。</p>
 <p>是以天地有司过之神，依人所犯轻重，以夺人算。</p>
 <p>算减则贫耗，多逢忧患，人皆恶之，刑祸随之，吉庆避之，恶星灾之，算尽则死。</p>
 <p>又有三台北斗神君，在人头上，录人罪恶，夺其纪算。</p>
@@ -343,8 +376,7 @@
 <p>又枉杀人者，是易刀兵而相杀也。取非义之财者，譬如漏脯救饥、鸩酒止渴，非不暂饱，死亦及之。</p>
 <p>夫心起于善，善虽未为，而吉神已随之。或心起于恶，恶虽未为，而凶神已随之。其有曾行恶事，后自改悔，诸恶莫作，众善奉行，久久必获吉庆，所谓转祸为福也。</p>
 <p>故吉人语善、视善、行善，一日有三善，三年天必降之福。凶人语恶、视恶、行恶，一日有三恶，三年天必降之祸。胡不勉而行之？</p>
-<p>####〖 释义 〗</p>
-<p>太上老君说：“人的福祸，本来就没有一定的门路，全都是自己招来的啊！”<br>善恶的报应，就如同影子一样，人到哪里，影子也就跟随到哪里，永远都不分离啊！ </p>
+<h4 id="〖-释义-〗"><a href="#〖-释义-〗" class="headerlink" title="〖 释义 〗"></a>〖 释义 〗</h4><p>太上老君说：“人的福祸，本来就没有一定的门路，全都是自己招来的啊！”<br>善恶的报应，就如同影子一样，人到哪里，影子也就跟随到哪里，永远都不分离啊！ </p>
 <p>因为人的一生，无论是白天夜晚，时时刻刻，上下四旁，都有主管人间的神明在鉴察着，依照各人所犯过恶的轻重，来夺除人的寿算。（人活一百天叫一算，犯轻的就少夺，犯重的就多夺）。</p>
 <p>人的寿命，既然已经因为犯过而被减少，而且还要被惩罚生活贫苦，家庭破碎；又经常地遭逢到忧愁灾难啊！人人都讨厌造作恶事的人啊！</p>
 <p>刑罚跟灾祸，也就跟随而来。吉祥和喜庆，都远远地避他而去。<br>恶煞凶星，也同时降下了灾殃给作恶的人。使恶人的寿算减尽之后，恶人也就死了。</p>
@@ -531,12 +563,12 @@
 <p>引用电影《两只老虎》台词：人生就是一个字，能过则过。</p>
 </blockquote>
 
-        <div id="aplayer-bdDouUWN" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-GscwPQxZ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-bdDouUWN"),
+            element: document.getElementById("aplayer-GscwPQxZ"),
             narrow: false,
             autoplay: true,
             showlrc: false,
