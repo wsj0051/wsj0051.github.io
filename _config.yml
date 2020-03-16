@@ -124,14 +124,14 @@ douban:
   user: wsj0051
   builtin: true
   book:
-    title: 'This is my book title'
-    quote: 'This is my book quote'
+    title: '我的豆瓣书籍'
+    quote: '书籍清单'
   movie:
-    title: 'This is my movie title'
-    quote: 'This is my movie quote'
+    title: '我的豆瓣电影'
+    quote: '电影清单'
   game:
-    title: 'This is my game title'
-    quote: 'This is my game quote'
+    title: '我的豆瓣游戏'
+    quote: '游戏清单'
   timeout: 10000     
 
 # Deployment
