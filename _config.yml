@@ -146,6 +146,6 @@ deploy:
 backup:
   type: git
   theme: Butterfly
-  message: 备份博客
+  message: Back up my hexo blog
   repository: 
       github: https://github.com/wsj0051/wsj0051.github.io.git,backup
