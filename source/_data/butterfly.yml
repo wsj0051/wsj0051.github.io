@@ -268,11 +268,11 @@ Flink:
   address: Blog 地址： https://wsj0051.tk
   avatar: Blog 头像： http://wsj0051.tk/img/avatar.jpg
   info: Blog 简介： Never give up
-  comment: 谢谢来访
+  comment: 感谢您的来访
 
 # 打賞按鈕
 reward:
-  enable: true
+  enable: false
   QR_code:
     - itemlist:
         img: /img/wechat.png
