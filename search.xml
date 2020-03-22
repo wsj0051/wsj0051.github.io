@@ -11,6 +11,13 @@
 <h2 id="修改启动问候语"><a href="#修改启动问候语" class="headerlink" title="修改启动问候语"></a>修改启动问候语</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim $PREFIX&#x2F;etc&#x2F;motd</span><br></pre></td></tr></table></figure></div>
 
 <p>如果没有安装vim的话会有提示，跟据提示安装：pkg install vim</p>
+<h3 id="修改启动语为sh脚本方式"><a href="#修改启动语为sh脚本方式" class="headerlink" title="修改启动语为sh脚本方式"></a>修改启动语为sh脚本方式</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd $PREFIX&#x2F;etc</span><br><span class="line">vim motd</span><br><span class="line">motd内容修改为： </span><br><span class="line">#!$PREFIX&#x2F;bin&#x2F;bash</span><br><span class="line">neofetch</span><br><span class="line">修改后保存并退出，执行以下命令</span><br><span class="line">mv motd profile.d&#x2F;motd.sh</span><br></pre></td></tr></table></figure></div>
+<h3 id="如果启动后出现触发两次，将sh文件执行语句放进-zshrc下"><a href="#如果启动后出现触发两次，将sh文件执行语句放进-zshrc下" class="headerlink" title="如果启动后出现触发两次，将sh文件执行语句放进.zshrc下"></a>如果启动后出现触发两次，将sh文件执行语句放进.zshrc下</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv $PREFIX&#x2F;etc&#x2F;profile.d&#x2F;motd.sh .</span><br><span class="line">echo &quot;$PREFIX&#x2F;bin&#x2F;bash ~&#x2F;motd.sh&quot; &gt;&gt; ~&#x2F;.zshrc</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="修改neofetch配置"><a href="#修改neofetch配置" class="headerlink" title="修改neofetch配置"></a>修改neofetch配置</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd .config&#x2F;neofetch</span><br><span class="line">vim config.conf</span><br></pre></td></tr></table></figure></div>
+<p> <code>可以修改展示的信息，颜色，修改ascii_distro=&quot;linux&quot;将默认的安卓换为linux</code> </p>
 <h2 id="手机已经root"><a href="#手机已经root" class="headerlink" title="手机已经root"></a>手机已经root</h2><blockquote>
 <p>安装tsu,这是一个su的termux版本,用来在termux上替代su:</p>
 </blockquote>
@@ -547,7 +554,7 @@
 <p>原文链接：<a href="http://www.rushiwowen.org/category-10-6-000.jsp" target="_blank" rel="noopener">http://www.rushiwowen.org/category-10-6-000.jsp</a></p>
 ]]></content>
       <tags>
-        <tag>太上感应篇</tag>
+        <tag>经文</tag>
       </tags>
   </entry>
   <entry>
@@ -565,12 +572,12 @@
 <p>引用电影《两只老虎》台词：人生就是一个字，能过则过。</p>
 </blockquote>
 
-        <div id="aplayer-HMRPPvOF" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-cKDvMqBP" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-HMRPPvOF"),
+            element: document.getElementById("aplayer-cKDvMqBP"),
             narrow: false,
             autoplay: true,
             showlrc: false,
