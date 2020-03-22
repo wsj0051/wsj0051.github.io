@@ -23,6 +23,33 @@ vim $PREFIX/etc/motd
 ```
 
 如果没有安装vim的话会有提示，跟据提示安装：pkg install vim
+### 修改启动语为sh脚本方式
+
+```
+cd $PREFIX/etc
+vim motd
+motd内容修改为： 
+#!$PREFIX/bin/bash
+neofetch
+修改后保存并退出，执行以下命令
+mv motd profile.d/motd.sh
+```
+### 如果启动后出现触发两次，将sh文件执行语句放进.zshrc下
+```
+mv $PREFIX/etc/profile.d/motd.sh .
+echo "$PREFIX/bin/bash ~/motd.sh" >> ~/.zshrc
+
+```
+
+
+
+### 修改neofetch配置
+```
+cd .config/neofetch
+vim config.conf
+
+```
+ `可以修改展示的信息，颜色，修改ascii_distro="linux"将默认的安卓换为linux ` 
 
 ## 手机已经root
 
