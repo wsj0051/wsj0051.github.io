@@ -1,14 +1,13 @@
 ---
 title: Termux使用记录
 date: 2020-03-05 17:29:33
-tags: "termux"
+tags: "Termux"
+categories: "学习"
 top_img: https://cdn.jsdelivr.net/gh/wsj0051/IMG/blog/20200305173536.jpg
 cover: https://cdn.jsdelivr.net/gh/wsj0051/IMG/blog/15251875958364.jpg
 ---
 
 # Termux使用记录
-
-> 参考原文链接：https://www.sqlsec.com/2018/05/termux.html
 
 ## 创建软链（直接跳转到手机内存卡目录的超链）
 
@@ -28,26 +27,31 @@ vim $PREFIX/etc/motd
 ```
 cd $PREFIX/etc
 vim motd
-motd内容修改为： 
-#!$PREFIX/bin/bash
-neofetch
+```
+motd内容修改为脚本文件，内容为： 
+
+> #!$PREFIX/bin/bash
+> neofetch
+
 修改后保存并退出，执行以下命令
+
+```
 mv motd profile.d/motd.sh
 ```
-### 如果启动后出现触发两次，将sh文件执行语句放进.zshrc下
+
+### 重复执行问题
+
+> 如果启动后出现触发两次，将sh文件执行语句放进.zshrc下
+
 ```
 mv $PREFIX/etc/profile.d/motd.sh .
 echo "$PREFIX/bin/bash ~/motd.sh" >> ~/.zshrc
-
 ```
-
-
 
 ### 修改neofetch配置
 ```
 cd .config/neofetch
 vim config.conf
-
 ```
  `可以修改展示的信息，颜色，修改ascii_distro="linux"将默认的安卓换为linux ` 
 
@@ -97,18 +101,51 @@ echo "deb [trusted=yes] https://yadominjinta.github.io/files/ termux extras" >> 
 pkg in atilo-cn
 ```
 
-> Atilo           2.0
-> Usage: atilo [命令] [参数]
->
-> Atilo 是一个用来帮助你在termux上安装不同的GNU/Linux发行版的程序
->
-> 命令:
-> list             列出可用镜像
-> images           移除本地的镜像
-> pull             拉取远的镜像
-> run              运行镜像
-> help             帮助
+### 安装debian
 
->安装linux之后就可以配置java环境变量，安装tomcat了。
+```linux
+atilo pull debian
+```
 
-{% dplayer "url=http://wsj0051.gitee.io/file/termux_hexo.mp4" "theme=#FADFA3" "autoplay=false" %}
+### 运行debian
+
+```
+atilo run debian
+```
+
+### debian对应手机路径
+
+> /data/data/com.termux/files/home/.atilo/debian
+
+### 解压tar文件
+
+> 在usr/local下创建java文件夹，将下载好的tar文件移动到java目录下,解压jdk和tomcat
+
+~~~
+cd /usr/local/java
+tar xzf jdk-8u241-linux-arm64-vfp-hflt.tar.gz
+tar xzf apache-tomcat-9.0.31.tar.gz
+~~~
+
+### 配置java环境变量
+
+~~~
+ vim /etc/profile
+~~~
+
+> JAVA_HOME=/usr/local/java/jdk1.8.0_241
+> PATH=$JAVA_HOME/bin:$PATH
+> CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
+> export PATH JAVA_HOME CLASSPATH
+
+> 将以上内容拷进文件末尾，退出后执行以下命令让配置生效
+
+~~~
+ source /etc/profile
+~~~
+
+> 使用java -version查看环境变量是否配置成功,成功后就可以启动tomcat了
+
+{% dplayer "url=http://wsj0051.gitee.io/file/video/termux.mp4" "theme=#FADFA3" "autoplay=false" %}
+
+> 参考原文链接：[国光-Termux](https://www.sqlsec.com/2018/05/termux.html)
