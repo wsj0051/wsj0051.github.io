@@ -82,6 +82,35 @@ hexo init
 
 > 更多资料参考官方api:https://hexo.io/zh-cn/docs/index.html
 
+## git配置全局用户名邮箱信息
+
+```
+git config --global user.name  "your user name"
+git config --global user.email "your email"
+```
+
+## git生成密钥
+
+```
+git ssh-keygen -t rsa
+```
+
+> 将公钥配置进github，gitee，gitlab等代码仓库
+
+### 验证公钥是否绑定成功
+
+```
+ssh -T git@github.com
+```
+
+> GitHub在clone仓库时，有两种URL可以选择，分别为HTTPS和SSH：
+>
+> HTTPS的格式为：https://github.com/用户名/仓库名.git
+>
+> SSH的格式为：git@github.com:用户名/仓库名.git
+>
+> 在配置完公钥后，选择使用 **SSH** 的URL来clone仓库，在Push代码到GitHub时，可以免输入用户名、密码。
+
 ## npm安装http-server
 ```
 npm install -g http-server
