@@ -15,10 +15,55 @@ termux-setup-storage
 
 > 执行上面的命令以后，会跳出一个对话框，询问是否允许 Termux 访问手机存储，点击"允许"。
 
-## 创建软链（直接跳转到手机内存卡目录的超链）
+## 创建软链
+
+> 直接跳转到手机内存卡对应目录的快捷方式
 
 ```
 ln -s /data/data/com.termux/files/home/storage/shared/wsj0051 wsj0051
+```
+
+## 修改为清华源
+
+编辑源文件
+
+```
+apt edit-sources
+```
+
+将原来的`https://termux.net`官方源替换为`http://mirrors.tuna.tsinghua.edu.cn/termux`
+
+```
+# The termux repository mirror from TUNA:
+deb https://mirrors.tuna.tsinghua.edu.cn/termux stable main
+```
+
+如果清华源 出一些问题的话，大家可以尝试先用着官方源：
+
+```
+# The main termux repository:
+deb https://termux.org/packages/ stable main
+```
+
+## 安装基本工具
+
+```
+pkg update
+pkg upgrade
+pkg install vim curl wget git unzip unrar
+```
+
+## 修改终端配色
+
+```
+sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"  
+```
+
+> 脚本运行后会提示选择背景色和字体
+
+```
+Enter a number, leave blank to not to change: 14
+Enter a number, leave blank to not to change: 6
 ```
 
 ## 修改启动问候语
@@ -27,7 +72,8 @@ ln -s /data/data/com.termux/files/home/storage/shared/wsj0051 wsj0051
 vim $PREFIX/etc/motd
 ```
 
-如果没有安装vim的话会有提示，跟据提示安装：pkg install vim
+> 如果没有安装vim的话会有提示，跟据提示安装：pkg install vim
+
 ### 修改启动语为sh脚本方式
 
 ```
@@ -122,7 +168,68 @@ http-server
 ```
 > 正常情况下，命令行会提示 Server 已经在 8080 端口运行了，并且还会提示外部可以访问的 IP 地址。
 
-## 也可以使用一键脚本
+## 使用ecj termux-tools dx编译java文件
+
+1. 更新资源
+
+   ```
+   pkg update & pkg upgrade
+   ```
+
+2. 安装所需软件
+
+   ```
+   pkg install ecj termux-tools dx
+   ```
+
+3. 创建java文件Hello.java
+
+   ```java
+   public class Hello{
+       public static void main(String[] args){
+        System.out.println("Hello World!");
+       }
+   }
+   ```
+
+4. 编译java文件
+
+   ```
+   ecj Hello.java
+   ```
+
+5. 生成安卓虚拟机文件
+
+   ```
+   dx --dex --output=Hello.dex Hello.class
+   ```
+
+6. 安卓虚拟机运行程序
+
+   ```
+   dalvikvm -cp Hello.dex Hello
+   ```
+
+7. 更简单方式，创建shell脚本
+
+   ```
+   vim ecj.sh
+   ```
+
+   ```
+   #!/usr/bin/sh
+   ecj "$1.java"
+   dx --dex --output="$1.dex" "$1.class"
+   dalvikvm -cp "$1.dex" "$1"
+   ```
+
+8. 执行shell编译java
+
+   ```
+   sh ecj.sh Hello
+   ```
+
+## 使用一键脚本配置termux
 
 ![20191104004.jpg](https://cdn.jsdelivr.net/gh/wsj0051/IMG/blog/20200315001.jpg)
 
@@ -198,4 +305,4 @@ export PATH JAVA_HOME CLASSPATH
 
 {% dplayer "url=http://wsj0051.gitee.io/file/video/termux.mp4" "theme=#FADFA3" "autoplay=false" %}
 
-> 参考原文链接：[国光-Termux](https://www.sqlsec.com/2018/05/termux.html)
+> 参考原文链接：[国光-Termux](https://www.sqlsec.com/2018/05/termux.html) [简书](https://www.jianshu.com/p/cedba5bdc466?utm_campaign)
