@@ -122,7 +122,7 @@ live2d:
 #豆瓣    
 douban:
   user: wsj0051
-  builtin: false
+  builtin: true
   book:
     title: '我的豆瓣书籍'
     quote: '书籍清单'
@@ -139,7 +139,7 @@ douban:
 deploy:
   type: git
   repo: 
-      github: https://github.com/wsj0051/wsj0051.github.io.git
+      github: git@github.com/wsj0051/wsj0051.github.io.git
       gitee: git@gitee.com:wsj0051/wsj0051.git
   branch: master
 # 备份博客  
@@ -148,4 +148,4 @@ backup:
   theme: Butterfly
   message: Back up my hexo blog
   repository: 
-      github: https://github.com/wsj0051/wsj0051.github.io.git,backup
+      github: git@github.com/wsj0051/wsj0051.github.io.git,backup

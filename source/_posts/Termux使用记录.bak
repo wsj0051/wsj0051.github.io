@@ -8,12 +8,6 @@ cover: https://cdn.jsdelivr.net/gh/wsj0051/IMG/blog/15251875958364.jpg
 ---
 
 # Termux使用记录
-## 访问手机存储
-```
-termux-setup-storage
-```
-
-> 执行上面的命令以后，会跳出一个对话框，询问是否允许 Termux 访问手机存储，点击"允许"。
 
 ## 创建软链（直接跳转到手机内存卡目录的超链）
 
@@ -82,17 +76,6 @@ hexo init
 
 > 更多资料参考官方api:https://hexo.io/zh-cn/docs/index.html
 
-## npm安装http-server
-```
-npm install -g http-server
-```
-然后，运行 Server。
-
-```
-http-server
-```
-> 正常情况下，命令行会提示 Server 已经在 8080 端口运行了，并且还会提示外部可以访问的 IP 地址。
-
 ## 也可以使用一键脚本
 
 ![20191104004.jpg](https://cdn.jsdelivr.net/gh/wsj0051/IMG/blog/20200315001.jpg)
@@ -150,14 +133,10 @@ tar xzf apache-tomcat-9.0.31.tar.gz
  vim /etc/profile
 ~~~
 
-
-```
-JAVA_HOME=/usr/local/java/jdk1.8.0_241
-PATH=$JAVA_HOME/bin:$PATH
-CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
-export PATH JAVA_HOME CLASSPATH
-```
-
+> JAVA_HOME=/usr/local/java/jdk1.8.0_241
+> PATH=$JAVA_HOME/bin:$PATH
+> CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
+> export PATH JAVA_HOME CLASSPATH
 
 > 将以上内容拷进文件末尾，退出后执行以下命令让配置生效
 
