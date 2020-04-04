@@ -115,10 +115,7 @@ avatar:
   img: /img/avatar.jpg
   effect: false # 頭像會一直轉圈
 # 以下鏈接是動態壁紙，每次刷新會更換
-# https://source.unsplash.com/collection/collectionid/1600x900
 # https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture
-# https://api.dujin.org/bing/1920.php
-# https://api.dujin.org/bing/1366.php
 
 # the banner image of index
 index_img: https://cdn.jsdelivr.net/gh/wsj0051/IMG/layout/default_top_img.jpg
@@ -126,17 +123,14 @@ index_img: https://cdn.jsdelivr.net/gh/wsj0051/IMG/layout/default_top_img.jpg
 # if the banner of page not setting,it will show the top_img
 default_top_img: https://cdn.jsdelivr.net/gh/wsj0051/IMG/layout/default_top_img.jpg
 
-# the default cover of the post
-default_cover: https://cdn.jsdelivr.net/gh/wsj0051/IMG/layout/default_bg.png
-
 # the banner image of archive page
-archive_img: https://cdn.jsdelivr.net/gh/wsj0051/IMG/layout/default_top_img.jpg
+archive_img: https://cdn.jsdelivr.net/gh/wsj0051/IMG/layout/archives_bg.jpg
 
 # the banner image of tag page
-tag_img: https://cdn.jsdelivr.net/gh/wsj0051/IMG/layout/default_top_img.jpg
+tag_img: 
 
 # the banner image of category page
-category_img: https://cdn.jsdelivr.net/gh/wsj0051/IMG/layout/default_top_img.jpg
+category_img: https://cdn.jsdelivr.net/gh/wsj0051/IMG/layout/category_bg.jpg
 
 # 如果你有使用hexo-douban去生成movie界面，可配置這個
 douban:
@@ -161,7 +155,7 @@ cover:
 lodding_bg:
   flink: /img/friend_404.gif
   post_page: /img/404.jpg
-#  post: /img/loading.gif ##加載動畫
+  post: /img/loading.gif ##加載動畫
 
 # A simple 404 page
 error_404:
@@ -175,7 +169,7 @@ post_meta:
     categories: true # true or false 主頁是否顯示分類
     tags: false # true or false 主頁是否顯示標籤
   post:
-    date_type: both # created or updated or both 文章頁日期是創建日或者更新日或都顯示
+    date_type: created # created or updated or both 文章頁日期是創建日或者更新日或都顯示
     categories: true # true or false 文章頁是否顯示分類
     tags: true # true or false 文章頁是否顯示標籤
 
@@ -273,7 +267,7 @@ valine:
   verify: false # valine verify code (true/false)
   pageSize: 10 # comment list page size
   avatar: monsterid # gravatar style https://valine.js.org/#/avatar
-  lang: en # i18n: zh-cn/en
+  lang: zh-cn # i18n: zh-cn/en
   placeholder: Please leave your footprints # valine comment input placeholder(like: Please leave your footprints )
   guest_info: nick,mail,link #valine comment header info
   recordIP: false # Record reviewer IP
@@ -354,7 +348,7 @@ Flink:
   info_headline: 我的Blog资料
   name: Blog 名字： wsj0051
   address: Blog 地址： https://wsj0051.tk
-  avatar: Blog 头像： http://wsj0051.tk/img/avatar.jpg
+  avatar: Blog 头像： https://wsj0051.tk/img/avatar.jpg
   info: Blog 简介： Never give up
   comment: 感谢您的来访
 
