@@ -66,6 +66,23 @@ Enter a number, leave blank to not to change: 14
 Enter a number, leave blank to not to change: 6
 ```
 
+> 如果需要重新修改配色
+
+```
+~/termux-ohmyzsh/install.sh
+```
+
+### Termux快捷按键
+
+> 执行以下命令后退出，重新启动
+
+```
+echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" >> $HOME/.termux/termux.properties
+```
+
+termux快捷键：
+echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" >> $HOME/.termux/termux.properties
+
 ## 修改启动问候语
 
 ```
@@ -244,6 +261,19 @@ pkg i -y wget && bash -c "$(wget -qO- 'https://github.com/st1020/Stone-Termux-To
 ```
 pkg i -y wget && bash -c "$(wget -qO- 'https://gitee.com/st1020/Stone-Termux-Tool/raw/master/st.sh')"
 ```
+
+### 手机通知栏时间打开时分秒
+
+手机通知栏的时间没有精确到秒，手机root后可以打开
+
+1. 使用一键方式安装adb工具
+
+2. 执行以下命令：
+
+   ```
+   adb shell 
+   settings put secure clock_seconds 1
+   ```
 
 ## 使用atilo安装linux
 
