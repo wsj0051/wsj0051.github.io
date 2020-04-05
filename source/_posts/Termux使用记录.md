@@ -72,16 +72,13 @@ Enter a number, leave blank to not to change: 6
 ~/termux-ohmyzsh/install.sh
 ```
 
-### Termux快捷按键
+## Termux快捷按键
 
 > 执行以下命令后退出，重新启动
 
 ```
 echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" >> $HOME/.termux/termux.properties
 ```
-
-termux快捷键：
-echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" >> $HOME/.termux/termux.properties
 
 ## 修改启动问候语
 
@@ -124,13 +121,6 @@ vim config.conf
 ```
  `可以修改展示的信息，颜色，修改ascii_distro="linux"将默认的安卓换为linux ` 
 
-## 手机已经root
-
->安装tsu,这是一个su的termux版本,用来在termux上替代su:
-
-```
-pkg install tsu
-```
 
 ## 搭建Hexo 博客
 
@@ -261,7 +251,13 @@ pkg i -y wget && bash -c "$(wget -qO- 'https://github.com/st1020/Stone-Termux-To
 ```
 pkg i -y wget && bash -c "$(wget -qO- 'https://gitee.com/st1020/Stone-Termux-Tool/raw/master/st.sh')"
 ```
+## 手机已经root
 
+>安装tsu,这是一个su的termux版本,用来在termux上替代su:
+
+```
+pkg install tsu
+```
 ### 手机通知栏时间打开时分秒
 
 手机通知栏的时间没有精确到秒，手机root后可以打开
@@ -335,4 +331,7 @@ export PATH JAVA_HOME CLASSPATH
 
 {% dplayer "url=http://wsj0051.gitee.io/file/video/termux.mp4" "theme=#FADFA3" "autoplay=false" %}
 
-> 参考原文链接：[国光-Termux](https://www.sqlsec.com/2018/05/termux.html) [简书](https://www.jianshu.com/p/cedba5bdc466?utm_campaign)
+> 参考原文链接：
+>
+> 1. [国光-Termux](https://www.sqlsec.com/2018/05/termux.html) 
+> 2. [简书](https://www.jianshu.com/p/cedba5bdc466?utm_campaign)

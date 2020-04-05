@@ -1,5 +1,5 @@
 ---
-title: 图库
+title: 我的相册
 date: 2019-11-02 19:08:41
 type: "gallery"
 comments: false
