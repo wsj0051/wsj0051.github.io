@@ -3380,6 +3380,16 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Enter a number, leave blank to not to change: 14</span><br><span class="line">Enter a number, leave blank to not to change: 6</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>如果需要重新修改配色</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~&#x2F;termux-ohmyzsh&#x2F;install.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="Termux快捷按键"><a href="#Termux快捷按键" class="headerlink" title="Termux快捷按键"></a>Termux快捷按键</h2><blockquote>
+<p>执行以下命令后退出，重新启动</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;extra-keys &#x3D; [[&#39;ESC&#39;,&#39;&#x2F;&#39;,&#39;-&#39;,&#39;HOME&#39;,&#39;UP&#39;,&#39;END&#39;,&#39;PGUP&#39;],[&#39;TAB&#39;,&#39;CTRL&#39;,&#39;ALT&#39;,&#39;LEFT&#39;,&#39;DOWN&#39;,&#39;RIGHT&#39;,&#39;PGDN&#39;]]&quot; &gt;&gt; $HOME&#x2F;.termux&#x2F;termux.properties</span><br></pre></td></tr></table></figure>
+
 <h2 id="修改启动问候语"><a href="#修改启动问候语" class="headerlink" title="修改启动问候语"></a>修改启动问候语</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim $PREFIX&#x2F;etc&#x2F;motd</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -3400,11 +3410,6 @@
 
 <h3 id="修改neofetch配置"><a href="#修改neofetch配置" class="headerlink" title="修改neofetch配置"></a>修改neofetch配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd .config&#x2F;neofetch</span><br><span class="line">vim config.conf</span><br></pre></td></tr></table></figure>
 <p> <code>可以修改展示的信息，颜色，修改ascii_distro=&quot;linux&quot;将默认的安卓换为linux</code> </p>
-<h2 id="手机已经root"><a href="#手机已经root" class="headerlink" title="手机已经root"></a>手机已经root</h2><blockquote>
-<p>安装tsu,这是一个su的termux版本,用来在termux上替代su:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pkg install tsu</span><br></pre></td></tr></table></figure>
-
 <h2 id="搭建Hexo-博客"><a href="#搭建Hexo-博客" class="headerlink" title="搭建Hexo 博客"></a>搭建Hexo 博客</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pkg install nodejs</span><br><span class="line">pkg install git</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line">mkdir hexoblog</span><br><span class="line">cd hexoblog</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -3460,13 +3465,25 @@
 
 </li>
 </ol>
-<h2 id="使用一键脚本配置termux"><a href="#使用一键脚本配置termux" class="headerlink" title="使用一键脚本配置termux"></a>使用一键脚本配置termux</h2><p><img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/wsj0051/IMG/blog/20200315001.jpg"  alt="20191104004.jpg"></p>
+<h2 id="使用一键脚本配置termux"><a href="#使用一键脚本配置termux" class="headerlink" title="使用一键脚本配置termux"></a>使用一键脚本配置termux</h2><p><img src="/img/loading.gif" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/wsj0051/IMG/blog/20200315001.jpg"  alt="20191104004.jpg"></p>
 <p>一键脚本直接用别人写好的，github或gitee有很多，直接在Termux内输入以下命令安装本工具：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pkg i -y wget &amp;&amp; bash -c &quot;$(wget -qO- &#39;https:&#x2F;&#x2F;github.com&#x2F;st1020&#x2F;Stone-Termux-Tool&#x2F;raw&#x2F;master&#x2F;st.sh&#39;)&quot;</span><br></pre></td></tr></table></figure>
 
 <p>或者：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pkg i -y wget &amp;&amp; bash -c &quot;$(wget -qO- &#39;https:&#x2F;&#x2F;gitee.com&#x2F;st1020&#x2F;Stone-Termux-Tool&#x2F;raw&#x2F;master&#x2F;st.sh&#39;)&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="手机已经root"><a href="#手机已经root" class="headerlink" title="手机已经root"></a>手机已经root</h2><blockquote>
+<p>安装tsu,这是一个su的termux版本,用来在termux上替代su:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pkg install tsu</span><br></pre></td></tr></table></figure>
+<h3 id="手机通知栏时间打开时分秒"><a href="#手机通知栏时间打开时分秒" class="headerlink" title="手机通知栏时间打开时分秒"></a>手机通知栏时间打开时分秒</h3><p>手机通知栏的时间没有精确到秒，手机root后可以打开</p>
+<ol>
+<li><p>使用一键方式安装adb工具</p>
+</li>
+<li><p>执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb shell </span><br><span class="line">settings put secure clock_seconds 1</span><br></pre></td></tr></table></figure>
 
+</li>
+</ol>
 <h2 id="使用atilo安装linux"><a href="#使用atilo安装linux" class="headerlink" title="使用atilo安装linux"></a>使用atilo安装linux</h2><p>在Termux安装Linux的bash脚本</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;deb [trusted&#x3D;yes] https:&#x2F;&#x2F;yadominjinta.github.io&#x2F;files&#x2F; termux extras&quot; &gt;&gt; $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">pkg in atilo-cn</span><br></pre></td></tr></table></figure>
 
@@ -3499,7 +3516,11 @@
 <div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","video":{"url":"http://wsj0051.gitee.io/file/video/termux.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
 
 <blockquote>
-<p>参考原文链接：<a href="https://www.sqlsec.com/2018/05/termux.html" target="_blank" rel="noopener">国光-Termux</a> <a href="https://www.jianshu.com/p/cedba5bdc466?utm_campaign" target="_blank" rel="noopener">简书</a></p>
+<p>参考原文链接：</p>
+<ol>
+<li><a href="https://www.sqlsec.com/2018/05/termux.html" target="_blank" rel="noopener">国光-Termux</a> </li>
+<li><a href="https://www.jianshu.com/p/cedba5bdc466?utm_campaign" target="_blank" rel="noopener">简书</a></li>
+</ol>
 </blockquote>
 ]]></content>
       <categories>
