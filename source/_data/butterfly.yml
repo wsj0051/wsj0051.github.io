@@ -57,7 +57,7 @@ social:
   fa fa-rss: /atom.xml
   fa fa-weibo: https://weibo.com/wsj0051
   fa fa-qq: http://sighttp.qq.com/authd?IDKEY=1815c98305f82d41760cae3e9b737f483aeefc330bd65444
-  fa fa-envelope: mailto:wsj0051@163.com
+  fa fa-envelope: http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZhEVDFZWU1cmFxdIBQkL
 
 ####    search    ####
 # Algolia search
