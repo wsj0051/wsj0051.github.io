@@ -1,0 +1,30 @@
+name: deploy to branch
+
+on:
+  push:
+     paths: 
+      - SUMMARY.md
+      - book.json
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.22.0
+    - run: |
+       sudo npm install -g gitbook-cli
+       gitbook install
+    - name: build & zip
+      run: |
+       gitbook build
+          
+    - name: Deploy build result to branch
+      uses: JamesIves/github-pages-deploy-action@4.1.1
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: _book

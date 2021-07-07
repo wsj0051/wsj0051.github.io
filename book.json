@@ -1,10 +1,86 @@
 {
     "title": "wsj0051的gitbook",
     "author": "wsj0051",
+    "root": ".",
     "description": "个人笔记",
     "language": "zh-hans",
-     "structure": {
+    "gitbook": "3.2.3",
+    "links": {
+        "sidebar": {
+            "我的博客": "https://wsj0051.cn"
+        }
+    },
+    "styles": {
+        "website": "/custom/css/style.css"
+    },
+    "structure": {
         "readme": "index.md"
+    },
+    "variables": {
+        "wsj0051": "比较懒，大部分平台注册账号为wsj0051"
+    },
+    "plugins": [
+        "-lunr",
+        "-search",
+        "search-plus",
+        "-sharing",
+        "-livereload",
+        "edit-link@^2.0.2",
+        "my-toolbar",
+        "hide-element",
+        "donate",
+        "theme-comscore",
+        "anchor-navigation-ex",
+        "chart@^0.2.0",
+        "popup",
+        "code",
+        "image-captions",
+        "include-csv",
+        "flexible-alerts",
+        "ace@^0.3.2",
+        "favicon@^0.0.2",
+        "chapter-fold"
+    ],
+    "pluginsConfig": {
+        "anchor-navigation-ex": {
+            "showLevel": false,
+            "showGoTop": true
+        },
+        "chart": {
+            "type": "c3"
+        },
+        "my-toolbar": {
+            "buttons": [
+                {
+                    "label": "下载PDF",
+                    "icon": "fa fa-file-pdf-o",
+                    "url": "/book.pdf",
+                    "position": "left",
+                    "text": "下载PDF",
+                    "target": "_blank"
+                }
+            ]
+        },
+        "donate": {
+            "wechat": "https://cdn.jsdelivr.net/gh/wsj0051/files@main/pics/qrcode/wehalo.jpg",
+            "button": "反馈",
+            "wechatText": "微信扫码"
+        },
+        "edit-link": {
+            "base": "https://github.com/wsj0051/book/edit/main",
+            "label": "Edit This Page"
+        },
+        "image-captions": {
+            "caption": "图 - _CAPTION_"
+        },
+        "favicon": {
+            "shortcut": "favicon.ico",
+            "bookmark": "favicon.ico"
+        },
+        "hide-element": {
+            "elements": [
+                ".gitbook-link"
+            ]
+        }
     }
-  
 }
