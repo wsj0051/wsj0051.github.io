@@ -32,7 +32,8 @@ dpkg -i package.deb
 ```
 dpkg -r package.deb  
 ```
-`dpkg -r package-name`  # --remove， 移除软件包，但保留其配置文件  
+`dpkg -r package-name`  # --remove， 移除软件包，但保留其配置文件
+
 `dpkg -P package-name ` # --purge， 清除软件包的所有文件（removes everything, including conffiles）
 
 列出当前已安装的包：
@@ -75,18 +76,22 @@ dpkg -l
 
 列出deb包的内容：
 ```
-[root@linuxcool ~]# dpkg -c package.deb 
+dpkg -c package.deb 
 ```
-配置：
+配置
 ```
-[root@linuxcool ~]# dpkg --configure package 
+dpkg --configure package 
 ```
 查询
-```
-dpkg -l package-name-pattern  # --list, 查看系统中软件包名符合pattern模式的软件包
-dpkg -L package-name  # --listfiles, 查看package-name对应的软件包安装的文件及目录
-dpkg -p package-name  # --print-avail, 显示包的具体信息
-dpkg -s package-name  # --status, 查看package-name（已安装）对应的软件包信息
-dpkg -S filename-search-pattern  # --search, 从已经安装的软件包中查找包含filename的软件包名称
-```
+
+`dpkg -l package-name-pattern`  # --list, 查看系统中软件包名符合pattern模式的软件包
+
+`dpkg -L package-name`  # --listfiles, 查看package-name对应的软件包安装的文件及目录
+
+`dpkg -p package-name` # --print-avail, 显示包的具体信息
+
+`dpkg -s package-name`  # --status, 查看package-name（已安装）对应的软件包信息
+
+`dpkg -S filename-search-pattern`  # --search, 从已经安装的软件包中查找包含filename的软件包名称
+
 更多dpkg的使用方法可在命令行里使用`man dpkg`来查阅 或直接使用`dpkg --help`。
