@@ -39,6 +39,7 @@
         "flexible-alerts",
         "ace@^0.3.2",
         "favicon@^0.0.2",
+        "splitter",
         "chapter-fold"
     ],
     "pluginsConfig": {
@@ -67,7 +68,7 @@
             "wechatText": "微信扫码"
         },
         "edit-link": {
-            "base": "https://github.com/wsj0051/book/edit/main",
+            "base": "https://github.com/wsj0051/gitbook/edit/main",
             "label": "Edit This Page"
         },
         "image-captions": {
