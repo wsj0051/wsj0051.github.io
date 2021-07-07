@@ -68,7 +68,7 @@
             "wechatText": "微信扫码"
         },
         "edit-link": {
-            "base": "https://github.com/wsj0051/gitbook/edit/main",
+            "base": "https://github.com/wsj0051/gitbook/edit/master",
             "label": "Edit This Page"
         },
         "image-captions": {
