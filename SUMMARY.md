@@ -1,11 +1,13 @@
 # 目录
-* [前言](index.md)
-* Linux学习
-  * [dpkg](linux/dpkg.md)   
-  * [useradd](linux/useradd.md)   
-  * [cat](linux/cat.md)    
-  * [sed](linux/sed.md)   
-* 个人笔记
-  * [C语言笔记](notes/c_note.md)
-  * [Linux下使用adb刷机](notes/adb.md)
-  * [树莓派](notes/raspberry.md)   
+* [说明](index.md)
+
+## Linux学习
+* [dpkg](linux/dpkg.md)   
+* [useradd](linux/useradd.md)   
+* [cat](linux/cat.md)    
+* [sed](linux/sed.md)   
+
+## 个人笔记
+* [C语言笔记](notes/c_note.md)
+* [Linux下使用adb刷机](notes/adb.md)
+* [树莓派](notes/raspberry.md)   
