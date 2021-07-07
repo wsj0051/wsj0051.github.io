@@ -1,5 +1,5 @@
 # 目录
-* [前言](INTRODUCTION.md)
+* [前言](index.md)
 * Linux学习
   * [树莓派](linux/raspberry.md)   
   * [dpkg](linux/dpkg.md)   
