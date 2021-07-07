@@ -21,7 +21,7 @@
 <td>for</td>
 <td>while</td>
 <td>do</td>
-</tr
+</tr>
 <tr>
 <td>break</td>
 <td>continue</td>
@@ -46,19 +46,23 @@
 </table>
 
 ## 二进制
-1. 二进制加法：1+0=1、1+1=10、11+10=101、111+111=1110 
+二进制加法：1+0=1、1+1=10、11+10=101、111+111=1110 
+
 ![二进制加法示意图](https://tva3.sinaimg.cn/large/0075x1TOly1grr6cyeo4fj30i704hdft.jpg)
-2. 二进制减法：1-0=1、10-1=1、101-11=10、1100-111=101
+
+二进制减法：1-0=1、10-1=1、101-11=10、1100-111=101
+
 ![二进制减法示意图](https://tvax4.sinaimg.cn/large/0075x1TOly1grr6g6bx13j30jc05m3ym.jpg)
 
 ## 八进制
 1. 八进制加法：3+4=7、5+6=13、75+42=137、2427+567=3216
-![八进制加法示意图](https://tva2.sinaimg.cn/large/0075x1TOly1grr6jt4juwj30ho051gln.jpg)   
+  
+  ![八进制加法示意图](https://tva2.sinaimg.cn/large/0075x1TOly1grr6jt4juwj30ho051gln.jpg)   
 
 2. 八进制减法：6-4=2、52-27=23、307-141=146、7430-1451=5757 
-![八进制减法示意图](https://tva3.sinaimg.cn/large/0075x1TOly1grr6ju4hhqj30ip05m3ym.jpg)   
-
   
+  ![八进制减法示意图](https://tva3.sinaimg.cn/large/0075x1TOly1grr6ju4hhqj30ip05m3ym.jpg)   
+
 ## 十六进制
 十六进制中，用A来表示10，B表示11，C表示12，D表示13，E表示14，F表示15，因此有 0~F 共16个数字，基数为16，
 加法运算时逢16进1，减法运算时借1当16。例如，数字 0、1、6、9、A、D、F、419、EA32、80A3、BC00 都是有效的十六进制。
