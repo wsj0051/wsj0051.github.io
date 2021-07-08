@@ -31,9 +31,7 @@ git设置别名
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
 git图形化工具[sourcetree](https://www.sourcetreeapp.com/)
-<details> 
- <summary>网址导航</summary>
- 
+
 - git
   -  [github](https://github.com)
   -  [gitee](https://gitee.com)
@@ -100,5 +98,4 @@ git图形化工具[sourcetree](https://www.sourcetreeapp.com/)
   - [Potplayer播放器](https://potplayer.en.softonic.com/)
   - [微pe工具箱](http://www.wepe.com.cn/download.html)
  
- 
- </details>
+
