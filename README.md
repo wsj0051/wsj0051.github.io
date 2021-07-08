@@ -1,10 +1,11 @@
 # 使用gitbook生成
 
 ## 说明
-源码在github,actions自动打包并发布至[gitee](https://wsj0051.gitee.io)
+- gitbook源码，修改后自动同步到[gitbook](https://wsj0051.gitbok.io)
+- actions自动打包并发布至[gitee](https://wsj0051.gitee.io)
 
 ## Nodejs安装
-最高使用nodejs v10.23.0 版本，从github查看[nvm仓库](https://github.com/nvm-sh/nvm)
+使用nodejs v10.23.0 版本，从github查看[nvm仓库](https://github.com/nvm-sh/nvm)
 
 ```
 cd ~/
