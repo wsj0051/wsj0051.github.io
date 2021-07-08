@@ -1,7 +1,10 @@
 {
-  "title": "Gitbook 帮助中心",
+  "title": "wsj0051 文档中心",
   "language": "zh-hans",
-  "author": "mapull",
+  "author": "wsj0051",
+  "styles": {
+        "website": "styles/style.css"
+  },
   "plugins": [
     "-lunr",
     "-search",
@@ -11,10 +14,20 @@
     "-livereload",
     "-fontsettings",
     "theme-faq",
-    "-mapull-default"
+	"favicon@^0.0.2"
   ],
-  "pluginsConfig": {},
+  "pluginsConfig": {
+		"favicon": {
+            "shortcut": "assets/images/favicon.ico",
+            "bookmark": "assets/images/favicon.ico",
+            "appleTouch": "assets/images/apple-touch-icon-152.png",
+            "appleTouchMore": {
+                "120x120": "assets/images/apple-touch-icon-152.png",
+                "180x180": "assets/images/apple-touch-icon-152.png"
+            }
+        }
+  },
   "structure": {
-    "readme": "home.md"
+    "readme": "index.md"
   }
 }
