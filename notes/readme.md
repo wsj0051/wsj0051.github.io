@@ -32,35 +32,6 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 ```
 git图形化工具[sourcetree](https://www.sourcetreeapp.com/)
 
-## qq卡片红包
-```
-{
-    "app": "com.tencent.mobileqq.reading",
-    "desc": "",
-    "view": "singleImg",
-    "ver": "1.0.0.70",
-    "prompt": "[QQ红包]",
-    "appID": "",
-    "sourceName": "",
-    "actionData": "",
-    "actionData_A": "",
-    "sourceUrl": "",
-    "meta": {
-        "singleImg": {
-            "mainImage": "http://gchat.qpic.cn/gchatpic_new/2308355210/583452831-2543902927-8DFE98ED3DB3FEAD867C7D5D6BEBD72F/0",
-            "mainUrl": "https%3A%2F%2Fwsj0051.cn"
-        }
-    },
-    "config": {
-        "forward": 0,
-        "showSender": 1
-    },
-    "text": "",
-    "extraApps": [],
-    "sourceAd": "",
-    "extra": ""
-}
-```
 ## 网址导航
 - git
   -  [github](https://github.com)
@@ -71,7 +42,6 @@ git图形化工具[sourcetree](https://www.sourcetreeapp.com/)
   - [csdn](https://blog.csdn.net/) 
   - [开源中国](http://www.oschina.net/) 
   - [掘金](https://juejin.cn/) 
-  - ~~ITeye~~
   - [V2EX](https://www.v2ex.com/)
   - [segmentfault](https://segmentfault.com/)
   - [语雀](https://www.yuque.com/)
