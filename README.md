@@ -31,10 +31,14 @@ nvm install v10.23.0
 npm install gitbook-cli -g
 gitbook -V
 ```
+## 安装ebook-convert
+```
+sudo apt install calibre
+```
 其他命令：
+`gitbook pdf` 生成pdf
+`gitbook -h` 帮助
 
-`gitbook -h`帮助
+`gitbook install` 进行插件安装
 
-`gitbook install`进行插件安装
-
-`gitbook build & gitbook serve`生成并查看
+`gitbook build & gitbook serve` 构建并启动服务
