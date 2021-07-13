@@ -1,11 +1,8 @@
 name: create release & build _book to zip
 
 on:
-  push:
-    branches: [ gitbook ]
-    tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
-
+  workflow_dispatch:
+  
 jobs:
   build:
 
@@ -19,9 +16,13 @@ jobs:
         node-version: 10.22.0
     - run: |
        sudo npm install -g gitbook-cli
+       gitbook -V
        gitbook install
+       sudo apt install calibre
+      
     - name: build & zip
       run: |
+       gitbook pdf
        gitbook build
        zip -q -r book.zip _book
        
