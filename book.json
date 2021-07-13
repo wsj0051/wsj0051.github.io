@@ -40,7 +40,8 @@
         "ace@^0.3.2",
         "favicon@^0.0.2",
         "splitter",
-        "chapter-fold"
+        "chapter-fold",
+        "katex"
     ],
     "pluginsConfig": {
         "anchor-navigation-ex": {
