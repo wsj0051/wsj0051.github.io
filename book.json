@@ -14,7 +14,7 @@
         "website": "styles/style.css"
     },
     "structure": {
-        "readme": "index.md"
+        "readme": "home.md"
     },
     "variables": {
         "wsj0051": "比较懒，大部分平台注册账号为wsj0051"
