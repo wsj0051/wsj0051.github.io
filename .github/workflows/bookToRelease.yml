@@ -1,4 +1,4 @@
-name: create release & build _book to zip
+name: create release & package build result to zip
 
 on:
   workflow_dispatch:
@@ -24,16 +24,19 @@ jobs:
       run: |
        sudo npm install -g gitbook-cli
        gitbook install
-    - name: build & zip
-      run: |
-       gitbook build
-       zip gitbook-v${{steps.tag_latest.outputs.value}}.zip  -r _book/
+       
     - name: Read tag_latest
       id: tag_latest
       uses: ashley-taylor/read-json-property-action@v1.0
       with:
         path: release.json
         property: tag_latest
+        
+    - name: build & zip
+      run: |
+       gitbook build
+       zip gitbook-v${{steps.tag_latest.outputs.value}}.zip  -r _book/
+    
    
     - name: Create Release
       id: create_release
