@@ -23,12 +23,8 @@ jobs:
     - name: install
       run: |
        sudo npm install -g gitbook-cli
-       gitbook -V
        gitbook install
        sudo apt install calibre
-       export XDG_RUNTIME_DIR=/usr/lib/
-       export RUNLEVEL=3
-       source /etc/profile
     - name: build & zip
       run: |
        gitbook pdf
