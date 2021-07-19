@@ -76,12 +76,12 @@
             "caption": "图 - _CAPTION_"
         },
         "favicon": {
-            "shortcut": "assets/images/favicon.ico",
-            "bookmark": "assets/images/favicon.ico",
-            "appleTouch": "assets/images/apple-touch-icon-152.png",
+            "shortcut": "/assets/images/favicon.ico",
+            "bookmark": "/assets/images/favicon.ico",
+            "appleTouch": "/assets/images/apple-touch-icon-152.png",
             "appleTouchMore": {
-                "120x120": "assets/images/apple-touch-icon-152.png",
-                "180x180": "assets/images/apple-touch-icon-152.png"
+                "120x120": "/assets/images/apple-touch-icon-152.png",
+                "180x180": "/assets/images/apple-touch-icon-152.png"
             }
         },
         "hide-element": {
