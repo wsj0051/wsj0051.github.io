@@ -21,17 +21,6 @@ https://addons.mozilla.org/zh-CN/android/addon/tampermonkey/
 - 国内可访问Chrome安装地址2：https://www.extfans.com/productivity/mfnkflidjnladnkldfonnaicljppahpg/
 - Edge安装地址：https://microsoftedge.microsoft.com/addons/detail/ljceflkaahacpphaioldeledefadpmdp
 
-## git
-让Git显示颜色
-```
-git config --global color.ui true
-```
-git设置别名
-```
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-```
-git图形化工具[sourcetree](https://www.sourcetreeapp.com/)
-
 ## 网址导航
 - git
   -  [github](https://github.com)
