@@ -43,7 +43,6 @@ pkg install vim curl wget git unzip unrar
 ```
 
 ## 修改终端配色
-
 ```
 sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"  
 ```
@@ -60,9 +59,7 @@ Enter a number, leave blank to not to change: 6
 ```
 ~/termux-ohmyzsh/install.sh
 ```
-
 ## Termux快捷按键
-
 ```
 echo "extra-keys = [ \
     ['ESC','<','>','BACKSLASH','=','^','$','()','{}','[]','ENTER'], \
@@ -73,7 +70,6 @@ echo "extra-keys = [ \
 ```
 
 ## 修改启动问候语
-
 ```
 vim $PREFIX/etc/motd
 ```
@@ -81,13 +77,11 @@ vim $PREFIX/etc/motd
 如果没有安装vim的话会有提示，根据提示安装：`pkg install vim`
 
 修改启动语为sh脚本方式
-
 ```
 cd $PREFIX/etc
 vim motd
 ```
 motd内容修改为脚本文件，内容为： 
-
 ```
 #!$PREFIX/bin/bash
 neofetch
@@ -131,10 +125,10 @@ hexo init
 
 ## git
 配置全局用户名邮箱信息
-	```
-	git config --global user.name  "your user name"
-	git config --global user.email "your email"
-	```
+```
+git config --global user.name  "your user name"
+git config --global user.email "your email"
+```
 让Git显示颜色
 ```
 git config --global color.ui true
@@ -145,53 +139,41 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 ```
 git图形化工具[sourcetree](https://www.sourcetreeapp.com/)
 
-Git在clone仓库时，有两种URL可以选择，分别为HTTPS和SSH：
-
+Git在clone仓库时，有两种URL可以选择，分别为HTTPS和SSH：  
 1.  HTTPS的格式为：`https://github.com/用户名/仓库名.git`
-
 2.  SSH的格式为：`git@github.com:用户名/仓库名.git`
-
 3. 在配置完公钥后，选择使用 **SSH** 的URL来clone仓库，在Push代码到GitHub时，可以免输入用户名、密码。
 
 ## ssh生成密钥
-
 ```
 ssh-keygen -t rsa -C "your email"
 ```
-
 将公钥配置进github代码仓库,验证公钥是否绑定成功
-
 ```
 ssh -T git@github.com
 ```
-
 ## npm安装http-server
 ```
 npm install -g http-server
 ```
 然后，运行 Server。
-
 ```
 http-server
 ```
 正常情况下，命令行会提示 Server 已经在 8080 端口运行了，并且还会提示外部可以访问的 IP 地址。
 
 ## 使用ecj termux-tools dx编译java文件
-
 1. 更新资源
-
    ```
    pkg update & pkg upgrade
    ```
 
 2. 安装所需软件
-
    ```
    pkg install ecj termux-tools dx
    ```
 
-3. 创建java文件Hello.java
-
+3. 创建java文件Hello.java  
 	{%ace edit=true, lang='java'%}
 	public class Hello{
 	   public static void main(String[] args){
@@ -201,50 +183,35 @@ http-server
 	{%endace%}
 
 4. 编译java文件
-
    ```
    ecj Hello.java
    ```
 
 5. 生成安卓虚拟机文件
-
    ```
    dx --dex --output=Hello.dex Hello.class
    ```
-
 6. 安卓虚拟机运行程序
-
    ```
    dalvikvm -cp Hello.dex Hello
    ```
-
-7. 更简单方式，创建shell脚本
-
-   ```
-   vim ecj.sh
-   ```
-
+7. 更简单方式，创建shell脚本`vim ecj.sh`
    ```
    #!/usr/bin/sh
    ecj "$1.java"
    dx --dex --output="$1.dex" "$1.class"
    dalvikvm -cp "$1.dex" "$1"
    ```
-
 8. 执行shell编译java
-
    ```
    sh ecj.sh Hello
    ```
 
 ## 手机通知栏时间打开时分秒
-
 手机通知栏的时间没有精确到秒，手机root后可以打开
 
 1. 使用一键方式安装adb工具
-
 2. 执行以下命令：
-
    ```
    pkg install tsu
    adb shell 
@@ -252,28 +219,21 @@ http-server
    ```
 
 ## 使用atilo安装linux
-
 1. 在Termux安装Linux的bash脚本
-
-```
-echo "deb [trusted=yes] https://yadominjinta.github.io/files/ termux extras" >> $PREFIX/etc/apt/sources.list
-pkg in atilo-cn
-```
-
+	```
+	echo "deb [trusted=yes] https://yadominjinta.github.io/files/ termux extras" >> $PREFIX/etc/apt/sources.list
+	pkg in atilo-cn
+	```
 2. 安装debian
-
-```
-atilo pull debian
-```
-
+	```
+	atilo pull debian
+	```
 3. 运行debian
-
-```
-atilo run debian
-```
+	```
+	atilo run debian
+	```
 
 ### 配置apache java环境
-
 1. 在usr/local下创建java文件夹，将下载好的tar文件移动到java目录下，对应手机目录为`/data/data/com.termux/files/home/.atilo/debian/usr/local/java`  
 2. 解压jdk和tomcat
     ```
@@ -281,7 +241,6 @@ atilo run debian
     tar xzf jdk-8u241-linux-arm64-vfp-hflt.tar.gz
     tar xzf apache-tomcat-9.0.31.tar.gz
     ```
-
 3. 以下内容拷进`/etc/profile`文件末尾
     ```
     JAVA_HOME=/usr/local/java/jdk1.8.0_241
@@ -290,20 +249,19 @@ atilo run debian
     export PATH JAVA_HOME CLASSPATH
     ```
 4. 保存退出后执行以下命令让配置生效，使用`java -version`查看环境变量是否配置成功
-
     ```
      source /etc/profile
     ```
-## 一键脚本
 
+## 一键脚本
 1. 一键安装tmoe-linux 
-```
-    . <(curl -L gitee.com/mo2/linux/raw/2/2)
-```
+	```
+	 . <(curl -L gitee.com/mo2/linux/raw/2/2)
+	```
 2. 仅美化termux界面
-```
-. <(curl -L gitee.com/mo2/zsh/raw/2/2)
-```
+	```
+	. <(curl -L gitee.com/mo2/zsh/raw/2/2)
+	```
 
 ## 参考链接
 1. [国光-Termux](https://www.sqlsec.com/2018/05/termux.html) 
