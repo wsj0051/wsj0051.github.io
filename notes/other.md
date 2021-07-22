@@ -5,8 +5,10 @@
   - [Theme插件](http://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin)
 - 页面自定义
 修改jar包`jenkins/WEB-INF/lib/jenkins-core-1.651.3.jar`文件中的`lib/layout/layout.jelly`
+
 ## 手机
 火狐插件安装[链接](https://addons.mozilla.org/zh-CN/android/addon/tampermonkey/)
+
 ## Github加速
 - 油猴脚本工具
   - 加速访问脚本地址：https://greasyfork.org/zh-CN/scripts/397419
@@ -18,6 +20,7 @@
   - 国内可访问Chrome安装地址1：https://chrome.zzzmh.cn/info?token=mfnkflidjnladnkldfonnaicljppahpg
   - 国内可访问Chrome安装地址2：https://www.extfans.com/productivity/mfnkflidjnladnkldfonnaicljppahpg/
   - Edge安装地址：https://microsoftedge.microsoft.com/addons/detail/ljceflkaahacpphaioldeledefadpmdp
+
 ## 网址
 - git
   -  [github](https://github.com)
