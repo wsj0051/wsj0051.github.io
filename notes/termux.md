@@ -137,13 +137,13 @@ git设置别名
 ```
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
+Git在clone仓库时，有两种URL可以选择，分别为HTTPS和SSH：
+1. HTTPS的格式为：`https://github.com/用户名/仓库名.git`
+2. SSH[^1]的格式为：`git@github.com:用户名/仓库名.git`
+
 git图形化工具[sourcetree](https://www.sourcetreeapp.com/)
 
-Git在clone仓库时，有两种URL可以选择，分别为HTTPS和SSH：  
-1.  HTTPS的格式为：`https://github.com/用户名/仓库名.git`
-2.  SSH的格式为：`git@github.com:用户名/仓库名.git`
-3. 在配置完公钥后，选择使用 **SSH** 的URL来clone仓库，在Push代码到GitHub时，可以免输入用户名、密码。
-
+[^1]: 使用 **SSH** 的URL来clone仓库，在Push代码到GitHub时，可以免输入用户名、密码。
 ## ssh生成密钥
 ```
 ssh-keygen -t rsa -C "your email"
@@ -174,13 +174,13 @@ http-server
    ```
 
 3. 创建java文件Hello.java  
-	{%ace edit=true, lang='java'%}
+   ```
 	public class Hello{
 	   public static void main(String[] args){
 		System.out.println("Hello World!");
 	   }
 	}
-	{%endace%}
+   ```
 
 4. 编译java文件
    ```
