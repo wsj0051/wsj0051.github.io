@@ -1,4 +1,4 @@
-# Termux使用记录
+# Termux
 
 ## 访问手机存储
 ```
@@ -28,7 +28,7 @@ apt edit-sources
 deb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main
 ```
 
-如果清华源 出一些问题的话，可以尝试先用官方源：
+如果清华源出一些问题的话，可以尝试先用官方源：
 
 ```
 # The main termux repository:
@@ -61,6 +61,7 @@ Enter a number, leave blank to not to change: 6
 ```
 ## Termux快捷按键
 ```
+mkdir $HOME/.termux;
 echo "extra-keys = [ \
     ['ESC','<','>','BACKSLASH','=','^','$','()','{}','[]','ENTER'], \
     ['TAB','&',';','/','~','%','*','HOME','UP','END','PGUP'], \
@@ -136,16 +137,15 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 Git在clone仓库时，有两种URL可以选择，分别为HTTPS和SSH：
 
 1. HTTPS的格式为：`https://github.com/用户名/仓库名.git`
-2. SSH的格式为：`git@github.com:用户名/仓库名.git`[^1]
+2. SSH的格式为：`git@github.com:用户名/仓库名.git`
 
 git图形化工具[sourcetree](https://www.sourcetreeapp.com/)
 
-[^1]: 使用 **SSH** 的URL来clone仓库，在Push代码到GitHub时，可以免输入用户名、密码。
 ## ssh生成密钥
 ```
 ssh-keygen -t rsa -C "your email"
 ```
-将公钥配置进github代码仓库,验证公钥是否绑定成功
+将公钥配置到github后,验证公钥是否绑定成功
 ```
 ssh -T git@github.com
 ```
