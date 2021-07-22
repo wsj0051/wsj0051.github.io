@@ -73,7 +73,6 @@ echo "extra-keys = [ \
 ```
 vim $PREFIX/etc/motd
 ```
-
 如果没有安装vim的话会有提示，根据提示安装：`pkg install vim`
 
 修改启动语为sh脚本方式
@@ -107,11 +106,9 @@ echo "$PREFIX/bin/bash ~/motd.sh" >> ~/.zshrc
 cd .config/neofetch
 vim config.conf
 ```
- 可以修改展示的信息，颜色，修改`ascii_distro="linux"`将默认的安卓换为linux 
-
+可以修改展示的信息，颜色，修改`ascii_distro="linux"`将默认的安卓换为linux 
 
 ## 搭建Hexo 博客
-
 ```
 pkg install nodejs
 pkg install git
@@ -120,7 +117,6 @@ mkdir hexoblog
 cd hexoblog
 hexo init
 ```
-
 > 更多资料参考官方api:https://hexo.io/zh-cn/docs/index.html
 
 ## git
@@ -138,8 +134,9 @@ git设置别名
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
 Git在clone仓库时，有两种URL可以选择，分别为HTTPS和SSH：
+
 1. HTTPS的格式为：`https://github.com/用户名/仓库名.git`
-2. SSH[^1]的格式为：`git@github.com:用户名/仓库名.git`
+2. SSH的格式为：`git@github.com:用户名/仓库名.git`[^1]
 
 git图形化工具[sourcetree](https://www.sourcetreeapp.com/)
 
