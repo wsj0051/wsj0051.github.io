@@ -1,27 +1,24 @@
-# 个人笔记
+# 其他
 ## Jenkins
-1. 插件下载地址
- - [hpi插件地址](http://updates.jenkins-ci.org/latest/)
- - [Theme插件](http://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin)
-
-2. 页面自定义
+- 插件下载地址
+  - [hpi插件地址](http://updates.jenkins-ci.org/latest/)
+  - [Theme插件](http://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin)
+- 页面自定义
 修改jar包`jenkins/WEB-INF/lib/jenkins-core-1.651.3.jar`文件中的`lib/layout/layout.jelly`
-3. 手机火狐插件
-https://addons.mozilla.org/zh-CN/android/addon/tampermonkey/
+## 手机
+火狐插件安装[链接](https://addons.mozilla.org/zh-CN/android/addon/tampermonkey/)
 ## Github加速
-1. 油猴脚本工具
-- 加速访问脚本地址：https://greasyfork.org/zh-CN/scripts/397419
-- 加速下载脚本脚本地址：https://greasyfork.org/scripts/412245
-- Github 增强 - 高速下载: https://greasyfork.org/zh-CN/scripts/412245-github-%E5%A2%9E%E5%BC%BA-%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD
-
-2. 一键获取Github文件加速下载地址（浏览器扩展）
-- 扩展官网：https://fhefh2015.github.io/Fast-GitHub/
-- Chrome安装地址：https://chrome.google.com/webstore/detail/mfnkflidjnladnkldfonnaicljppahpg
-- 国内可访问Chrome安装地址1：https://chrome.zzzmh.cn/info?token=mfnkflidjnladnkldfonnaicljppahpg
-- 国内可访问Chrome安装地址2：https://www.extfans.com/productivity/mfnkflidjnladnkldfonnaicljppahpg/
-- Edge安装地址：https://microsoftedge.microsoft.com/addons/detail/ljceflkaahacpphaioldeledefadpmdp
-
-## 网址导航
+- 油猴脚本工具
+  - 加速访问脚本地址：https://greasyfork.org/zh-CN/scripts/397419
+  - 加速下载脚本脚本地址：https://greasyfork.org/scripts/412245
+  - Github 增强 - 高速下载: https://greasyfork.org/zh-CN/scripts/412245-github-%E5%A2%9E%E5%BC%BA-%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD
+- 一键获取Github文件加速下载地址（浏览器扩展）
+  - 扩展官网：https://fhefh2015.github.io/Fast-GitHub/
+  - Chrome安装地址：https://chrome.google.com/webstore/detail/mfnkflidjnladnkldfonnaicljppahpg
+  - 国内可访问Chrome安装地址1：https://chrome.zzzmh.cn/info?token=mfnkflidjnladnkldfonnaicljppahpg
+  - 国内可访问Chrome安装地址2：https://www.extfans.com/productivity/mfnkflidjnladnkldfonnaicljppahpg/
+  - Edge安装地址：https://microsoftedge.microsoft.com/addons/detail/ljceflkaahacpphaioldeledefadpmdp
+## 网址
 - git
   -  [github](https://github.com)
   -  [gitee](https://gitee.com)
@@ -50,18 +47,14 @@ https://addons.mozilla.org/zh-CN/android/addon/tampermonkey/
   - [Vultr](https://my.vultr.com/)
   - [腾讯云](https://console.cloud.tencent.com/)
   - [Cloudflare](https://dash.cloudflare.com)
-- 书签
-  - [下载office](http://www.zhanshaoyi.com/rjxz.html)
-  - [油猴脚本](https://greasyfork.org/zh-CN/)
-  - [52破解](https://www.52pojie.cn/portal.php)
-  - [假52](https://www.tao.wip52.cn/)
-  - [清华源](https://mirrors.tuna.tsinghua.edu.cn/)
-  - [MSDN](https://msdn.itellyou.cn)
 - 论坛类  
   - [知乎](https://www.zhihu.com/)
   - [简书](https://www.jianshu.com/)
   - [微博](https://weibo.com)
   - [领英](https://www.linkedin.com/)
+  - [iteye](https://my.iteye.com/profile)
+  - [豆瓣](https://accounts.douban.com/passport/setting)
+  - [少数派](https://sspai.com/setting/account)
 - 云盘
   - [蓝奏云](http://www.lanzou.com)
   - [天翼云盘](https://cloud.189.cn)
@@ -78,13 +71,17 @@ https://addons.mozilla.org/zh-CN/android/addon/tampermonkey/
 - 账号登录
   - [360账号](https://i.360.cn/profile/)
   - [火狐](https://accounts.firefox.com)
-  - [豆瓣](https://accounts.douban.com/passport/setting)
-  - [少数派](https://sspai.com/setting/account)
+- 装机
+  - [MSDN](https://msdn.itellyou.cn)
+  - [Potplayer播放器](https://potplayer.en.softonic.com/)
+  - [微pe工具箱](http://www.wepe.com.cn/download.html)
+  - [下载office](http://www.zhanshaoyi.com/rjxz.html)
 - 其他
   - [Chrome Ctx下载](https://chrome-extension-downloader.com/e9cafba227e47ced4a3081edcdbc0dcd/)
   - [Google Play下载](https://www.apkturbo.com/)
   - [163study](http://study.163.com)
-  - [Potplayer播放器](https://potplayer.en.softonic.com/)
-  - [微pe工具箱](http://www.wepe.com.cn/download.html)
- 
+  - [油猴脚本](https://greasyfork.org/zh-CN/)
+  - [52破解](https://www.52pojie.cn/portal.php)
+  - [假52](https://www.tao.wip52.cn/)
+  
 
