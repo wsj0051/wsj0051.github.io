@@ -56,4 +56,4 @@ usermod -s /bin/bash wsj0051
 ```
 其他
 
-![笔记](https://cdn.jsdelivr.net/gh/wsj0051/files@main/pics/img/usermod.png)
+![笔记](https://cdn.jsdelivr.net/gh/wsj0051/files@main/img/usermod.png)
