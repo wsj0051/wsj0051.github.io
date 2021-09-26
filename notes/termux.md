@@ -14,25 +14,12 @@ ln -s /data/data/com.termux/files/home/storage/shared/wsj0051 wsj0051
 ```
 
 ## 修改为清华源
-
-编辑源文件
-
+使用如下命令行替换官方源为 [TUNA 镜像源](https://mirror.tuna.tsinghua.edu.cn/help/termux/)
 ```
-apt edit-sources
-```
-
-将原来的`https://termux.net`官方源替换为`http://mirrors.tuna.tsinghua.edu.cn/termux`
-
-```
-# The termux repository mirror from TUNA:
-deb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main
-```
-
-如果清华源出一些问题的话，可以尝试先用官方源：
-
-```
-# The main termux repository:
-deb https://termux.org/packages/ stable main
+sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@' $PREFIX/etc/apt/sources.list
+sed -i 's@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable@' $PREFIX/etc/apt/sources.list.d/game.list
+sed -i 's@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable@' $PREFIX/etc/apt/sources.list.d/science.list
+apt update && apt upgrade
 ```
 ## 安装基本工具
 
