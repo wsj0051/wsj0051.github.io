@@ -35,6 +35,8 @@ gitbook -V
 ```
 sudo apt install calibre
 ```
+[calibre - Download calibre (calibre-ebook.com)](https://calibre-ebook.com/download)
+
 其他命令：
 `gitbook pdf` 生成pdf
 `gitbook -h` 帮助
