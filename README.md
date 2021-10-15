@@ -38,9 +38,11 @@ sudo apt install calibre
 [calibre - Download calibre (calibre-ebook.com)](https://calibre-ebook.com/download)
 
 其他命令：
-`gitbook pdf` 生成pdf
+`gitbook pdf`[^1] 生成pdf
 `gitbook -h` 帮助
 
 `gitbook install` 进行插件安装
 
 `gitbook build & gitbook serve` 构建并启动服务
+
+[^1]: 使用pdf命令如果报错**Assertion failed: new_time >= loop->time, file c:\ws\deps\uv\src\win\core.c, line 309**，使用新版本替换安装https://github.com/nodejs/help/files/4831517/node.zip
