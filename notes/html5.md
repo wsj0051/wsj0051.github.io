@@ -156,7 +156,7 @@ data-自定义属性名：
 
 + 网络状态事件
   		 1. window.ononline
-      		 2. window.onoffline
+        		 2. window.onoffline
 
 ### 获取地理定位
 
@@ -273,7 +273,7 @@ ctx.stroke();
 
   绘制一个如下图形
 
-![矩形]()
+![矩形](assets\1526470782861.png)
 
 + 非零环绕原则：
   + 任意找一点，越简单越好
