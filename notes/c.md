@@ -1,4 +1,4 @@
-# C语言学习笔记
+# C语言学习
 ## C语言中的 32 个关键字
 <table>
 <tbody>
@@ -48,20 +48,20 @@
 ## 二进制
 **二进制加法**：1+0=1、1+1=10、11+10=101、111+111=1110 
 
-![二进制加法示意图](https://tva3.sinaimg.cn/large/0075x1TOly1grr6cyeo4fj30i704hdft.jpg)
+![二进制加法示意图](assets/0075x1TOly1grr6cyeo4fj30i704hdft.jpg)
 
 **二进制减法**：1-0=1、10-1=1、101-11=10、1100-111=101
 
-![二进制减法示意图](https://tvax4.sinaimg.cn/large/0075x1TOly1grr6g6bx13j30jc05m3ym.jpg)
+![二进制减法示意图](assets/0075x1TOly1grr6g6bx13j30jc05m3ym.jpg)
 
 ## 八进制
 **八进制加法**：3+4=7、5+6=13、75+42=137、2427+567=3216
-  
-![八进制加法示意图](https://tva2.sinaimg.cn/large/0075x1TOly1grr6jt4juwj30ho051gln.jpg)
+
+![八进制加法示意图](assets/0075x1TOly1grr6jt4juwj30ho051gln.jpg)
 
 **八进制减法**：6-4=2、52-27=23、307-141=146、7430-1451=5757
-  
-![八进制减法示意图](https://tva3.sinaimg.cn/large/0075x1TOly1grr6ju4hhqj30ip05m3ym.jpg) 
+
+![八进制减法示意图](assets/0075x1TOly1grr6ju4hhqj30ip05m3ym.jpg) 
 
 ## 十六进制
 十六进制中，用A来表示10，B表示11，C表示12，D表示13，E表示14，F表示15，因此有 0~F 共16个数字，基数为16，
@@ -69,12 +69,12 @@
 
 **十六进制加法**：6+7=D、18+BA=D2、595+792=D27、2F87+F8A=3F11 
 
-![十六进制加法示意图](https://tvax2.sinaimg.cn/large/0075x1TOly1grr6o165rnj30hl0513yk.jpg)
+![十六进制加法示意图](assets/0075x1TOly1grr6o165rnj30hl0513yk.jpg)
 
 **十六进制减法**：D-3=A、52-2F=23、E07-141=CC6、7CA0-1CB1=5FEF
 
-![十六进制减法示意图](https://tvax2.sinaimg.cn/large/0075x1TOly1grr6o2mq76j30ip05mdfy.jpg)
-  
+![十六进制减法示意图](assets/0075x1TOly1grr6o2mq76j30ip05mdfy.jpg)
+
 ## 将二进制、八进制、十六进制转换为十进制
 二进制、八进制和十六进制向十进制转换都非常容易，就是“按权相加”。所谓“权”，也即“位权”。
 
@@ -106,13 +106,13 @@
 
 下图演示了将十进制数字 36926 转换成八进制的过程：
 
-![36926 转换成八进制](https://tva4.sinaimg.cn/large/0075x1TOly1grr7a62f9vj30g709vmx2.jpg)
+![36926 转换成八进制](assets/0075x1TOly1grr7a62f9vj30g709vmx2.jpg)
 
 从图中得知，十进制数字 36926 转换成八进制的结果为 110076。
 
 下图演示了将十进制数字 42 转换成二进制的过程：
 
-![42 转换成二进制](https://tva4.sinaimg.cn/large/0075x1TOly1grr7dyah3gj30g709vq2t.jpg)
+![42 转换成二进制](assets/0075x1TOly1grr7dyah3gj30g709vq2t.jpg)
 
 从图中得知，十进制数字 42 转换成二进制的结果为 101010。 
 
@@ -129,7 +129,7 @@
 
 下图演示了将十进制小数 0.930908203125 转换成八进制小数的过程：
 
-![0.930908203125 转换成八进制](https://tvax4.sinaimg.cn/large/0075x1TOly1grr7mzizwfj30g70fcjrf.jpg)
+![0.930908203125 转换成八进制](assets/0075x1TOly1grr7mzizwfj30g70fcjrf.jpg)
 
 从图中得知，十进制小数 0.930908203125 转换成八进制小数的结果为 0.7345。
 
@@ -226,7 +226,7 @@
 
 二进制整数转换为八进制整数时，每三位二进制数字转换为一位八进制数字，运算的顺序是从低位向高位依次进行，高位不足三位用零补齐。下图演示了如何将二进制整数 1110111100 转换为八进制：
 
-![1110111100 转换为八进制](https://tva4.sinaimg.cn/large/0075x1TOly1grr7wzatbmj30d803z3ya.jpg)
+![1110111100 转换为八进制](assets/0075x1TOly1grr7wzatbmj30d803z3ya.jpg)
 
 从图中可以看出，二进制整数 1110111100 转换为八进制的结果为 1674。  
 
@@ -242,13 +242,13 @@
 
 下图演示了如何将二进制整数 10 1101 0101 1100 转换为十六进制：
 
-![二进制整数 10 1101 0101 1100 转换为十六进制](https://tvax2.sinaimg.cn/large/0075x1TOly1grr80q4finj30hk040gle.jpg)
+![二进制整数 10 1101 0101 1100 转换为十六进制](assets/0075x1TOly1grr80q4finj30hk040gle.jpg)
 
 从图中可以看出，二进制整数 10 1101 0101 1100 转换为十六进制的结果为 2D5C。
 
 十六进制整数转换为二进制整数时，思路是相反的，每一位十六进制数字转换为四位二进制数字，运算的顺序也是从低位向高位依次进行。下图演示了如何将十六进制整数 A5D6 转换为二进制：    
 
-![十六进制整数 A5D6 转换为二进制](https://tvax4.sinaimg.cn/large/0075x1TOly1grr81njyuxj60hd038mwx02.jpg)
+![十六进制整数 A5D6 转换为二进制](assets/0075x1TOly1grr81njyuxj60hd038mwx02.jpg)
 
 从图中可以看出，十六进制整数 A5D6 转换为二进制的结果为 1010 0101 1101 0110。
 

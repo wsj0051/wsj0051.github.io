@@ -6,21 +6,6 @@
 - 页面自定义
 修改jar包`jenkins/WEB-INF/lib/jenkins-core-1.651.3.jar`文件中的`lib/layout/layout.jelly`
 
-## 手机
-火狐插件安装[链接](https://addons.mozilla.org/zh-CN/android/addon/tampermonkey/)
-
-## Github加速
-- 油猴脚本工具
-  - 加速访问脚本地址：https://greasyfork.org/zh-CN/scripts/397419
-  - 加速下载脚本脚本地址：https://greasyfork.org/scripts/412245
-  - Github 增强 - 高速下载: https://greasyfork.org/zh-CN/scripts/412245-github-%E5%A2%9E%E5%BC%BA-%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD
-- 一键获取Github文件加速下载地址（浏览器扩展）
-  - 扩展官网：https://fhefh2015.github.io/Fast-GitHub/
-  - Chrome安装地址：https://chrome.google.com/webstore/detail/mfnkflidjnladnkldfonnaicljppahpg
-  - 国内可访问Chrome安装地址1：https://chrome.zzzmh.cn/info?token=mfnkflidjnladnkldfonnaicljppahpg
-  - 国内可访问Chrome安装地址2：https://www.extfans.com/productivity/mfnkflidjnladnkldfonnaicljppahpg/
-  - Edge安装地址：https://microsoftedge.microsoft.com/addons/detail/ljceflkaahacpphaioldeledefadpmdp
-
 ## 网址
 - git
   - [github](https://github.com)
@@ -28,6 +13,7 @@
   - [gitlab](https://gitlab.com/users/sign_in)
   - [coding](https://coding.net/)
   - [github代理加速](https://ghproxy.com/)
+  - [fastgit](https://hub.fastgit.org/)
 - 博客论坛
   - [csdn](https://blog.csdn.net/) 
   - [开源中国](http://www.oschina.net/) 

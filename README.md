@@ -31,6 +31,10 @@ nvm install v10.23.0
 npm install gitbook-cli -g
 gitbook -V
 ```
+速度慢时安装cnpm,使用cnpm安装，命令中npm替换为cnpm即可
+```
+npm install -g cnpm -registry=https://registry.npm.taobao.org
+```
 ## 安装ebook-convert
 ```
 sudo apt install calibre
