@@ -7,11 +7,14 @@
 * [cat](linux/cat.md)    
 * [sed](linux/sed.md)   
 
-## II 个人笔记
+## II 学习笔记
 * [HTML5学习](notes/html5.md)
 * [CSS3学习](notes/css3.md)
 * [JS学习](notes/javascript.md)
 * [C语言笔记](notes/c.md)
+* [Python](notes/python.md)
+
+## III 个人记录
 * [adb刷机](notes/adb.md)
 * [树莓派](notes/raspberry.md)   
 * [Termux](notes/termux.md)
