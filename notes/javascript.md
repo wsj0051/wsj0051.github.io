@@ -46,22 +46,22 @@
 ### 对象属性操作
 #### 获取属性：
 #### 第一种方式：.语法
-+ student.name      获取到name属性的值，为："李白"
-+ student.say       获取到一个函数
++ `student.name`      获取到`name`属性的值，为："李白"
++ `student.say`      获取到一个函数
 
 #### 第二种方式：[]语法
-+ student["name"]   等价于student.name
-+ student["say"]    等价于student.say
++ `student["name"]`   等价于`student.name`
++ `student["say"]`    等价于`student.say`
 
 #### 号外：2种方式的差异：
 + .语法更方便，但是坑比较多(有局限性)，比如：
     - .后面不能使用js中的关键字、保留字(class、this、function。。。)
     - .后面不能使用数字
-```js
-    var obj={};
-    obj.this=5; //语法错误
-    obj.0=10;   //语法错误
-```
+    ```js
+        var obj={};
+        obj.this=5; //语法错误
+        obj.0=10;   //语法错误
+    ```
 
 + []使用更广泛
     - o1[变量name]
@@ -75,17 +75,17 @@
         - 给对象添加了{abc}属性
 
 #### 设置属性
-+ `student["gender"]="男"`    等价于：    `student.gender="男"`
++ `student["gender"]="男"`等价于`student.gender="男"`
     - 含义：如果student对象中没有gender属性，就添加一个gender属性，值为"男"
-    -      如果student对象中有gender属性，就修改gender属性的值为"男"
+    - 如果student对象中有gender属性，就修改gender属性的值为"男"
 + 案例1：`student.isFemale=true`
 + 案例2：`student["children"]=[1,2,5]`
 + 案例3：
-```js
-    student.toShanghai=function(){   
-        console.log("正在去往上海的路上")   
-    }
-```
+    ```js
+        student.toShanghai=function(){   
+            console.log("正在去往上海的路上")   
+        }
+    ```
 
 #### 删除属性
 + delete student["gender"]      
@@ -95,24 +95,24 @@
 
 ## 通过构造函数创建对象
 ### 构造函数创建对象的例子：
-+ var xiaoming = new Object()     -->   var xiaoming = {};  
-+ var now = new Date() 
-+ var rooms = new Array(1,3,5)    -->   var rooms = [1,3,5]
++ `var xiaoming = new Object()`     -->   `var xiaoming = {}; ` 
++ `var now = new Date()` 
++ `var rooms = new Array(1,3,5)`    -->   `var rooms = [1,3,5]`
 + `var isMale=/123/;`   ==> `var isMale=new RegExp("123")`
-    - isMale是通过RegExp构造函数创建出来的对象
-    - isMale是RegExp构造函数的实例
+  - isMale是通过RegExp构造函数创建出来的对象
+  - isMale是RegExp构造函数的实例
 
 + 以上例子中，Object、Date、Array都是内置的构造函数
 
 ## 自定义一个构造函数来创建对象
 + 构造函数
-```js
-    function Person(name,age){
-        this.name=name;
-        this.age=age;
-    }
-    var p1=new Person("赵云",18)
-```
+    ```js
+        function Person(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        var p1=new Person("赵云",18)
+    ```
 + 说明：`p1就是根据【Person构造函数】创建出来的对象`
 
 ### 构造函数的概念
@@ -138,7 +138,7 @@
 
 - a、如果函数没有返回值(没有return语句)，那么就会返回构造函数的实例(p1)
 - b、如果函数返回了一个基本数据类型的值，那么本次构造函数的返回值是该实例(_p1)
-```js
+    ```js
     function fn(){
     }
     var f1=new fn();    //f1就是fn的实例
@@ -147,9 +147,9 @@
         return "abc";
     }
     var f2=new fn2();   //f2是fn2构造函数的实例
-```
+    ```
 - c、如果函数返回了一个复杂数据类型的值，那么本次函数的返回值就是该值
-```js
+    ```js
     function fn3(){
         return [1,3,5]; 
         //数组是一个对象类型的值，
@@ -159,7 +159,7 @@
     }
     var f3=new fn3();   //f3还是fn3的实例吗？错
     //f3值为[1,3,5]
-```
+    ```
 
 1. 如何判断一个数据是否是复杂数据类型？
 
@@ -270,14 +270,10 @@ var o4 = {gender:"男",grade="初三",group:"第五组",name:"李四"};
    o4.name="李四"；
    ```
 
-+ 浅拷贝和深拷贝
-  
-    + 浅拷贝只是拷贝一层属性，没有内部对象
+浅拷贝和深拷贝
+ + 浅拷贝只是拷贝一层属性，没有内部对象
+ + 深拷贝其实是利用了递归的原理，将对象的若干层属性拷贝出来
     
-    + 深拷贝其实是利用了递归的原理，将对象的若干层属性拷贝出来
-    
-        
-
 实现：
 ```javascript
 var source={name:"李白",age:15}
@@ -299,7 +295,7 @@ extend(target,source)
 ```
 
 由于拷贝继承在实际开发中使用场景非常多，所以很多库都对此有了实现
-- jquery：$.extend
+- jquery：`$.extend`
 
 + es6中有了对象扩展运算符仿佛就是专门为了拷贝继承而生：
 
@@ -311,24 +307,22 @@ extend(target,source)
 
 ### 原型式继承
 + 场景：
-    - 创建一个纯洁的对象
-    - 创建一个继承自某个父对象的子对象
-
+  - 创建一个纯洁的对象
+  - 创建一个继承自某个父对象的子对象
       ```javascript
       var parent = {age:18,gender:"男"};
       var student = Object.create(parent);
       console.log(student)
       ```
-
-      
+ 
 + 使用方式：
-    - 空对象：Object.create(null)
+  - 空对象：Object.create(null)
     ```javascript
     var o1={ say:function(){} }
     var o2=Object.create(o1);
     ```
 
-`var o3={}`o3并不纯洁
+`var o3={}` o3并不纯洁
 
 ### 借用构造函数实现继承
 
@@ -401,9 +395,9 @@ console.log(age);//也可以访问
     }
 ```
 注意：
-  - 变量的声明和赋值是在两个不同的时期的。
-  - fn函数在执行的时候，首先找到函数内部所有变量、函数声明，把他们放在作用域中，给变量一个初始值undefined --变量可以访问
-  - 逐行执行代码过程中，如果有赋值语句，对变量进行赋值
+- 变量的声明和赋值是在两个不同的时期的。
+- fn函数在执行的时候，首先找到函数内部所有变量、函数声明，把他们放在作用域中，给变量一个初始值undefined --变量可以访问
+- 逐行执行代码过程中，如果有赋值语句，对变量进行赋值
 
 ### 作用域链
 + 由于作用域是相对于变量而言的，而如果存在多级作用域，这个变量又来自于哪里？这个问题就需要好好地探究一下了，我们把这个变量的查找过程称之为变量的作用域链
@@ -425,7 +419,7 @@ fn(function(){
     // 2.查找上一级作用域，全局作用域
 })
 ```
-难点：看上一级作用域，不是看函数在哪里调用，而是看函数在哪里编写，因为这种特别，我们通常会把作用域说成是：词法作用域
+注意：看上一级作用域，不是看函数在哪里调用，而是看函数在哪里编写，因为这种特别，我们通常会把作用域说成是**词法作用域**
 + 举例1：
     ```javascript
         var name="张三";
@@ -537,9 +531,10 @@ console.log(o5==o8);//false
            console.log(this.age);
        }
    }
-   var s1=p.say();
-   s1();//函数调用
+   var s1=p.say;
+   s1();//函数调用--> this: window 输出18
    ```
+   结论：函数内部的this指向window
 2. 方法调用
    ```js
    var age=18;
@@ -549,18 +544,51 @@ console.log(o5==o8);//false
            console.log(this.age);
        }
    }
-   p.say();
+   p.say(); //打印结果15
+    //
+   function Person(){
+       this.age = 20;
+   }
+   Person.prototype.run=function(){
+       console.log(this.age);
+   }
+   var p1=new Person();
+   p1.run(); //打印结果20
+    //
+   var clear=function(){
+       console.log(this.length);
+   } 
+   var length=50;
+   var tom={c:clear,length:100};
+   tom.c();//打印100 this指向tom
    ``` 
+   结论：由于clear函数被当成tom.c()这种方法的形式调用，所以函数内部的this指向调用该方法的对象：tom
 3. new调用（构造函数）
    ```js
-   var age=18;
-   var p={
-       age:15,
-       say:function(){
-           console.log(this.age);
+   //1
+   function fn(name){
+       this.name=name;
+   }
+   //通过new关键字来调用的，这种方式就是构造函数调用方式
+   var _n=new fn("小明");
+   //2
+   function jQuery(){
+       var _init=jQuery.prototype.init;
+       return new _init();
+   }
+   jQuery.prototype={
+       constructor:jQuery,
+       length:100,
+       init:function(){
+            //1.this指向init构造函数的实例
+            //2.如果本身没有该属性，那么去他的原型对象中去找
+            //3.如果原型对象中没有，那么就去原型对象的原型对象中查找，最终一直找到根对象(Object.prototype)
+            //4.最终没有找到 ，则属性值为：undefined
+           console.log(this.length);
        }
    }
-   new p.say();
+   jQuery.prototype.init.prototype=jQuery.prototype;
+   jQuery();//结果为100
    ``` 
 4. 上下文方式（call,apply,bind）
    ```js
@@ -571,22 +599,38 @@ console.log(o5==o8);//false
    f1.call([1,3,5]);
    f1.apply(this);
    f1.call(5);
-   ```
-在ES6的箭头函数之前的时代，想要判断一个函数内部的this指向谁，就是根据上边的四种方式来决定的
-### es6内容
-+ 1、解构赋值   
-+ 2、函数rest参数  
-+ 3、箭头函数  
-    - 箭头函数和普通函数有哪些不同？(4点)
-+ 4、对象的Object.assign  
-+ 5、promise 
-+ 6、generator 
-+ 7、async 
-+ 8、class 
-+ 9、module
+   //总结
+   //call函数的第一个参数：
+   //1.如果是一个对象类型，那么函数内部this指向对象
+   //2.如果是undefined、null,那么函数内部this指向window
+   //3.如果是数字-->this指向new Number(数字)，字符串-->this指向new String(字符串)，布尔，this指向new Boolean(布尔)
 
-### 原型
-+ 原型很多人开发用不到？
-    - 很多人都用es6/7/8开发，确实用的比较少
-    - 如果你用es5之前的版本开发代码(IE8、IE7。。。)，可能天天都要写原型
-    - 理解了原型，才是理解了JS面向对象的核心，没有理解原型，你就没有理解面向对象的核心
+   //bind是ES5(ie9+)
+   var obj={
+       age:18,
+       run:function(){
+           setTimeout((function(){
+               console.log(this.age)
+           }).bind(this),500)
+           //通过执行了bind方法，匿名函数本身并没有执行，只是改变了该函数内部的this的值，指向obj
+       }
+   }
+   obj.run();
+   //bind基本用法
+   function speed(){
+       console.log(this.seconds);
+   }
+   //执行bind方法之后产生了一个新函数，这个新函数里边的逻辑和原来还是一样的，唯一的不同是this指向{seconds:100}
+   var speedBind=speed.bind({seconds:100});
+   speedBind();//打印100
+   ```
+   + call和apply都可以改变函数内部this的值
+   + 传参的形式不同
+        ```js
+        function toString(a,b,c){
+            console.log(a+" "+b+" "+c);
+        }
+        toString.call(null,1,3,5);
+        toString.apply(null,[1,3,5])
+        ```
+在ES6的箭头函数之前的时代，想要判断一个函数内部的this指向谁，就是根据上边的四种方式来决定的

@@ -11,6 +11,7 @@
 * [HTML5学习](notes/html5.md)
 * [CSS3学习](notes/css3.md)
 * [JS学习](notes/javascript.md)
+* [ES6](notes/es6.md)
 * [C语言笔记](notes/c.md)
 * [Python](notes/python.md)
 
