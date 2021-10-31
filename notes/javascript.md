@@ -634,3 +634,29 @@ console.log(o5==o8);//false
         toString.apply(null,[1,3,5])
         ```
 在ES6的箭头函数之前的时代，想要判断一个函数内部的this指向谁，就是根据上边的四种方式来决定的
+### bind方法实现
+1. bind方法放在函数的原型中 `fn.__proto__ === fn的构造函数.prototype`
+2. 所有的函数对象的构造函数都是Function
+
+代码实现
+```javascript
+    //target表示新函数的内部的this值
+    Function.prototype._bind=function(target){
+        
+        //利用闭包创建一个内部函数，返回那个所谓的新函数
+        return ()=>{
+            //执行fn里边的逻辑
+            this.call(target)
+        }
+        //等价于
+        // var _that=this;
+        // return function(){
+        //     _that.call(target);
+        // }
+    }
+    function fn(){
+        console.log(this);
+    }
+    var _fn=fn.bind({age:18});
+    
+```

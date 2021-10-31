@@ -136,17 +136,22 @@
     }
     ```
 ## 对象的扩展
-+ Object.assign：实现拷贝继承
++ `Object.assign`：实现拷贝继承
+  ```js
+    var source={age:18,height:170,className:"三年级"};
+    var newObj=Object.assign({},source);
+  ``` 
 + 对象扩展运算符
     ```js
         var obj1={ age:5,gender:"男" }
         var obj2={ ...obj1 }
         var obj3={ ...obj1 , age:10 }
-
+        var s1=[1,3,5,7,9];
+        var s2=[...s1];
     ```
 
 ## Promise
-### 为什么要有promise：解决回调地狱的问题
+为什么要有promise：解决回调地狱的问题
 ### 回调地狱：
 ```js
     $.get("/getUser",function(res){
@@ -155,6 +160,33 @@
                 //...
             })
         })
+    })
+
+    function f1(){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                console.log("第一步");
+                //异步执行完毕，必须告诫外界执行结束
+                resolve();
+            },1000)
+        })
+    }
+    function f2(){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                console.log("第二步");
+                //到这里异步操作就已经结束了，如何让外界得知
+                resolve();
+            },1000)
+        })
+    }
+    f1().then(res=>{
+        //return promise对象
+       return f2();
+    }).then(res=>{
+        setTimeout(()=>{
+            console.log("结束");
+        },1000)
     })
 ```
 
@@ -216,7 +248,7 @@
         })
     ```
 
-+ 第二种方式
++ 第二种方式（推荐使用这一种，reject的错误和代码发生的粗误都可以捕捉到）
     ```js
         new Promise((resolve,reject)=>{
             $.ajax({
@@ -238,7 +270,22 @@
     ```
 
 ## async 
+await可以执行异步操作，但是await必须在async函数内执行
 ```js
+    function f1(){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                console.log("第一步");
+                //异步执行完毕，必须告诫外界执行结束
+                resolve();
+            },1000)
+        })
+    }
+    (async function(){
+        await f1();
+        console.log("第二步");
+    })()
+
     async function get(){
         console.log('开始执行');
         var res = await timer()
@@ -253,23 +300,50 @@
     }
     get();
 ```
-
+错误处理，只能使用try-catch
+```js
+    function q(){
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                reject("你好");
+            },1000)
+        })
+    }
+    (async function(){
+        try{
+            let res=await q();
+            console.log(res);
+        }catch(e){
+            console.log(e);
+        }
+    })()
+```
 ## class
 ### 定义一个类
 ```js
     class Person {
-        constructor(name) {
+        constructor(name,age) {
             this.name=name;
+            this.age=age;
         }
     }
     //相当于：
-    function Person(name){
+    function Person(name,age){
         this.name=name;
+        this.age=age;
     }
-```
 
+```
 ### 添加实例方法
 ```js
+    //不使用class添加实例方法
+    function Person(){
+
+    }
+    Person.prototype.run=()=>{
+        console.log("run");
+    }
+    //使用class添加实例方法
     class Person {
         constructor(name,age) {
             this.name=name;
@@ -291,12 +365,14 @@
         constructor(){
 
         }
+        static age=18;
         static born(){
             console.log("小呆萌出生了")
         }
     }
     //访问静态方法
     Animal.born();
+    console.log(Animal.age);
 ```
 
 ### 类的继承
@@ -309,6 +385,7 @@
     class Student extends Person {
         constructor(name,grade){
             super(name);    //调用父类构造函数
+            this.grade=grade;
         }
     }
 ```
