@@ -6,16 +6,11 @@
     - BOM(浏览器对象模型)：window、location、history、navigator。。。
     - DOM(文档对象模型)：div、p、span。。。
 + ECMAScript又名es，有以下重大版本：
-    - 旧时代：
-        - es1.0。。。es3.1
-    - 新时代：
-        - es5
-        - es6(es2015)
-        - es7(es2016)、es8(es2017)
+    - 旧时代： es1.0。。。es3.1
+    - 新时代：es5、es6(es2015)、es7(es2016)、es8(es2017)
 
 ## 数据类型
 + 基本数据类型——值类型：(数字、字符串、布尔值、null、undefined)
-    - undefined类型？
 + 复杂数据类型——引用类型：(对象)
     - 数组
     - 函数
@@ -38,30 +33,29 @@
         }
     }
 ```
-
-### 对象是键值对的集合：对象是由属性和方法构成的 (ps：也有说法为：对象里面皆属性，认为方法也是一个属性)
+对象是键值对的集合：对象是由属性和方法构成的 (ps：也有说法为：对象里面皆属性，认为方法也是一个属性)
 + name是属性    grade是属性
 + say是方法     run是方法
 
 ### 对象属性操作
 #### 获取属性：
-#### 第一种方式：.语法
+1. 第一种方式：.语法
 + `student.name`      获取到`name`属性的值，为："李白"
 + `student.say`      获取到一个函数
 
-#### 第二种方式：[]语法
+2. 第二种方式：[]语法
 + `student["name"]`   等价于`student.name`
 + `student["say"]`    等价于`student.say`
 
-#### 号外：2种方式的差异：
-+ .语法更方便，但是坑比较多(有局限性)，比如：
-    - .后面不能使用js中的关键字、保留字(class、this、function。。。)
-    - .后面不能使用数字
-    ```js
-        var obj={};
-        obj.this=5; //语法错误
-        obj.0=10;   //语法错误
-    ```
+号外：2种方式的差异：
+  + .语法更方便，但是坑比较多(有局限性)
+      - .后面不能使用js中的关键字、保留字(class、this、function。。。)
+      - .后面不能使用数字
+      ```js
+          var obj={};
+          obj.this=5; //语法错误
+          obj.0=10;   //语法错误
+      ```
 
 + []使用更广泛
     - o1[变量name]
@@ -90,11 +84,8 @@
 #### 删除属性
 + delete student["gender"]      
 + delete student.gender
-
-
-
 ## 通过构造函数创建对象
-### 构造函数创建对象的例子：
+构造函数创建对象的例子
 + `var xiaoming = new Object()`     -->   `var xiaoming = {}; ` 
 + `var now = new Date()` 
 + `var rooms = new Array(1,3,5)`    -->   `var rooms = [1,3,5]`
@@ -121,53 +112,44 @@
 + 只要把一个函数通过new的方式来进行调用，我们就把这一次函数的调用方式称之为：构造函数的调用
     - new CreateFunc(); 此时CreateFunc就是一个构造函数
     - CreateFunc();     此时的CreateFunc并不是构造函数
-
-### 关于new Object()
 + new Object()等同于对象字面量{}
 
 ### 构造函数的执行过程
-`var p1=new Person();`
 
-1. 创建一个对象 (我们把这个对象称之为Person构造函数的实例)- `_p1 `
-
+1. 创建一个对象`var p1=new Person();` (我们把这个对象称之为Person构造函数的实例)- `_p1 `
 2. 创建一个内部对象，`this`，将this指向该实例(_p1)
-
 3. 执行函数内部的代码，其中，操作this的部分就是操作了该实例(_p1)
-
 4. 返回值：
+   - a、如果函数没有返回值(没有return语句)，那么就会返回构造函数的实例(p1)
+   - b、如果函数返回了一个基本数据类型的值，那么本次构造函数的返回值是该实例(_p1)
+       ```js
+       function fn(){
+       }
+       var f1=new fn();    //f1就是fn的实例
 
-- a、如果函数没有返回值(没有return语句)，那么就会返回构造函数的实例(p1)
-- b、如果函数返回了一个基本数据类型的值，那么本次构造函数的返回值是该实例(_p1)
-    ```js
-    function fn(){
-    }
-    var f1=new fn();    //f1就是fn的实例
-
-    function fn2(){
-        return "abc";
-    }
-    var f2=new fn2();   //f2是fn2构造函数的实例
-    ```
-- c、如果函数返回了一个复杂数据类型的值，那么本次函数的返回值就是该值
-    ```js
-    function fn3(){
-        return [1,3,5]; 
-        //数组是一个对象类型的值，
-        //所以数组是一个复杂数据类型的值
-        //本次构造函数的真正返回值就是该数组
-        //不再是fn3构造函数的实例
-    }
-    var f3=new fn3();   //f3还是fn3的实例吗？错
-    //f3值为[1,3,5]
-    ```
+       function fn2(){
+           return "abc";
+       }
+       var f2=new fn2();   //f2是fn2构造函数的实例
+       ```
+   - c、如果函数返回了一个复杂数据类型的值，那么本次函数的返回值就是该值
+       ```js
+       function fn3(){
+           return [1,3,5]; 
+           //数组是一个对象类型的值，
+           //所以数组是一个复杂数据类型的值
+           //本次构造函数的真正返回值就是该数组
+           //不再是fn3构造函数的实例
+       }
+       var f3=new fn3();   //f3还是fn3的实例吗？错
+       //f3值为[1,3,5]
+       ```
 
 1. 如何判断一个数据是否是复杂数据类型？
 
    使用排除法：
-
-   a、看它的值是不是数字、字符串、布尔值、null、undefined
-
-   b、如果不是以上5种值，那就是复杂数据类型
+    + 看它的值是不是数字、字符串、布尔值、null、undefined
+    + 如果不是以上5种值，那就是复杂数据类型
 
 2. 为什么要理解构造函数的返回值？
 
@@ -177,7 +159,7 @@
 
 3. 我们如何分辨出一个对象到底是不是某个构造函数的实例？
 
-   a、 var isTrue=xxx instanceof Person
+   var isTrue=xxx instanceof Person
 
 4. 如何识别xxx对象是哪个构造函数的实例？
 
@@ -186,7 +168,7 @@
 5. typeof运算符不能用来判断对象的构造函数
 
 ## 继承
-### JS中继承的概念：
+### JS中继承的概念
 通过【某种方式】让一个对象可以访问到另一个对象中的属性和方法，我们把这种方式称之为继承  `并不是所谓的xxx extends yyy`
 
 ### 为什么要使用继承？
@@ -224,7 +206,6 @@ Person.prototype={
 }
 ```
 注意点：
-
 + a、一般情况下，应该先改变原型对象，再创建对象
 + b、一般情况下，对于新原型，会添加一个constructor属性，从而不破坏原有的原型对象的结构
 
@@ -296,14 +277,12 @@ extend(target,source)
 
 由于拷贝继承在实际开发中使用场景非常多，所以很多库都对此有了实现
 - jquery：`$.extend`
-
-+ es6中有了对象扩展运算符仿佛就是专门为了拷贝继承而生：
-
-```javascript
-    var source={name:"李白",age:15}
-    var target={ ...source }
-    var target2={...source,age:18}
-```
+- es6中有了对象扩展运算符仿佛就是专门为了拷贝继承而生：
+    ```javascript
+        var source={name:"李白",age:15}
+        var target={ ...source }
+        var target2={...source,age:18}
+    ```
 
 ### 原型式继承
 + 场景：
@@ -517,7 +496,7 @@ console.log(o5==o8);//false
   //要想释放q1里边保存的a,只能通过释放q1
   q1=null;//q1=undefined;
   ``` 
-### 闭包的应用场景
+闭包的应用场景
 + 模块化
 + 防止变量被破坏
 
@@ -635,10 +614,6 @@ console.log(o5==o8);//false
         ```
 在ES6的箭头函数之前的时代，想要判断一个函数内部的this指向谁，就是根据上边的四种方式来决定的
 ### bind方法实现
-1. bind方法放在函数的原型中 `fn.__proto__ === fn的构造函数.prototype`
-2. 所有的函数对象的构造函数都是Function
-
-代码实现
 ```javascript
     //target表示新函数的内部的this值
     Function.prototype._bind=function(target){
@@ -660,3 +635,5 @@ console.log(o5==o8);//false
     var _fn=fn.bind({age:18});
     
 ```
+1. bind方法放在函数的原型中 `fn.__proto__ === fn的构造函数.prototype`
+2. 所有的函数对象的构造函数都是Function

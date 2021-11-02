@@ -55,7 +55,7 @@
     var b = { a,c } ;   
     //b对象有一个a属性，a属性的值，来自于a变量  ，
     //还有一个c属性，c属性的值来自于c变量
-    console.log(b)
+    console.log(b);//{a: 3, c: 10}
 ```
 
 ## 函数的扩展
@@ -152,7 +152,7 @@
 
 ## Promise
 为什么要有promise：解决回调地狱的问题
-### 回调地狱：
+### 回调地狱
 ```js
     $.get("/getUser",function(res){
         $.get("/getUserDetail",function(){
