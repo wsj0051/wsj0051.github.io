@@ -9,7 +9,7 @@
 
 2. 环境变量
 	配置系统变量PATH，添加…\Anaconda3\Scripts及…\Anaconda3（根据安装路径确定）
-	![图片](assets\path.jpg)
+	![图片](assets/path.jpg)
 	
 	【注意】此图PATH变量中也显示了后续安装过程中添加的信息
 
