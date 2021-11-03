@@ -51,6 +51,11 @@
         ```
         activate code
         ```  
+   + 退出虚拟环境`deactivate`
+   + 删除虚拟环境
+   	```
+	conda remove -n aiconfig --all
+	```
 3. 修改pip源
 Windows下和conda一样修改用户目录下的pip目录下的pip.ini文件即`C:\Users\xxx\pip\pip.ini`
 ```
