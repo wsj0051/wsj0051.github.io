@@ -57,13 +57,12 @@
 	conda remove -n aiconfig --all
 	```
 3. 修改pip源
-Windows下和conda一样修改用户目录下的pip目录下的pip.ini文件即`C:\Users\xxx\pip\pip.ini`
-```
-[global]
-index-url=http://mirrors.aliyun.com/pypi/simple/
-[install]  
-trusted-host=mirrors.aliyun.com
-disable-pip-version-check = true  
-timeout = 6000
-
-```
+   + Windows下和conda一样修改用户目录下的pip目录下的pip.ini文件即`C:\Users\xxx\pip\pip.ini`
+	```
+	[global]
+	index-url=http://mirrors.aliyun.com/pypi/simple/
+	[install]  
+	trusted-host=mirrors.aliyun.com
+	disable-pip-version-check = true  
+	timeout = 6000
+	```
