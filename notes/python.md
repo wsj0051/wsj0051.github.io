@@ -40,29 +40,33 @@
 
 2. 管理虚拟环境
    + 创建虚拟环境`code`
-        ```
-        conda create -n code python=3
-        ```
+     ```
+     conda create -n code python=3
+     ```
    + 查看所有虚拟环境
-        ```
-        conda env list
-        ```     
+     ```
+     conda env list
+     ```     
    + 切换环境
-        ```
-        activate code
-        ```  
-   + 退出虚拟环境`deactivate`
+     ```
+     activate code
+     ```  
    + 删除虚拟环境
-   	```
-	conda remove -n aiconfig --all
-	```
+     ```
+     conda remove -n aiconfig --all
+     ```
+   + 安装ipython
+     ```
+     conda install -c anaconda ipython
+     ``` 
+   + 退出虚拟环境`deactivate` 
 3. 修改pip源
-   + Windows下和conda一样修改用户目录下的pip目录下的pip.ini文件即`C:\Users\xxx\pip\pip.ini`
-	```
-	[global]
-	index-url=http://mirrors.aliyun.com/pypi/simple/
-	[install]  
-	trusted-host=mirrors.aliyun.com
-	disable-pip-version-check = true  
-	timeout = 6000
-	```
+   + Windows下和conda一样修改用户目录下的pip目录下的`pip.init` `C:\Users\xxx\pip\pip.ini` 
+     ```
+     [global]
+     index-url=http://mirrors.aliyun.com/pypi/simple/
+     [install]  
+     trusted-host=mirrors.aliyun.com
+     disable-pip-version-check = true  
+     timeout = 6000
+     ```
