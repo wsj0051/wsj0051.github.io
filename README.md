@@ -15,7 +15,6 @@
     cd ~/.nvm
     . ./nvm.sh
     ```
-+ 修改环境变量
   - 修改文件` ~/.bashrc, ~/.profile, or ~/.zshrc`末尾配置环境变量
 
     ```
@@ -24,6 +23,7 @@
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
     ```
+  - window下安装[nvm-windows](https://hub.fastgit.org/coreybutler/nvm-windows) 
 + 安装nodejs,使用nodejs v10.23.0 版本
     ```
     nvm install v10.23.0
