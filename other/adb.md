@@ -1,7 +1,6 @@
-# 在 linux 下使用 adb 刷机
+# adb 刷机
 ## 使用adb fastboot 线刷小米平板4Plus
 1. 安装adb fastboot工具
-
    ```
    sudo apt install adb fastboot
    ```

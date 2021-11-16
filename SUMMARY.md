@@ -15,8 +15,9 @@
 * [C语言笔记](notes/c.md)
 * [Python](notes/python.md)
 
-## III 个人记录
-* [adb刷机](notes/adb.md)
-* [树莓派](notes/raspberry.md)   
-* [Termux](notes/termux.md)
-* [其他](notes/other.md)
+## III 其他记录
+* [git](other/git.md)
+* [adb刷机](other/adb.md)
+* [树莓派](other/raspberry.md)   
+* [Termux](other/termux.md)
+* [未分类](other/unfiled.md)
