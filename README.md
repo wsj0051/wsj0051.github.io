@@ -37,13 +37,12 @@
     ```
     npm install -g cnpm -registry=https://registry.npm.taobao.org
     ```
-+ 安装ebook-convert[Download calibre](https://calibre-ebook.com/download)
-    ```
-    sudo apt install calibre
-    ```
-  
++ 安装[ebook-convert](https://calibre-ebook.com/download_linux)，查看是否安装成功[^1]
+  ```
+  ebook-convert --version
+  ```
 + 常用命令：
-  - `gitbook pdf`[^1] 生成pdf
+  - `gitbook pdf` 生成pdf
   - `gitbook -h` 帮助
   - `gitbook install` 进行插件安装
   - `gitbook build & gitbook serve` 构建并启动服务
@@ -61,4 +60,4 @@ npm uninstall -g gitbook-cli
 npm cache clean -f
 ```
 
-[^1]: 使用pdf命令如果报错**Assertion failed: new_time >= loop->time, file c:\ws\deps\uv\src\win\core.c, line 309**，使用新版本替换安装https://github.com/nodejs/help/files/4831517/node.zip
+[^1]: 下载4.5.0版本可以生成pdf不报错
