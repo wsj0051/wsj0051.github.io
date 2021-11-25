@@ -8,10 +8,10 @@
     - 根据安装向导逐步进行，注意安装路径中的文件夹名称不要存在空格
 
 2. 环境变量
-	配置系统变量PATH，添加`D:\Program\anaconda3;D:\Program\anaconda3\Scripts;D:\Program\anaconda3\Library\bin;`（根据安装路径确定）
-	![图片](assets/path.jpg)
-	
-	【注意】此图PATH变量中也显示了后续安装过程中添加的信息
+  系统变量PATH添加`D:\Program\anaconda3;D:\Program\anaconda3\Scripts;D:\Program\anaconda3\Library\bin;`（根据安装路径确定）
+	  ![图片](assets/path.jpg)
+	  
+    【注意】此图PATH变量中也显示了后续安装过程中添加的信息
 
 3. 测试
     - 测试Python：在cmd中输入`Python`命令，查看Python版本信息

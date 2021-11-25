@@ -95,17 +95,6 @@ vim config.conf
 ```
 可以修改展示的信息，颜色，修改`ascii_distro="linux"`将默认的安卓换为linux 
 
-## 搭建Hexo 博客
-```
-pkg install nodejs
-pkg install git
-npm install hexo-cli -g
-mkdir hexoblog
-cd hexoblog
-hexo init
-```
-> 更多资料参考官方api:https://hexo.io/zh-cn/docs/index.html
-
 ## npm安装http-server
 ```
 npm install -g http-server
@@ -207,15 +196,11 @@ http-server
      source /etc/profile
     ```
 
-## 一键脚本
-1. 一键安装tmoe-linux 
-	```
-	 . <(curl -L gitee.com/mo2/linux/raw/2/2)
-	```
-2. 仅美化termux界面
-	```
-	. <(curl -L gitee.com/mo2/zsh/raw/2/2)
-	```
+## 一键安装tmoe-linux 
+```
+   . <(curl -L gitee.com/mo2/linux/raw/2/2)
+```
+
 
 ## 参考链接
 1. [国光-Termux](https://www.sqlsec.com/2018/05/termux.html) 
