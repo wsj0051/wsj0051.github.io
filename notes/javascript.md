@@ -1,14 +1,4 @@
 # JS学习
-## JS基本介绍
-+ JS的用途：Javascript可以实现浏览器端、服务器端(nodejs)。。。
-+ 浏览器端JS由以下三个部分组成：
-    - ECMAScript：基础语法(数据类型、运算符、函数。。。)
-    - BOM(浏览器对象模型)：window、location、history、navigator。。。
-    - DOM(文档对象模型)：div、p、span。。。
-+ ECMAScript又名es，有以下重大版本：
-    - 旧时代： es1.0。。。es3.1
-    - 新时代：es5、es6(es2015)、es7(es2016)、es8(es2017)
-
 ## 数据类型
 + 基本数据类型——值类型：(数字、字符串、布尔值、null、undefined)
 + 复杂数据类型——引用类型：(对象)
@@ -38,25 +28,24 @@
 + say是方法     run是方法
 
 ### 对象属性操作
-#### 获取属性：
-1. 第一种方式：.语法
+#### 获取属性
+第一种方式：.语法
 + `student.name`      获取到`name`属性的值，为："李白"
 + `student.say`      获取到一个函数
 
-2. 第二种方式：[]语法
+第二种方式：[]语法
 + `student["name"]`   等价于`student.name`
 + `student["say"]`    等价于`student.say`
 
-号外：2种方式的差异：
-  + .语法更方便，但是坑比较多(有局限性)
-      - .后面不能使用js中的关键字、保留字(class、this、function。。。)
-      - .后面不能使用数字
-      ```js
-          var obj={};
-          obj.this=5; //语法错误
-          obj.0=10;   //语法错误
-      ```
-
+两种方式的差异：
++ .语法更方便，但是坑比较多(有局限性)
+  - .后面不能使用js中的关键字、保留字(class、this、function。。。)
+  - .后面不能使用数字
+    ```js
+        var obj={};
+        obj.this=5; //语法错误
+        obj.0=10;   //语法错误
+    ```
 + []使用更广泛
     - o1[变量name]
     - ["class"]、["this"]都可以随意使用 `obj["this"]=10`
@@ -80,7 +69,6 @@
             console.log("正在去往上海的路上")   
         }
     ```
-
 #### 删除属性
 + delete student["gender"]      
 + delete student.gender
@@ -168,7 +156,6 @@
 5. typeof运算符不能用来判断对象的构造函数
 
 ## 继承
-### JS中继承的概念
 通过【某种方式】让一个对象可以访问到另一个对象中的属性和方法，我们把这种方式称之为继承  `并不是所谓的xxx extends yyy`
 
 ### 为什么要使用继承？
@@ -613,27 +600,27 @@ console.log(o5==o8);//false
         toString.apply(null,[1,3,5])
         ```
 在ES6的箭头函数之前的时代，想要判断一个函数内部的this指向谁，就是根据上边的四种方式来决定的
-### bind方法实现
-```javascript
-    //target表示新函数的内部的this值
-    Function.prototype._bind=function(target){
-        
-        //利用闭包创建一个内部函数，返回那个所谓的新函数
-        return ()=>{
-            //执行fn里边的逻辑
-            this.call(target)
++ bind方法实现
+    ```javascript
+        //target表示新函数的内部的this值
+        Function.prototype._bind=function(target){
+            
+            //利用闭包创建一个内部函数，返回那个所谓的新函数
+            return ()=>{
+                //执行fn里边的逻辑
+                this.call(target)
+            }
+            //等价于
+            // var _that=this;
+            // return function(){
+            //     _that.call(target);
+            // }
         }
-        //等价于
-        // var _that=this;
-        // return function(){
-        //     _that.call(target);
-        // }
-    }
-    function fn(){
-        console.log(this);
-    }
-    var _fn=fn.bind({age:18});
-    
-```
+        function fn(){
+            console.log(this);
+        }
+        var _fn=fn.bind({age:18});
+        
+    ```
 1. bind方法放在函数的原型中 `fn.__proto__ === fn的构造函数.prototype`
 2. 所有的函数对象的构造函数都是Function
