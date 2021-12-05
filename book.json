@@ -35,7 +35,6 @@
         "popup",
         "code",
         "image-captions",
-        "include-csv",
         "flexible-alerts",
         "ace@^0.3.2",
         "favicon-absolute",
