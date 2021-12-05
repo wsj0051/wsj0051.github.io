@@ -17,6 +17,7 @@
     - 测试Python：在cmd中输入`Python`命令，查看Python版本信息
     - 测试Conda：在cmd中输入`conda`或`pip`命令，查看具体信息
     - `conda --version`输出版本号说明设置成功
+  
 ### 使用
 1. 修改清华源
    - Windows 用户无法直接创建名为 `.condarc` 的文件，可先执行 `conda config --set show_channel_urls yes` 生成该文件之后再修改 

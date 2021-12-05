@@ -69,9 +69,11 @@
             console.log("正在去往上海的路上")   
         }
     ```
+
 #### 删除属性
 + delete student["gender"]      
 + delete student.gender
+  
 ## 通过构造函数创建对象
 构造函数创建对象的例子
 + `var xiaoming = new Object()`     -->   `var xiaoming = {}; ` 
@@ -103,7 +105,6 @@
 + new Object()等同于对象字面量{}
 
 ### 构造函数的执行过程
-
 1. 创建一个对象`var p1=new Person();` (我们把这个对象称之为Person构造函数的实例)- `_p1 `
 2. 创建一个内部对象，`this`，将this指向该实例(_p1)
 3. 执行函数内部的代码，其中，操作this的部分就是操作了该实例(_p1)
@@ -331,6 +332,7 @@ function Person(name,age,gender,address){
         //cat.__proto__.__proto__:根对象
     ```
 + 错误的理解：万物继承自Object？
+
 ## 闭包
 ### 变量作用域
 + 变量作用域的概念：就是一个变量可以使用的范围

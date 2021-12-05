@@ -78,6 +78,7 @@
    + Array.isArray()
    + isNaN()
    + isInfinity()
+  
 ### 箭头函数
 + 场景：用于替换匿名函数
 + 基本用法：
@@ -135,6 +136,7 @@
         }
     }
     ```
+    
 ## 对象的扩展
 + `Object.assign`：实现拷贝继承
   ```js

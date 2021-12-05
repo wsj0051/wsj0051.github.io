@@ -163,6 +163,7 @@ classList.toggle("active");  //切换类样式（有就删除，没有就添加�
   window.sessionStorage.removeItem(key)
   window.sessionStorage.clear()
   ```
+  
 ## Canvas
 
 ### 绘图方法

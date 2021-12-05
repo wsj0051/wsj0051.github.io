@@ -125,52 +125,21 @@
 + oobe/msoobe /a----检查XP是否激活
 + notepad--------打开记事本 
 + cleanmgr-------垃圾整理
-
 + net start messenger----开始信使服务
-
-
 + compmgmt.msc---计算机管理
-
-
 + net stop messenger-----停止信使服务
-
-
 + conf-----------启动netmeeting
-
-
 + dvdplay--------DVD播放器
-
-
 + charmap--------启动字符映射表
-
-
 + diskmgmt.msc---磁盘管理实用程序
-
-
 + calc-----------启动计算器
-
-
 + dfrg.msc-------磁盘碎片整理程序
-
-
 + chkdsk.exe-----Chkdsk磁盘检查
-
-
 + devmgmt.msc--- 设备管理器 
-
-
 + regsvr32 /u *.dll----停止dll文件运行
-
-
 + drwtsn32------ 系统医生
-
-
 + rononce -p----15秒关机
-
-
 + dxdiag---------检查DirectX信息
-
-
 + regedt32-------注册表编辑器 
 
 
@@ -410,7 +379,7 @@ debug 调试内存 参数 -w [文件名] 写入二进制文件 -o [地址1] [地
 + 分区操作
 给磁盘分区，一般都会分成四个区，磁盘分区由主分区、扩展分区、逻辑分区组成。
 PQ和Acronis Disk Director这两个工具都可以在不丢失数据的情况下对分区进行调整大小，以及合并等操作，XP系统的话你用PQ，WIN7系统的话用Acronis Disk Director 操作基本一样，可以去网上找教程来看看，再不重装系统的情况下都能调整分区大小，但是建议你还是先备份下数据再调整，毕竟对硬盘直接进行的操作有一定的危险性。
-
+```
 net use ipipc$ " " /user:" " 建立IPC空链接
 
 net use ipipc$ "密码" /user:"用户名" 建立IPC非空链接
@@ -738,5 +707,4 @@ REM 文本内容 在批处理文件中添加注解
 
 
 netsh 查看或更改本地网络配置情况
-
-
+```

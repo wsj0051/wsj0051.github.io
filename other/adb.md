@@ -1,5 +1,13 @@
-# adb 刷机
-## 使用adb fastboot 线刷小米平板4Plus
+# adb
+## adb 连接安卓
+```
+adb connect 127.0.0.1:58526
+```
+## 安装apk
+```
+adb install 目录/安装包.apk
+```
+## 使用adb fastboot 线刷
 1. 安装adb fastboot工具
    ```
    sudo apt install adb fastboot
@@ -12,7 +20,7 @@
    ```
    adb reboot-bootloader
    ```
-4. 下载官方线刷包后解压[链接](http://www.miui.com/shuaji-393.html)
+4. 以小米为例，下载官方线刷包后解压[链接](http://www.miui.com/shuaji-393.html)
    ```
    tar zxvf clover_images_V10.3.2.0.ODJCNXM_20190515.0000.00_8.1_cn_4388d99e5e.tgz
    ```
@@ -26,7 +34,6 @@
    * 执行刷机脚本[^1]`sudo sh flash_all.sh`
      
 ## 通过 fastboot 安装 Recovery
-
 1. 下载 Recovery - 例如 [TWRP](https://twrp.me/)。
 
    * 您可以前往 [魔趣下载站](https://download.mokeedev.com) 的设备页面，点击 **Recovery 下载**。
