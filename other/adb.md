@@ -60,7 +60,8 @@ adb install 目录/安装包.apk
 5. 将 Recovery 刷入到您的设备。
 
    ```
-   fastboot flash recovery twrp-x.x.x-x-x.img
+   fastboot flash recovery twrp-x.x.x-x-x.img # 仅刷入
+   fastboot boot .\twrp-x.x.x-x-x.img  # 刷入重启到recovery
    ```
 
 6. 现在进入 Recovery 模式以验证安装：
