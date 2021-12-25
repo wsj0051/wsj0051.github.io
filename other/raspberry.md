@@ -1,6 +1,7 @@
 # 树莓派使用记录
-## 下载
-选择自己要安装的镜像下载
+## 树莓派系统
++ [Debian-Pi-Aarch64](https://gitee.com/openfans-community/Debian-Pi-Aarch64/blob/master/README_zh.md)
++ [点击前往百度网盘下载](https://pan.baidu.com/share/init?surl=VPWngCO1aEPJXFMLiODmNg) 提取码: xbwy
 
 ## 校验包，解压
 ```

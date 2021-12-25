@@ -122,23 +122,18 @@ border-image-width: 20px;
 
 ## 2D转换
 
-- 位移
-  	  `transform: translate(100px,100px);`
-  备注： 位移是相对元素自身的位置发生位置改变
+- 位移 `transform: translate(100px,100px);`
+  - 备注： 位移是相对元素自身的位置发生位置改变
 
-- 旋转
-  		`transform: rotate(60deg);`
-
-  备注： 取值为角度 
-- 缩放
-  	   `transform: scale(0.5,1);`
-   备注：取值为倍数关系，缩小大于0小于1，放大设置大于1
+- 旋转 `transform: rotate(60deg);`
+  - 备注： 取值为角度 
+- 缩放  `transform: scale(0.5,1);`
+  - 备注：取值为倍数关系，缩小大于0小于1，放大设置大于1
   
-- 倾斜
-  	   `transform: skew(30deg,30deg);`
-  备注：
-  	第一个值代表沿着x轴方向倾斜
-  	第二个值代表沿着y轴方向倾斜
+- 倾斜 `transform: skew(30deg,30deg);`
+  - 备注：
+  	1. 第一个值代表沿着x轴方向倾斜
+  	2. 第二个值代表沿着y轴方向倾斜
 
 ## 3D转换
 

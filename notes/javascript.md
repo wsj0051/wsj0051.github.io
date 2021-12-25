@@ -30,7 +30,7 @@
 ### 对象属性操作
 #### 获取属性
 第一种方式：.语法
-+ `student.name`      获取到`name`属性的值，为："李白"
++ `student.name`      获取到`name`属性的值
 + `student.say`      获取到一个函数
 
 第二种方式：[]语法
@@ -49,13 +49,9 @@
 + []使用更广泛
     - o1[变量name]
     - ["class"]、["this"]都可以随意使用 `obj["this"]=10`
-    - [0]、[1]、[2]也可以使用       
-        - `obj[3]=50 = obj["3"]=50`     
-        - 思考：为什么obj[3]=obj["3"]
-    - 甚至还可以这样用：["[object Array]"]
-        - jquery里面就有这样的实现
-    - 也可以这样用：["{abc}"]
-        - 给对象添加了{abc}属性
+    - `obj[3]=50 = obj["3"]=50`     
+    - `["[object Array]"]` jquery里面就有这样的实现
+    - `["{abc}"]` 给对象添加了`{abc}`属性
 
 #### 设置属性
 + `student["gender"]="男"`等价于`student.gender="男"`

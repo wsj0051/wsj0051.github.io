@@ -46,6 +46,7 @@ gcc -o hello.cgi hello.c
                 mov c, eax
         }
     ```
+    
 ## 处理C语言函数的警告：
 1. 放在程序第一行
     ```c
