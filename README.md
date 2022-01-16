@@ -33,14 +33,21 @@
     npm install gitbook-cli -g
     gitbook -V
     ```
-+ 速度慢时安装cnpm,使用cnpm安装，命令中npm替换为cnpm即可
-    ```
-    npm install -g cnpm -registry=https://registry.npm.taobao.org
-    ```
-+ 安装[ebook-convert](https://calibre-ebook.com/download_linux)，查看是否安装成功[^1]
+ + 速度慢解决办法
+    + 修改npm源
+        ```
+        npm config set registry https://registry.npm.taobao.org
+        ```
+    + 安装cnpm
+        ```
+        npm install -g cnpm -registry=https://registry.npm.taobao.org
+        ```
++ 下载安装[ebook-convert4.5.0](https://download.calibre-ebook.com/4.5.0/)
+
   ```
-  ebook-convert --version
+  sudo mkdir -p /opt/calibre && sudo rm -rf /opt/calibre/* && sudo tar xvf downloads/calibre-4.5.0-x86_64.txz -C /opt/calibre && sudo /opt/calibre/calibre_postinstall
   ```
+  使用`ebook-convert --version`验证是否安装成功
 + 常用命令：
   - `gitbook pdf` 生成pdf
   - `gitbook -h` 帮助
@@ -59,5 +66,3 @@ npm uninstall -g gitbook-cli
 ```
 npm cache clean -f
 ```
-
-[^1]: 下载4.5.0版本可以生成pdf不报错
