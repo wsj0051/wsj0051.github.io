@@ -26,7 +26,7 @@
 + 读`r`：read
 + 写`w`：write
 + 执行`x`execute
-+ `d rwx rwx rwx` 分为三组
++ `d rwx rwx rwx` 分为三组  
   ![](assets/rwx.jpg)
   1. 文件类型
   2. 所有者的权限

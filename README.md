@@ -45,7 +45,7 @@
 + 下载安装[ebook-convert4.5.0](https://download.calibre-ebook.com/4.5.0/)
 
   ```
-  sudo mkdir -p /opt/calibre && sudo rm -rf /opt/calibre/* && sudo tar xvf downloads/calibre-4.5.0-x86_64.txz -C /opt/calibre && sudo /opt/calibre/calibre_postinstall
+  sudo mkdir -p /opt/calibre && sudo rm -rf /opt/calibre/* && sudo tar xvf calibre-4.5.0-x86_64.txz -C /opt/calibre && sudo /opt/calibre/calibre_postinstall
   ```
   使用`ebook-convert --version`验证是否安装成功
 + 常用命令：
