@@ -10,3 +10,7 @@
 ```
 mvn install:install-file -Dfile=junit-4.8.1.jar -DgroupId=junit -DartifactId=junit -Dversion=4.8.1 -Dpackaging=jar
 ```
+## vscode 正则匹配空白行
+```
+^\s*(?=\r?$)\n
+```
