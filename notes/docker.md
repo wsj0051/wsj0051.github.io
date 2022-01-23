@@ -139,11 +139,15 @@ docker ps -f status=exited
    ```
    docker run -di -v 宿主机目录:容器目录 --name=自定义容器名 镜像名:tag
    ```   
+
 ### 查看容器的ip地址
+
+{% raw %}
 ```
 docker inspect 容器名称（容器id）
 docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器名
 ```
+{% endraw %}
 ### 删除容器
 ```
 docker stop 容器名
@@ -162,6 +166,7 @@ docker rm 容器名
     ```
     docker load -i mynginx.tar
     ```
+    
 ## Dockerfile
 Dockerfile是一系列命令和参数构成的脚本，这些命令用于基础镜像并最终创建一个新的镜像。
  
