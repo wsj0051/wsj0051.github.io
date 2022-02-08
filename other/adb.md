@@ -1,39 +1,56 @@
 # adb
+
 ## adb 连接安卓
-```
+
+```shell
 adb connect 127.0.0.1:58526
 ```
+
 ## 安装apk
-```
+
+```shell
 adb install 目录/安装包.apk
 ```
+
 ## 使用adb fastboot 线刷
+
 1. 安装adb fastboot工具
-   ```
+
+   ```shell
    sudo apt install adb fastboot
    ```
+
 2. 通过USB将您的设备连接到电脑，并验证手机连接
-   ```
+
+   ```shell
    adb devices
    ```
+
 3. 重启到fastboot模式
-   ```
+
+   ```shell
    adb reboot-bootloader
    ```
+
 4. 以小米为例，下载官方线刷包后解压[链接](http://www.miui.com/shuaji-393.html)
-   ```
+
+   ```shell
    tar zxvf clover_images_V10.3.2.0.ODJCNXM_20190515.0000.00_8.1_cn_4388d99e5e.tgz
    ```
+
 5. 进入解压后的目录
-   ```
+
+   ```shell
    cd clover_images_V10.3.2.0.ODJCNXM_20190515.0000.00_8.1_cn
    ```
+
 6. 开始刷机
    * 修改为可执行`chmod +x flash_all.sh`
    * fastboot模式下再次验证手机连接`fastboot devices`
    * 执行刷机脚本[^1]`sudo sh flash_all.sh`
-     
+
 ## 通过 fastboot 安装 Recovery
+
 1. 下载 Recovery - 例如 [TWRP](https://twrp.me/)。
 
    * 您可以前往 [魔趣下载站](https://download.mokeedev.com) 的设备页面，点击 **Recovery 下载**。
@@ -43,7 +60,7 @@ adb install 目录/安装包.apk
 
 3. 在电脑上打开命令提示符（Windows）或 终端 （Linux 或 macOS）并输入：
 
-   ``` 
+   ```shell
    adb reboot bootloader
    ```
 
@@ -53,13 +70,13 @@ adb install 目录/安装包.apk
 
 4. 一旦设备处于 fastboot 模式，请通过键入以下内容验证您的 PC 是否找到它：
 
-   ```
+   ```shell
    fastboot devices
    ```
 
 5. 将 Recovery 刷入到您的设备。
 
-   ```
+   ```shell
    fastboot flash recovery twrp-x.x.x-x-x.img # 仅刷入
    fastboot boot .\twrp-x.x.x-x-x.img  # 刷入重启到recovery
    ```

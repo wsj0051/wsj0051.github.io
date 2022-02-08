@@ -1,11 +1,15 @@
 # CMD
+
 ## 重启wsl2 ubuntu
-```
+
+```shell
 net stop LxssManager
 net start LxssManager
 ```
+
 ## cmd命令
-```
+
+```shell
 chcp 修改默认字符集
 chcp 936 默认中文
 chcp 65001  默认utf-8
@@ -212,8 +216,10 @@ regsvr32 /u *.dll----停止dll文件运行
 regsvr32 /u zipfldr.dll------取消ZIP支持
 chkdsk.exe-----Chkdsk磁盘检查
 ```
+
 ## 磁盘操作
-```
+
+```shell
 fdisk 隐含 参数 /mbr 重建主引导记录fdisk /mbr 重建主引导记录
 fdisk 在DOS+0以后增加了/cmbr参数，可在挂接多个物理硬盘时，重建排序在后面的硬盘的主引导记录，例如：fdisk /cmbr 2，可重写第二个硬盘的主引导记录。（在使用时要十分小心，避免把好的硬盘引导记录损坏）
 format 参数： /q 快速格式化 /u 不可恢复 /autotest 不提示 /s 创建 MS-DOS 引导盘 format c: /q /u /autotest
@@ -235,8 +241,10 @@ debug 调试内存 参数 -w [文件名] 写入二进制文件 -o [地址1] [地
 给磁盘分区，一般都会分成四个区，磁盘分区由主分区、扩展分区、逻辑分区组成。
 PQ和Acronis Disk Director这两个工具都可以在不丢失数据的情况下对分区进行调整大小，以及合并等操作，XP系统的话你用PQ，WIN7系统的话用Acronis Disk Director 操作基本一样，可以去网上找教程来看看，再不重装系统的情况下都能调整分区大小，但是建议你还是先备份下数据再调整，毕竟对硬盘直接进行的操作有一定的危险性。
 ```
+
 ## net相关
-```
+
+```shell
 net use ipipc$ " " /user:" " 建立IPC空链接
 net use ipipc$ "密码" /user:"用户名" 建立IPC非空链接
 net use h: ipc$ "密码" /user:"用户名" 直接登陆后映射对方C：到本地为H:

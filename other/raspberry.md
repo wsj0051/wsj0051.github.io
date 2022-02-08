@@ -1,38 +1,52 @@
 # 树莓派使用记录
+
 ## 树莓派系统
+
 + [Debian-Pi-Aarch64](https://gitee.com/openfans-community/Debian-Pi-Aarch64/blob/master/README_zh.md)
 + [点击前往百度网盘下载](https://pan.baidu.com/share/init?surl=VPWngCO1aEPJXFMLiODmNg) 提取码: xbwy
 
 ## 校验包，解压
-```
+
+```shell
 sha1sum 2013-09-25-wheezy-raspbian.zip
 unzip  2013-09-25-wheezy-raspbian.zip
 ```
-查看当前哪些设备已经挂载,` df -h`，插入u盘或sd卡再执行一次
+
+查看当前哪些设备已经挂载,`df -h`，插入u盘或sd卡再执行一次
 为了防止在写入镜像的时候有其他读取或写入，我们需要卸载设备。两个分区都要卸载。
 
-```   
+```shell
 umount  /dev/sdb1
 umount  /dev/sdb2
 ```
+
 ## xz烧录命令(该命令尝试失败)
-```
+
+```shell
 sudo xz -cd kali-2017.3-rpi3-nexmon.img.xz> /dev/sdb
 ```
+
 查看烧录进度`sudo pkill -USR1 -n -x xz`
 
 ## img格式镜像烧录命令如下（亲测成功）
-```
+
+```shell
 sudo dd bs=4M if=2013-09-25-wheezy-raspbian.img of=/dev/sdb
 ```
+
 查看烧录进度`sudo pkill -USR1 -n -x dd`
+
 ## 卸载软件
+
 1. 卸载但不删除配置
-```
+
+```shell
 apt-get remove packagename
 ```
+
 2. 卸载并删除配置
-```
+
+```shell
 apt-get purge packagename
 ```
 
@@ -68,7 +82,7 @@ apt-get purge packagename
 
 清除所有已删除包的残馀配置文件
 
-```
+```shell
 dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 ```
 
