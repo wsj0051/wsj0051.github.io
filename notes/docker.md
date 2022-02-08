@@ -313,7 +313,7 @@ docker pull mysql:5.7.33
 docker run -di --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7.33
 ```
 
-`-e` 代表添加环境变量 `MYSQL_ROOT_PASSWORD` 是rrot用户的登录密码
+`-e` 代表添加环境变量 `MYSQL_ROOT_PASSWORD` 是root用户的登录密码
 
 ### tomcat
 
