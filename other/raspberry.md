@@ -38,13 +38,13 @@ sudo dd bs=4M if=2013-09-25-wheezy-raspbian.img of=/dev/sdb
 
 ## 卸载软件
 
-1. 卸载但不删除配置
+卸载但不删除配置
 
 ```shell
 apt-get remove packagename
 ```
 
-2. 卸载并删除配置
+卸载并删除配置
 
 ```shell
 apt-get purge packagename
@@ -109,3 +109,37 @@ dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 `aptitude clean` 删除下载的包文件
 
 `aptitude autoclean` 仅删除过期的包文件
+
+## 安装owncloud
+
+教程开始：
+
+1、打开树莓派终端，输入下面命令获得超级用户权限
+
+```shell
+sudo -i
+```
+
+2、在docker中安装私有云，在树莓派终端输入下面命令。（注意：为了避免出错，下面用到的所有命令以及要修改的内容也给大家提供了文档版本，可以在树莓派爱好者基地微信公众号发送【私有云安装】获得）
+
+```shell
+docker run -d -p 8888:80  --name nextcloud  -v /data/nextcloud/:/var/www/html/ --restart=always   --privileged=true  arm64v8/nextcloud
+```
+
+3、修改配置文件
+
+```shell
+nano /data/nextcloud/config/config.sample.php
+```
+
+修改`trusted_domains`里的值
+
+```txt
+1 => preg_match('/cli/i',php_sapi_name())?'127.0.0.1':$_SERVER['SERVER_NAME']
+```
+
+4、安装nextcloud客户端
+
+```shell
+apt install nextcloud-desktop-l10n nextcloud-desktop -y
+```
