@@ -24,3 +24,33 @@ mvn install:install-file -Dfile=junit-4.8.1.jar -DgroupId=junit -DartifactId=jun
 
 1. 删除windows保护历史记录，`C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory`目录下所有文件夹删除
 2. 新建文件夹，重命名输入`上帝模式.{ED7BA470-8E54-465E-825C-99712043E01C}`
+
+## batocera
+
+配置文件
+
+```text
+wifi.enabled=1
+wifi.ssid=wifi1-name
+wifi.key=********
+wifi2.ssid=wifi2-name
+wifi2.key=********
+wifi3.ssid=wifi1-name
+wifi3.key=********
+```
+
+## 康佳电视 - LED55K36U 刷机
+
+1. 电视型号：
+    - 主程序软件：99015826
+    - 屏幕参数：99016671
+
+2. 刷机步骤
+    - 主程序软件，包名：`M638Upgrade.bin`
+      - 将对应的刷机文件放到u盘根目录（u盘要fat32格式，尽量不要用内存卡，刷机文件不要改名）
+      - 断电，按住音量+加键(有些机型是信源键)，开电
+
+3. 若刷机后出现双屏
+    - 刷屏幕参数，包名： `M638PanelUpgrade.bin`
+      - 按遥控器的音量减键不放，然后通电。
+
