@@ -22,7 +22,7 @@ mvn install:install-file -Dfile=junit-4.8.1.jar -DgroupId=junit -DartifactId=jun
 
 ## windows
 
-1. 删除windows保护历史记录，`C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory`目录下所有文件夹删除
+1. [删除windows保护历史记录](C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory)，删除该目录下所有文件
 2. 新建文件夹，重命名输入`上帝模式.{ED7BA470-8E54-465E-825C-99712043E01C}`
 
 ## batocera
@@ -54,3 +54,8 @@ wifi3.key=********
     - 刷屏幕参数，包名： `M638PanelUpgrade.bin`
       - 按遥控器的音量减键不放，然后通电。
 
+## 解决使用代理时无法访问 Microsoft Store 0x80131500
+
+```shell
+foreach ($n in (get-appxpackage).packagefamilyname) {checknetisolation loopbackexempt -a -n="$n"}
+```

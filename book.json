@@ -39,7 +39,7 @@
         "ace@^0.3.2",
         "favicon-absolute",
         "splitter",
-        "chapter-fold",
+        "expandable-chapters",
         "katex"
     ],
     "pluginsConfig": {
