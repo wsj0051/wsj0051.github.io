@@ -22,8 +22,9 @@ mvn install:install-file -Dfile=junit-4.8.1.jar -DgroupId=junit -DartifactId=jun
 
 ## windows
 
-1. [删除windows保护历史记录](C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory)，删除该目录下所有文件
-2. 新建文件夹，重命名输入`上帝模式.{ED7BA470-8E54-465E-825C-99712043E01C}`
+1. 删除windows保护历史记录，路径：`C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory`，删除该目录下所有文件
+2. 新建文件夹，重命名输入 `上帝模式.{ED7BA470-8E54-465E-825C-99712043E01C}`
+3. 任务栏浏览器主页被篡改，右键属性就会看到目标后，有一串网址，删除解决，路径：`C:\Users\用户名\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar`
 
 ## batocera
 

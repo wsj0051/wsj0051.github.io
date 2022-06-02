@@ -7,7 +7,7 @@
     "gitbook": "3.2.3",
     "links": {
         "sidebar": {
-            "我的博客": "https://wsj0051.cn"
+            "我的博客": "https://wsj0051.tk"
         }
     },
     "styles": {
@@ -17,7 +17,7 @@
         "readme": "home.md"
     },
     "variables": {
-        "wsj0051": "比较懒，大部分平台注册账号为wsj0051"
+        "wsj0051": "大部分平台注册账号为wsj0051"
     },
     "plugins": [
         "-lunr",
