@@ -63,14 +63,12 @@ foreach ($n in (get-appxpackage).packagefamilyname) {checknetisolation loopbacke
 
 ## 高分辨率远程桌面低分辨率屏幕内容过小解决办法
 
-1. 修改注册表：用运行-regedit编辑注册表，找到：
-`HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > Windows > CurrentVersion > SideBySide`新建`DWORD`，命名`PreferExternalManifest`，并双击设置值为`1`.
-
+1. 修改注册表：用运行-regedit编辑注册表，找到：`HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > Windows > CurrentVersion > SideBySide`新建`DWORD`，命名`PreferExternalManifest`，并双击设置值为`1`.
 2. 新建文件`mstsc.exe.manifest`，这个文件放到指定路径中：`C:\Windows\System32`
 
-```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<assembly
+    ```xml
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <assembly
     xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"
     xmlns:asmv3="urn:schemas-microsoft-com:asm.v3">
     <dependency>
@@ -99,5 +97,9 @@ foreach ($n in (get-appxpackage).packagefamilyname) {checknetisolation loopbacke
             </ms_windowsSettings:dpiAware>
         </asmv3:windowsSettings>
     </asmv3:application>
-</assembly>
-```
+    </assembly>
+    ```
+
+## 双系统导致时间不同步问题
+
+`Win+R`打开运行窗口，输入`regedit` 回车，找到`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control \TimeZoneInformation`，右键新建`New` > `DWORD (32-bit) Value`，命名为`RealTimeIsUniversal`，键值为`1`
