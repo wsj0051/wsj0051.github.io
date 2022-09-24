@@ -116,12 +116,6 @@ done
 ### 双系统导致时间不同步问题
 `Win+R`打开运行窗口，输入`regedit` 回车，找到`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control \TimeZoneInformation`，右键新建`New` > `DWORD (32-bit) Value`，命名为`RealTimeIsUniversal`，键值为`1`
 
-## 解决使用代理时无法访问 Microsoft Store 0x80131500
-
-```shell
-foreach ($n in (get-appxpackage).packagefamilyname) {checknetisolation loopbackexempt -a -n="$n"}
-```
-
 ### hosts文件路径
 
 `C:\Windows\System32\drivers\etc`
