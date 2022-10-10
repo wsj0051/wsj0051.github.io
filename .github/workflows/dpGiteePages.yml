@@ -21,10 +21,12 @@ jobs:
        key: ${{ runner.os }}-node10-${{ hashFiles('**/book.json') }}        
     - name: 3. install & build
       run: |
+       sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin version=5.23.0 
+       ebook-convert --version 
        sudo npm install -g gitbook-cli
+       gitbook pdf
        gitbook install
        gitbook build
-       sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin version=5.23.0 && ebook-convert --version && gitbook pdf
 
     - name: 4. Configure Private Key
       env:
