@@ -24,7 +24,7 @@ jobs:
        sudo npm install -g gitbook-cli
        gitbook install
        gitbook build
-       sudo -v && sudo calibre-uninstall && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin version=4.5.0 && ebook-convert --version && gitbook pdf
+       sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin version=5.23.0 && ebook-convert --version && gitbook pdf
 
     - name: 4. Configure Private Key
       env:
