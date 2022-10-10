@@ -24,7 +24,8 @@ jobs:
        sudo npm install -g gitbook-cli
        gitbook install
        gitbook build
-          
+       sudo -v && sudo calibre-uninstall && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin version=4.5.0 && ebook-convert --version && gitbook pdf
+
     - name: 4. Configure Private Key
       env:
           # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
