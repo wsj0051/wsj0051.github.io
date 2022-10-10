@@ -62,7 +62,7 @@ done
       - 按遥控器的音量减键不放，然后通电。
 
 
-## windows问题记录
+## windows记录
 
 ### windows保护历史记录删除
 
@@ -70,51 +70,16 @@ done
 
 ### 上帝模式
 
-新建文件夹，重命名输入 `上帝模式.{ED7BA470-8E54-465E-825C-99712043E01C}`
+新建文件夹，重命名为 `上帝模式.{ED7BA470-8E54-465E-825C-99712043E01C}`
 
-### 防止浏览器主页篡改
+### 浏览器主页被篡改修复
 
 任务栏浏览器主页被篡改，右键属性就会看到目标后，有一串网址，删除解决，路径：`C:\Users\用户名\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar`
 
 ### 高分辨率远程桌面低分辨率屏幕内容过小解决办法
 
 1. 修改注册表：用运行-regedit编辑注册表，找到：`HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > Windows > CurrentVersion > SideBySide`新建`DWORD`，命名`PreferExternalManifest`，并双击设置值为`1`.
-2. 新建文件`mstsc.exe.manifest`，这个文件放到指定路径中：`C:\Windows\System32`
-
-    ```xml
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <assembly xmlns="urn:schemas-microsoft-com:asm.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" manifestVersion="1.0">
-    <dependency>
-        <dependentAssembly>
-        <assemblyIdentity type="win32" name="Microsoft.Windows.Common-Controls" version="6.0.0.0" processorArchitecture="*" publicKeyToken="6595b64144ccf1df" language="*">
-
-    </assemblyIdentity>
-        </dependentAssembly>
-    </dependency>
-    <dependency>
-        <dependentAssembly>
-        <assemblyIdentity type="win32" name="Microsoft.VC90.CRT" version="9.0.21022.8" processorArchitecture="amd64" publicKeyToken="1fc8b3b9a1e18e3b">
-
-    </assemblyIdentity>
-        </dependentAssembly>
-    </dependency>
-    <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
-        <security>
-        <requestedPrivileges>
-            <requestedExecutionLevel level="asInvoker" uiAccess="false"/>
-        </requestedPrivileges>
-        </security>
-    </trustInfo>
-    <asmv3:application>
-        <asmv3:windowsSettings xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">
-        <ms_windowsSettings:dpiAware xmlns:ms_windowsSettings="http://schemas.microsoft.com/SMI/2005/WindowsSettings">false</ms_windowsSettings:dpiAware>
-        </asmv3:windowsSettings>
-    </asmv3:application>
-    </assembly>
-    ```
-
-### 双系统导致时间不同步问题
-`Win+R`打开运行窗口，输入`regedit` 回车，找到`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control \TimeZoneInformation`，右键新建`New` > `DWORD (32-bit) Value`，命名为`RealTimeIsUniversal`，键值为`1`
+2. 创建文件[mstsc.exe.manifest](./mstsc.exe.manifest)，并放到该路径下：`C:\Windows\System32`
 
 ### hosts文件路径
 
