@@ -2,8 +2,7 @@
 
 ## 树莓派系统
 
-+ [Debian-Pi-Aarch64](https://gitee.com/openfans-community/Debian-Pi-Aarch64/blob/master/README_zh.md)
-+ [点击前往百度网盘下载](https://pan.baidu.com/share/init?surl=VPWngCO1aEPJXFMLiODmNg) 提取码: xbwy
++ [官方镜像](https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit)
 
 ## 校验包，解压
 
