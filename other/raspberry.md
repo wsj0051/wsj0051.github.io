@@ -1,9 +1,5 @@
 # 树莓派使用记录
 
-## 树莓派系统
-
-+ [官方镜像](https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit)
-
 ## 校验包，解压
 
 ```shell
@@ -50,8 +46,6 @@ apt-get purge packagename
 ```
 
 ## 基础命令
-
-[原链接](https://shumeipai.nxez.com/2015/01/03/raspberry-pi-software-installation-and-uninstallation-command.html)
 
 安装软件 `apt-get install softname1 softname2 softname3……`
 
