@@ -27,6 +27,7 @@ jobs:
        gitbook install
        gitbook build
        gitbook pdf
+       mv book.pdf _book
 
     - name: 4. Configure Private Key
       env:
