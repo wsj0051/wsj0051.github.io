@@ -21,7 +21,8 @@ jobs:
        key: ${{ runner.os }}-node10-${{ hashFiles('**/book.json') }}        
     - name: 3. install & build
       run: |
-       sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin version=5.23.0 
+       sudo -v && wget -nv -O- https://download.calibre-ebook.com/5.23.0/calibre-5.23.0-x86_64.txz
+       sudo mkdir -p /opt/calibre && sudo rm -rf /opt/calibre/* && sudo tar xvf ./calibre-5.23.0-x86_64.txz -C /opt/calibre && sudo /opt/calibre/calibre_postinstall
        ebook-convert --version 
        sudo npm install -g gitbook-cli
        gitbook install
