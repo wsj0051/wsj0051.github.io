@@ -68,3 +68,24 @@
   ```sql 
    select prosrc from pg_proc where proname='function_name'
   ```
+  
+## 锁表问题解决
+[原文链接](https://blog.csdn.net/jiahao1186/article/details/122255173)
+1. 查询锁表pid与锁表语句
+   ```sql
+   select pid, state, usename, query, query_start from pg_stat_activity where pid in ( select pid from pg_locks l join pg_class t on l.relation = t.oid and      t.relkind = 'r' where t.relname =  'lockedtable');
+   ```
+2. 查找所有活动的被锁的表
+   ```sql
+   SELECT pid, state, usename, query, query_start 
+   from pg_stat_activity 
+   where pid in (
+     select pid from pg_locks l  join pg_class t on l.relation = t.oid 
+     and t.relkind = 'r' 
+   );
+   ``` 
+3. 解锁二选一
+   ```sql
+   SELECT pg_cancel_backend(94827); -- session还在，事物回退;
+   SELECT pg_terminate_backend(94827); --session消失，事物回退
+   ```
