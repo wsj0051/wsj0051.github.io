@@ -243,6 +243,20 @@ http-server
      source /etc/profile
     ```
 
+## 电脑ssh连接termux
+
+```
+   sshd
+```
+   SSH 默认配置文件的路径为 $PREFIX/etc/ssh/sshd_config
+```
+   passwd
+```
+Termux 的 ssh 和常规 Linux 不太一样，连接的时候不需要指定用户名。
+也可以使用公钥连接
+```
+   cat id_rsa.pub > authorized_keys
+```
 ## 一键安装tmoe-linux
 
 ```shell

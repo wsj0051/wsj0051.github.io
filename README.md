@@ -41,12 +41,15 @@
     ```
 
 - 速度慢解决办法
-  - 修改npm源
+  - 修改淘宝源
 
     ```shell
     npm config set registry https://registry.npm.taobao.org
     ```
-
+  - 切换到官方源 
+    ```
+    npm config set registry https://registry.npmjs.org
+    ```
   - 安装cnpm
 
     ```shell
