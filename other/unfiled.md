@@ -34,18 +34,6 @@ wifi3.ssid=wifi1-name
 wifi3.key=********
 ```
 
-## openwrt关闭led灯
-
-保存为 `/etc/rc.d/S99turnoffled`
-
-```shell
-#!/bin/ash
-for i in `ls /sys/class/leds`
-do cd /sys/class/leds
-cd $i
-echo 0 > brightness
-done
-```
 ## 康佳电视 - LED55K36U 刷机
 
 1. 电视型号：
@@ -89,4 +77,26 @@ done
 ```shell
 attrib +s +a +h +r E:\hide
 attrib -s -a -h -r E:\hide
+```
+### win11当前壁纸路径
+```
+C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Themes\CachedFiles\
+```
+
+## Openwrt路由器
+### 查看openwrt已连接网络ip
+```
+cat /tmp/dhcp.leases
+```
+### openwrt关闭led灯
+
+保存为 `/etc/rc.d/S99turnoffled`
+
+```shell
+#!/bin/ash
+for i in `ls /sys/class/leds`
+do cd /sys/class/leds
+cd $i
+echo 0 > brightness
+done
 ```

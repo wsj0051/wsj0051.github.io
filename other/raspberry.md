@@ -31,6 +31,37 @@ sudo dd bs=4M if=2013-09-25-wheezy-raspbian.img of=/dev/sdb
 
 查看烧录进度`sudo pkill -USR1 -n -x dd`
 
+## 连接wifi
+```
+## To use this file, you should run command "systemctl disable network-manager" and reboot system. (Do not uncomment this line!) ##
+
+#country=CN
+#ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+#update_config=1
+
+
+## WIFI 1 (Do not uncomment this line!)
+
+network={
+    ssid="coolxiaomi"
+    psk="coolxiaomi"
+    priority=1
+    id_str="wifi-1"
+}
+
+
+## WIFI 2 (Do not uncomment this line!)
+
+network={
+    ssid="wsj0051"
+    psk="752838157w"
+    priority=2
+    id_str="wifi-2"
+}
+
+
+```
+
 ## 卸载软件
 
 卸载但不删除配置
@@ -105,34 +136,65 @@ dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 
 ## 安装owncloud
 
-教程开始：
+1. 打开树莓派终端，输入下面命令获得超级用户权限
 
-1、打开树莓派终端，输入下面命令获得超级用户权限
+    ```shell
+    sudo -i
+    ```
 
-```shell
-sudo -i
-```
+2. 在docker中安装私有云，在树莓派终端输入下面命令。（注意：为了避免出错，下面用到的所有命令以及要修改的内容也给大家提供了文档版本，可以在树莓派爱好者基地微信公众号发送【私有云安装】获得）
 
-2、在docker中安装私有云，在树莓派终端输入下面命令。（注意：为了避免出错，下面用到的所有命令以及要修改的内容也给大家提供了文档版本，可以在树莓派爱好者基地微信公众号发送【私有云安装】获得）
+    ```shell
+    docker run -d -p 8888:80  --name nextcloud  -v /data/nextcloud/:/var/www/html/ --restart=always   --privileged=true  arm64v8/nextcloud
+    ```
 
-```shell
-docker run -d -p 8888:80  --name nextcloud  -v /data/nextcloud/:/var/www/html/ --restart=always   --privileged=true  arm64v8/nextcloud
-```
+3. 修改配置文件
 
-3、修改配置文件
-
-```shell
-nano /data/nextcloud/config/config.sample.php
-```
+    ```shell
+    nano /data/nextcloud/config/config.sample.php
+    ```
 
 修改`trusted_domains`里的值
 
-```txt
-1 => preg_match('/cli/i',php_sapi_name())?'127.0.0.1':$_SERVER['SERVER_NAME']
-```
+    ```txt
+    1 => preg_match('/cli/i',php_sapi_name())?'127.0.0.1':$_SERVER['SERVER_NAME']
+    ```
 
-4、安装nextcloud客户端
+4. 安装nextcloud客户端
 
-```shell
-apt install nextcloud-desktop-l10n nextcloud-desktop -y
-```
+    ```shell
+    apt install nextcloud-desktop-l10n nextcloud-desktop -y
+    ```
+
+### mysql
+   + 安装
+        ```shell
+        sudo docker run --name mysql -p 3306:3306 -v /home/pi/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=pi -d mysql/mysql-server
+        ```
+        
+   + 赋予本地文件夹读写权限
+        ```
+        sudo chmod -R 777 /home/mysql
+        ```
+
+   + 进入mysql容器，并登陆mysql
+        ```
+        docker exec -it mysql bash
+        mysql -u root -p
+        ```
+
+   + 开启远程访问权限
+        ```
+        use mysql;
+        select host,user from user;
+        alter user 'root'@'%' identified with mysql_native_password by 'pi'; 
+        flush privileges;
+        ```
+    + 开机启动
+        ```
+        sudo docker update mysql --restart=always
+
+        ```
+
+
+
