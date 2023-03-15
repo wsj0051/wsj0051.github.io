@@ -84,10 +84,18 @@ C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Themes\CachedFiles\
 ```
 
 ## Openwrt路由器
+
 ### 查看openwrt已连接网络ip
+
+使用DHCP客户端查看mac地址、ip信息
 ```
 cat /tmp/dhcp.leases
 ```
+通过arp查看ip、mac地址、端口
+```
+cat /proc/net/arp
+```
+
 ### openwrt关闭led灯
 
 保存为 `/etc/rc.d/S99turnoffled`
@@ -99,4 +107,11 @@ do cd /sys/class/leds
 cd $i
 echo 0 > brightness
 done
+```
+
+### 夜神模拟器位置修改
+
+```
+adb shell setprop persist.nox.gps.latitude 40.079296
+adb shell setprop persist.nox.gps.longitude 116.44627
 ```

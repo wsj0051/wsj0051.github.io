@@ -306,23 +306,12 @@ docker build -t='jdk1.8' .
 
 ## 常用应用安装
 
-### mysql
-
-```shell
-# 指定版本
-docker pull mysql:5.7.33
-docker run -di --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7.33
-# 最新版
-docker pull mysql:latest
-docker run -itd --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
-```
-
 ### docker安装nextcloud
 
 ```shell
 # mysql
 docker run -d --name mysql \
-    -v /root/nextcloud/mysql:/var/lib/mysql \
+    -v /data/nextcloud/mysql:/var/lib/mysql \
     -e MYSQL_ROOT_PASSWORD=password \
     -e MYSQL_DATABASE=nextcloud \
     -e MYSQL_USER=nextcloud \
@@ -330,12 +319,13 @@ docker run -d --name mysql \
     -p 3307:3306 \
     --restart=always \
     mysql
-# nextcloud
+# 树莓派64位系统安装nextcloud
 docker run -d --name nextcloud \
-    -v /root/nextcloud/data:/var/www/html \
+    -v /data/nextcloud/data:/var/www/html \
     --link mysql:mysql \
     --restart=always \
-    -p 8888:80 nextcloud    
+    --privileged=true \
+    -p 8888:80 arm64v8/nextcloud    
 ```
 
 `-e` 代表添加环境变量 `MYSQL_ROOT_PASSWORD` 是root用户的登录密码

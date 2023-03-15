@@ -11,7 +11,11 @@ adb connect 127.0.0.1:58526
 ```shell
 adb install 目录/安装包.apk
 ```
+## 推送文件
 
+```
+adb push ./Download/2023-02-28-231021 /storage/emulated/0/tvbox_backup
+```
 ## 使用adb fastboot 线刷
 
 1. 安装adb fastboot工具
@@ -94,3 +98,29 @@ adb install 目录/安装包.apk
    * 关闭设备后，按住音量调高 + 电源键，直到进入 Recovery 模式，然后松开。
 
 [^1]: 该脚本删除所有数据，可以选择其他sh结尾的脚本，根据名字可以猜到大概意思
+
+## fastboot命令
+1. 列出fastboot设备
+   ```
+   fastboot devices
+   ```
+2. 重启相关
+   ```
+   fastboot reboot            #重启⼿机
+   fastboot reboot-bootloader    #重启到bootloader模式,其实就是再次进入fastboot
+   ```
+3. 擦除相关（erase）
+   ```
+   fastboot erase boot    #擦除boot分区(擦了引导就没了,会卡在第一屏,)
+   fastboot erase recovery   #擦除recovery分区
+   fastboot erase system    #擦除system分区(擦了系统就没了,会卡在第二屏)
+   fastboot erase userdata    #擦除userdata分区(可擦,清空数据用)
+   fastboot erase cache    #擦除cache分区(可擦,清空数据用)
+   ```
+4. 写⼊分区（flash）
+   ```
+   fastboot flash boot boot.img    #写⼊boot分区
+   fastboot flash init_boot ****.img #写入initboot 安卓13用来刷magisk修补后的文件获得root权限
+   fastboot flash recovery recovery.img    写⼊recovery分
+   fastboot flash system system.img    #写⼊system分区
+   ```
