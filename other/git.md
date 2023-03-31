@@ -54,3 +54,16 @@ IdentityFile ~/.ssh/id_rsa
 ```shell
 ssh -T git@github.com
 ```
+
+### SSH协议代理设置
+
+修改 `ssh` 配置文件 `~/.ssh/config`
+`Windows ssh` 配置文件路径：`C:\Users\你的用户名\.ssh\config`
+`Linux ssh` 配置文件路径：`/home/你的用户名/.ssh/config`
+```
+# 全局 -S 代表走socks代理。
+ProxyCommand connect -S 127.0.0.1:10808 %h %p
+# 只为特定域名设定
+Host github.com gitlab.com
+ProxyCommand connect -S 127.0.0.1:10808 %h %p
+```
