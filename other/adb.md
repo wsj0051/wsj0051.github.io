@@ -125,9 +125,10 @@ adb push ./Download/2023-02-28-231021 /storage/emulated/0/tvbox_backup
    fastboot flash system system.img    #写⼊system分区
    ```
 
-## win11 wsa安卓设置代理
+## win11 wsa安卓相关
 ```shell
 adb connect 127.0.0.1:58526
 adb shell settings get global http_proxy
 adb shell "settings put global http_proxy `ip route list match 0 table all scope global | cut -F3`:10809"
+adb shell settings put global http_proxy :0
 ```

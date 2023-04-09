@@ -109,9 +109,24 @@ echo 0 > brightness
 done
 ```
 
-### 夜神模拟器位置修改
+### windows cmd查看并设置代理
+1. 设置socks代理
+  ```
+  set ALL_PROXY socks5://127.0.0.1:10808
+  ```
 
-```
-adb shell setprop persist.nox.gps.latitude 40.079296
-adb shell setprop persist.nox.gps.longitude 116.44627
-```
+2. 配置http代理
+  ```
+  set http_proxy=http://127.0.0.1:10809
+  set https_proxy=http://127.0.0.1:10809
+  ```
+
+3. 查看代理
+   ```
+     netsh winhttp show proxy
+   ```
+
+4. 清除代理
+   ```
+     netsh winhttp reset proxy
+   ```
