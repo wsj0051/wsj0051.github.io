@@ -212,3 +212,68 @@ dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
     ```shell
     apt install nextcloud-desktop-l10n nextcloud-desktop -y
     ```
+
+
+## 基地64位系统
+
+1. 启用CecOS-CaaS容器云
+
+    ```
+    开机自动启动 CecOS CaaS容器云 服务
+    systemctl enable cecos-caas.service
+
+    启动 CecOS CaaS容器云 服务
+    systemctl start cecos-caas.service
+
+    ######
+
+    停止 CecOS CaaS容器云 服务
+    systemctl stop cecos-caas.service
+
+    禁止 CecOS CaaS容器云 服务开机启动
+    systemctl disable cecos-caas.service
+    ```
+
+2. 桌面版系统单声道改为立体声输出
+    编辑文件 /usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
+
+    在下面的内容每行最前面添加 ";" 符号，以注释掉以下内容：
+    ```
+    [Mapping analog-mono]
+    device-strings = hw:%f
+    channel-map = mono
+    paths-output = analog-output analog-output-lineout analog-output-speaker analog-output-headphones analog-output-headphones-2 analog-output-mono
+    paths-input = analog-input-front-mic analog-input-rear-mic analog-input-internal-mic analog-input-dock-mic analog-input analog-input-mic analog-input-linein analog-input-aux analog-input-video analog-input-tvtuner analog-input-fm analog-input-mic-line analog-input-headset-mic
+    priority = 7
+    ```
+    下面是注释后的内容：
+    ```
+    ;[Mapping analog-mono]
+    ;device-strings = hw:%f
+    ;channel-map = mono
+    ;paths-output = analog-output analog-output-lineout analog-output-speaker analog-output-headphones analog-output-headphones-2 analog-output-mono
+    ;paths-input = analog-input-front-mic analog-input-rear-mic analog-input-internal-mic analog-input-dock-mic analog-input analog-input-mic analog-input-linein analog-input-aux analog-input-video analog-input-tvtuner analog-input-fm analog-input-mic-line analog-input-headset-mic
+    ;priority = 7
+    ```
+    最后重启系统生效。
+
+### 启用和运行Docker服务
+默认没有启用 Docker服务，需要手动启动。
+
+开机自动启动Docker服务
+```
+systemctl enable docker.service
+```
+启动Docker服务
+```
+systemctl start docker.service
+```
+
+停止Docker服务
+```
+systemctl stop docker.service
+```
+禁止Docker服务开机启动
+```
+systemctl disable docker.service
+```

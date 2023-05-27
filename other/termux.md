@@ -48,12 +48,28 @@ Enter a number, leave blank to not to change: 14
 Enter a number, leave blank to not to change: 6
 ```
 
- 如果需要重新修改配色
 
-```shell
-~/termux-ohmyzsh/install.sh
+设置色彩样式：
+
+输入 `chcolor` 命令更换色彩样式，或者执行 `~/.termux/colors.sh` 命令
+
+设置字体
+
+运行 `chfont` 命令更换字体，或者执行 `~/.termux/fonts.sh` 命令
+
+## zsh插件autosuggestions
+
+根据用户的平时使用习惯，终端会自动提示接下来可能要输入的命令，这个实际使用效率还是比较高的：
+
+### 拷贝到 plugins 目录下
 ```
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+```
+在 `~/.zshrc` 中配置：
 
+```
+plugins=(插件名称 zsh-autosuggestions)
+```
 ## Termux快捷按键
 
 ```shell
@@ -66,6 +82,24 @@ echo "extra-keys = [ \
 " >> $HOME/.termux/termux.properties
 ```
 
+## ssh服务
+```
+pkg install openssh
+```
+安装完成后，sshd 服务默认没有启动，所以得手动启动下：
+```
+sshd
+```
+停止 ssh 服务
+```
+pkill sshd
+```
+因为手机上面低的端口有安全限制，所以这里 `openssh` 默认的 `sshd` 默认的服务端口号为 `8022`
+执行 `passwd` 命令可以直接修改密码
+连接方式：
+```
+ssh 192.168.31.145 -p 8022
+```
 ## 修改启动问候语
 
 ```shell
@@ -261,6 +295,21 @@ Termux 的 ssh 和常规 Linux 不太一样，连接的时候不需要指定用�
 
 ```shell
    . <(curl -L gitee.com/mo2/linux/raw/2/2)
+```
+
+## 备份与恢复
+
+进入目录
+```
+cd /data/data/com.termux/files
+```
+备份配置文件为 `termux-backup.tar.gz`：
+```
+tar -zcf /sdcard/termux-backup.tar.gz home usr
+```
+解压提取之前备份的内容，覆盖现存的文件并删除之前的备份文件：
+```
+tar -zxf /sdcard/termux-backup.tar.gz --recursive-unlink --preserve-permissions
 ```
 
 ## 参考链接
