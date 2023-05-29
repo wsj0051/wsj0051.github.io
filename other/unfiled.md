@@ -52,9 +52,29 @@ wifi3.key=********
 
 ## windows记录
 
-### windows保护历史记录删除
+### windows cmd查看并设置代理
 
-删除windows保护历史记录，路径：`C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory`，删除该目录下所有文件
+1. 设置socks代理
+    ```
+    set ALL_PROXY socks5://127.0.0.1:10808
+    ```
+
+2. 配置http代理
+    ```
+    set http_proxy=http://127.0.0.1:10809
+    set https_proxy=http://127.0.0.1:10809
+    ```
+
+3. 查看代理
+    ```
+      netsh winhttp show proxy
+    ```
+
+4. 清除代理
+    ```
+      netsh winhttp reset proxy
+    ```
+
 
 ### 上帝模式
 
@@ -69,20 +89,19 @@ wifi3.key=********
 1. 修改注册表：用运行-regedit编辑注册表，找到：`HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > Windows > CurrentVersion > SideBySide`新建`DWORD`，命名`PreferExternalManifest`，并双击设置值为`1`.
 2. 创建文件[mstsc.exe.manifest](./mstsc.exe.manifest)，并放到该路径下：`C:\Windows\System32`
 
-### hosts文件路径
-
-`C:\Windows\System32\drivers\etc`
 
 ### windows下隐藏文件
 ```shell
 attrib +s +a +h +r E:\hide
 attrib -s -a -h -r E:\hide
 ```
-### win11当前壁纸路径
-```
-C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Themes\CachedFiles\
-```
+### 路径
+1. win11当前壁纸路径`C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Themes\CachedFiles\`
 
+2. hosts文件路径`C:\Windows\System32\drivers\etc`
+
+3. windows保护历史记录删除`C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory`
+   
 ## Openwrt路由器
 
 ### 查看openwrt已连接网络ip
@@ -109,24 +128,43 @@ echo 0 > brightness
 done
 ```
 
-### windows cmd查看并设置代理
-1. 设置socks代理
-  ```
-  set ALL_PROXY socks5://127.0.0.1:10808
-  ```
 
-2. 配置http代理
-  ```
-  set http_proxy=http://127.0.0.1:10809
-  set https_proxy=http://127.0.0.1:10809
-  ```
+## git设置代理
 
-3. 查看代理
-   ```
-     netsh winhttp show proxy
-   ```
+### 设置全局代理
+```
+//http
+git config --global https.proxy http://127.0.0.1:1080
+//https
+git config --global https.proxy https://127.0.0.1:1080
+//使用socks5代理的 例如ss，ssr 1080是windows下ss的默认代理端口,mac下不同，或者有自定义的，根据自己的改
+git config --global http.proxy socks5://127.0.0.1:1080
+git config --global https.proxy socks5://127.0.0.1:1080
+//取消全局代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
 
-4. 清除代理
-   ```
-     netsh winhttp reset proxy
-   ```
+### 只对github.com使用代理，其他仓库不走代理
+```
+git config --global http.https://github.com.proxy socks5://127.0.0.1:10808
+git config --global https.https://github.com.proxy socks5://127.0.0.1:10808
+//取消github代理
+git config --global --unset http.https://github.com.proxy
+git config --global --unset https.https://github.com.proxy
+```
+
+### ssh协议代理
+```
+//对于使用git@协议的，可以配置socks5代理
+//在~/.ssh/config 文件后面添加几行，没有可以新建一个
+//socks5
+Host github.com
+User git
+ProxyCommand connect -S 127.0.0.1:10808 %h %p
+
+//http || https
+Host github.com
+User git
+ProxyCommand connect -H 127.0.0.1:1080 %h %p
+```
