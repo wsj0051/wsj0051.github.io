@@ -52,7 +52,7 @@ wifi3.key=********
 
 ## windows记录
 
-### windows cmd查看并设置代理
+### cmd查看并设置代理
 
 1. 设置socks代理
     ```
@@ -90,20 +90,25 @@ wifi3.key=********
 2. 创建文件[mstsc.exe.manifest](./mstsc.exe.manifest)，并放到该路径下：`C:\Windows\System32`
 
 
-### windows下隐藏文件
+### 隐藏文件
 ```shell
 attrib +s +a +h +r E:\hide
 attrib -s -a -h -r E:\hide
 ```
 ### 路径
+
 1. win11当前壁纸路径`C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Themes\CachedFiles\`
-
 2. hosts文件路径`C:\Windows\System32\drivers\etc`
-
 3. windows保护历史记录删除`C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory`
-   
+4. 开机启动`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup`
+
+
 ## Openwrt路由器
 
+### 查看openwrt设备的cpu架构
+```
+cat /etc/os-release |grep ARCH
+```
 ### 查看openwrt已连接网络ip
 
 使用DHCP客户端查看mac地址、ip信息
@@ -129,42 +134,3 @@ done
 ```
 
 
-## git设置代理
-
-### 设置全局代理
-```
-//http
-git config --global https.proxy http://127.0.0.1:1080
-//https
-git config --global https.proxy https://127.0.0.1:1080
-//使用socks5代理的 例如ss，ssr 1080是windows下ss的默认代理端口,mac下不同，或者有自定义的，根据自己的改
-git config --global http.proxy socks5://127.0.0.1:1080
-git config --global https.proxy socks5://127.0.0.1:1080
-//取消全局代理
-git config --global --unset http.proxy
-git config --global --unset https.proxy
-```
-
-### 只对github.com使用代理，其他仓库不走代理
-```
-git config --global http.https://github.com.proxy socks5://127.0.0.1:10808
-git config --global https.https://github.com.proxy socks5://127.0.0.1:10808
-//取消github代理
-git config --global --unset http.https://github.com.proxy
-git config --global --unset https.https://github.com.proxy
-```
-
-### ssh协议代理
-```
-//对于使用git@协议的，可以配置socks5代理
-//在~/.ssh/config 文件后面添加几行，没有可以新建一个
-//socks5
-Host github.com
-User git
-ProxyCommand connect -S 127.0.0.1:10808 %h %p
-
-//http || https
-Host github.com
-User git
-ProxyCommand connect -H 127.0.0.1:1080 %h %p
-```
