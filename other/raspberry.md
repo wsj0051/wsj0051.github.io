@@ -308,6 +308,7 @@ docker cp /home/pi/公共/yy.php php-env:/var/www/html/
 ### xteve
 ```
 docker run -d \
+  --restart unless-stopped \
   --name=xteve_guide2go \
   --net=host \
   --log-opt max-size=10m \
@@ -319,6 +320,7 @@ docker run -d \
   -v /tmp/xteve/:/tmp/xteve:rw \
   -v /home/pi/appdata/tvheadend/data/:/TVH \
   jjm2473/xteve_guide2go
+
  
 ```
 
