@@ -353,6 +353,23 @@ docker run -d \
     p3terx/ariang
 ```
 
+### 安装迅雷
+默认端口2345
+```
+docker run -d --name=xunlei --hostname=mynas --net=host -v /home/pi/appdata/xunlei:/xunlei/data -v /home/pi/downloads:/xunlei/downloads --restart=unless-stopped --privileged registry.cn-shenzhen.aliyuncs.com/cnk3x/xunlei:latest
+
+```
+### 安装alist
+默认端口5244
+```
+docker run -d --restart=always -v /home/pi/appdata/alist:/opt/alist/data -v /media/pi:/opt/alist/media/pi -v /home/pi/share:/opt/alist/share -p 5244:5244 -e PUID=0 -e PGID=0 -e UMASK=022 --name="alist" xhofe/alist:latest
+
+```
+安装后查看密码：
+```
+docker exec -it alist ./alist admin
+```
+
 ### mysql
 + 安装
      ```shell
@@ -425,3 +442,43 @@ docker run -d \
     ```shell
     apt install nextcloud-desktop-l10n nextcloud-desktop -y
     ```
+
+## 宝塔虚拟机
+### 启动宝塔虚拟机：
+```
+./bt_run
+```
+### 关闭宝塔虚拟机
+
+为了保证虚拟机的数据同步安全，请按照以下步骤操作：
+
+请ssh登录到虚拟机再执行命令 " init 0 " 关闭虚拟机
+
+关闭后，需要在宝塔虚拟机目录下执行 " ./bt_prog " 命令，检查虚拟机是否已关闭
+
+如果没有任何输出结果，代表虚拟机已正常关闭
+
+如果无法正常关闭虚拟机，请在宝塔虚拟机目录下执行 " ./bt_prog kill " 命令
+
+同样记得再次执行 " ./bt_prog " 命令，检查虚拟机是否已关闭
+自动启动
+
+### 启用开机自动启动
+```
+./install int
+```
+### 取消开机自动启动
+
+```
+./install uint
+```
+默认参数值:
+
+|  项目   | 内容  |
+|  ----  | ----  |
+| 默认管理端口  | 28888 |
+| 默认Web管理用户及密码  | openfans/openfans |
+| 宝塔虚拟机ssh端口 | 2222 |
+| 宝塔虚拟机root默认密码 | raspberry |
+
+
