@@ -42,7 +42,8 @@ sudo dd bs=4M if=2013-09-25-wheezy-raspbian.img of=/dev/sdb
 
 然后就是连接usb转串口,连接`PIN8->RX`(USB转TTL)，`PIN10->TX`(USB转TTL)，`PIN14-GND`
 
-![树莓派ttl端口](raspttl.png)
+![树莓派ttl端口](../../assets/images/
+raspttl.png)
 
 
 ### 连接wifi
@@ -67,8 +68,8 @@ network={
 ## WIFI 2 (Do not uncomment this line!)
 
 network={
-    ssid="wsj0051"
-    psk="752838157w"
+    ssid="OpenWrt"
+    psk="********"
     priority=2
     id_str="wifi-2"
 }
@@ -150,6 +151,45 @@ dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 
 
 ## 基地64位系统
+### 宝塔虚拟机
+#### 启动宝塔虚拟机：
+```
+./bt_run
+```
+#### 关闭宝塔虚拟机
+
+为了保证虚拟机的数据同步安全，请按照以下步骤操作：
+
+请ssh登录到虚拟机再执行命令 " init 0 " 关闭虚拟机
+
+关闭后，需要在宝塔虚拟机目录下执行 " ./bt_prog " 命令，检查虚拟机是否已关闭
+
+如果没有任何输出结果，代表虚拟机已正常关闭
+
+如果无法正常关闭虚拟机，请在宝塔虚拟机目录下执行 " ./bt_prog kill " 命令
+
+同样记得再次执行 " ./bt_prog " 命令，检查虚拟机是否已关闭
+自动启动
+
+#### 启用开机自动启动
+```
+./install int
+```
+#### 取消开机自动启动
+
+```
+./install uint
+```
+默认参数值:
+
+|  项目   | 内容  |
+|  ----  | ----  |
+| 默认管理端口  | 28888 |
+| 默认Web管理用户及密码  | openfans/openfans |
+| 宝塔虚拟机ssh端口 | 2222 |
+| 宝塔虚拟机root默认密码 | raspberry |
+
+
 ### 程序快捷目录位置
 ```
 /usr/share/applications
@@ -234,15 +274,16 @@ sudo apt-get install samba-common
 
 接下来修改 `Samba` 的配置文件，打开 `/etc/samba/smb.conf` ，在末尾添加以下内容：
 ```
-[wsj0051]
- comment = share for wsj0051
+[share]
+ comment = share for raspbian
  # 映射的路径
- path = /usr/local/src/wsj0051
+ path = /mnt/sda1/
  guest ok = no
  read only = no
- create mask = 0666
- directory mask = 0666
- valid users = pi
+ browsable = yes
+ create mask = 0777
+ directory mask = 0777
+ valid users = pi,root
 ```
 smb重启
 ```
@@ -362,7 +403,7 @@ docker run -d \
     -e PUID=$UID \
     -e PGID=$GID \
     -e UMASK_SET=022 \
-    -e RPC_SECRET=wsj0051 \
+    -e RPC_SECRET=XXXXXX \
     -e RPC_PORT=6800 \
     -e IPV6_MODE=true \
     -p 6800:6800 \
@@ -370,7 +411,7 @@ docker run -d \
     -p 6888:6888 \
     -p 6888:6888/udp \
     -v /usr/local/src/appdata/aria2/aria2-config:/config \
-    -v /home/pi/下载:/downloads \
+    -v /mnt/sda1/Public/Downloads:/downloads \
     p3terx/aria2-pro
 ```
 ### aria2 webUi控制台
@@ -435,7 +476,7 @@ docker run -d --name nextcloud \
 ### 安装迅雷
 默认端口2345
 ```
-docker run -d --name=xunlei --hostname=mynas --net=host -v /usr/local/src/appdata/xunlei:/xunlei/data -v /usr/local/src/downloads:/xunlei/downloads --restart=unless-stopped --privileged registry.cn-shenzhen.aliyuncs.com/cnk3x/xunlei:latest
+docker run -d --name=xunlei --hostname=mynas --net=host -v /usr/local/src/appdata/xunlei:/xunlei/data -v /mnt/sda1/Public/Downloads:/xunlei/downloads --restart=unless-stopped --privileged registry.cn-shenzhen.aliyuncs.com/cnk3x/xunlei:latest
 
 ```
 ### 安装alist
@@ -542,13 +583,11 @@ docker run \
 --restart always \
 --name emby \
 -d lovechen/embyserver:latest
-
-
 ```
-`-p '1900:1900/udp' \`与xteve冲突
-### photoprism
+`-p '1900:1900/udp' \`与xteve端口1900冲突，不设置
+### photoprism私人相册
 ```
-docker run -d --name photoprism -e PHOTOPRISM_ADMIN_PASSWORD=752838157w -p 2342:2342 -v /usr/local/src/appdata/photoprism:/photoprism/storage -v /mnt/sda1/media/Photos:/photoprism/originals --restart unless-stopped photoprism/photoprism
+docker run -d --name photoprism -e PHOTOPRISM_ADMIN_PASSWORD=******* -p 2342:2342 -v /usr/local/src/appdata/photoprism:/photoprism/storage -v /mnt/sda1/media/Photos:/photoprism/originals --restart unless-stopped photoprism/photoprism
 ```
 
 ### jackett
@@ -584,20 +623,21 @@ docker run -d \
 
 ### jellyfin
 ```
-  docker run -d --name=jellyfin -p 8096:8096 \
+docker run -d --name=jellyfin -p 8096:8096 \
 	-p 8920:8920 -p 7359:7359/udp \
 	-v /usr/local/src/appdata/jellyfin/config:/config \
-    -v /mnt/sda1/media:/media \
-    -v /usr/local/src/appdata/jellyfin/cache:/cache  \
+	-v /mnt/sda1/media:/media \
+	-v /usr/local/src/appdata/jellyfin/cache:/cache  \
 	-e TZ=Asia/Shanghai -e PUID=0 -e PGID=0 \
 	--device=/dev/dri:/dev/dri \
 	--restart unless-stopped \
-	jellyfin/jellyfin:latest
+jellyfin/jellyfin:latest
 ```
 
 可选配置
 ```
---add-host=api.themoviedb.org:13.224.161.90 \	#为容器增加 host 指向，加速海报与影视元数据的搜刮
+#为容器增加 host 指向，加速海报与影视元数据的搜刮
+--add-host=api.themoviedb.org:13.224.161.90 \	
 --add-host=api.themoviedb.org:13.35.8.65 \
 --add-host=api.themoviedb.org:13.35.8.93 \
 --add-host=api.themoviedb.org:13.35.8.6 \
@@ -609,7 +649,7 @@ docker run -d \
 #如果使用 linuxserver/jellyfin 镜像，就把最后一行替换为下行
 lscr.io/linuxserver/jellyfin:latest
 #如果使用 nyanmisaka/jellyfin  镜像，最把最后一行替换为下行
-nyanmisaka/jellyfin:latest
+nyanmisaka/jellyfin:latest #arm不支持
 ```
 
 
@@ -690,42 +730,6 @@ crontab -e
 ```
 
 
-## 宝塔虚拟机
-### 启动宝塔虚拟机：
-```
-./bt_run
-```
-### 关闭宝塔虚拟机
 
-为了保证虚拟机的数据同步安全，请按照以下步骤操作：
-
-请ssh登录到虚拟机再执行命令 " init 0 " 关闭虚拟机
-
-关闭后，需要在宝塔虚拟机目录下执行 " ./bt_prog " 命令，检查虚拟机是否已关闭
-
-如果没有任何输出结果，代表虚拟机已正常关闭
-
-如果无法正常关闭虚拟机，请在宝塔虚拟机目录下执行 " ./bt_prog kill " 命令
-
-同样记得再次执行 " ./bt_prog " 命令，检查虚拟机是否已关闭
-自动启动
-
-### 启用开机自动启动
-```
-./install int
-```
-### 取消开机自动启动
-
-```
-./install uint
-```
-默认参数值:
-
-|  项目   | 内容  |
-|  ----  | ----  |
-| 默认管理端口  | 28888 |
-| 默认Web管理用户及密码  | openfans/openfans |
-| 宝塔虚拟机ssh端口 | 2222 |
-| 宝塔虚拟机root默认密码 | raspberry |
 
 
