@@ -297,8 +297,7 @@ sudo mount /dev/sda1 /usr/local/src/share
 设置硬盘的开机挂载
 ```
 sudo vi /etc/fstab 
-/dev/sda1 /usr/local/src/share ext4 defaults 0 0
-
+dev/sda1 /mnt/sda1 ext4 defaults,nofail 0 0
 ```
 
 ### mysql安装
@@ -444,11 +443,13 @@ docker run -d --name mariadb \
     --restart unless-stopped \	
     mariadb:10.5.12
 ```
-说明：
++ 说明：
+	+ MYSQL_ROOT_PASSWORD=123456 设置数据库root账户密码，设置为123456，按需修改。
 
-MYSQL_ROOT_PASSWORD=123456 设置数据库root账户密码，设置为123456，按需修改。
+	+ 3344:3306 将mariadb数据库的3306端口映射为3344，按需修改
 
-3344:3306 将mariadb数据库的3306端口映射为3344，按需修改。
+	+ 连接命令同mysql`mysql -u root -p`
+
 
 2. 再安装Nextcloud：Docker拉取nextcloud镜像并创建容器，进入终端，输入下面的命令并回车运行(先别直接复制输入，下方有说明);
 ```
