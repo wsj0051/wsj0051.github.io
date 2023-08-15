@@ -32,6 +32,19 @@ sudo dd bs=4M if=2013-09-25-wheezy-raspbian.img of=/dev/sdb
 
 查看烧录进度`sudo pkill -USR1 -n -x dd`
 
+### ttl连接
+
+准备一个USB转TTL
+
+修改Sd卡中`/boot/config.txt`
+
+在最后一行添加`enable_uart=1`
+
+然后就是连接usb转串口,连接`PIN8->RX`(USB转TTL)，`PIN10->TX`(USB转TTL)，`PIN14-GND`
+
+![树莓派ttl端口](raspttl.png)
+
+
 ### 连接wifi
 ```
 ## To use this file, you should run command "systemctl disable network-manager" and reboot system. (Do not uncomment this line!) ##
@@ -219,13 +232,17 @@ sudo apt-get install samba-common
 ```
 ### smb共享
 
-接下来修改 Samba 的配置文件，打开/etc/samba/smb.conf，在末尾添加以下内容：
+接下来修改 `Samba` 的配置文件，打开 `/etc/samba/smb.conf` ，在末尾添加以下内容：
 ```
-[share] # 共享名称
-comment = my share disk # 描述信息
-path = /home/pi/share # 共享的目录
-browserable = yes # 访问权限
-writable = yes # 写入权限
+[wsj0051]
+ comment = share for wsj0051
+ # 映射的路径
+ path = /usr/local/src/wsj0051
+ guest ok = no
+ read only = no
+ create mask = 0666
+ directory mask = 0666
+ valid users = pi
 ```
 smb重启
 ```
@@ -234,12 +251,12 @@ sudo service smbd restart
 挂载硬盘
 ```
 sudo df -h
-sudo mount /dev/sda1 /home/pi/share
+sudo mount /dev/sda1 /usr/local/src/share
 ```
 设置硬盘的开机挂载
 ```
 sudo vi /etc/fstab 
-/dev/sda1 /home/pi/share ext4 defaults 0 0
+/dev/sda1 /usr/local/src/share ext4 defaults 0 0
 
 ```
 
@@ -292,17 +309,29 @@ systemctl disable docker.service
 ```shell
 sudo -i
 ```
+### 安装Portainer-CE中文版
+Portainer-CE是docker的图形化管理面板，提供一个后台页面方便操作docker。
+
+终端输入命令，一键安装Portainer-CE中文版；
+```
+docker run -d --restart=always --name="portainer" -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data 6053537/portainer-ce:linux-arm64
+```
 
 ### 安装Alist
 ```
 curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install
 ```
 
-### php
+### php docker环境
 ```
 docker run -d --restart unless-stopped --privileged=true -p 5678:80 --name php-env youshandefeiyang/php-env:arm64
-docker cp /home/pi/公共/yy.php php-env:/var/www/html/
+docker cp /usr/local/src/公共/yy.php php-env:/var/www/html/
 
+```
+
+### ubuntu 
+```
+docker run --restart=unless-stopped -d     --dns=172.17.0.1     -u=0:0     --shm-size=512m     -p 6901:6901     -e VNC_PW=password     -e VNC_USE_HTTP=0  -e TZ=Asia/Shanghai -v /mnt:/mnt:rslave --name ubuntu "linkease/desktop-ubuntu-standard-arm64:latest"
 ```
 
 ### xteve
@@ -314,11 +343,11 @@ docker run -d \
   --log-opt max-size=10m \
   --log-opt max-file=3 \
   -e TZ="Asia/Shanghai" \
-  -v /home/pi/appdata/xteve/:/root/.xteve:rw \
-  -v /home/pi/appdata/xteve/_config/:/config:rw \
-  -v /home/pi/appdata/xteve/_guide2go/:/guide2go:rw \
+  -v /usr/local/src/appdata/xteve/:/root/.xteve:rw \
+  -v /usr/local/src/appdata/xteve/_config/:/config:rw \
+  -v /usr/local/src/appdata/xteve/_guide2go/:/guide2go:rw \
   -v /tmp/xteve/:/tmp/xteve:rw \
-  -v /home/pi/appdata/tvheadend/data/:/TVH \
+  -v /usr/local/src/appdata/tvheadend/data/:/TVH \
   jjm2473/xteve_guide2go
 
  
@@ -335,34 +364,85 @@ docker run -d \
     -e UMASK_SET=022 \
     -e RPC_SECRET=wsj0051 \
     -e RPC_PORT=6800 \
+    -e IPV6_MODE=true \
     -p 6800:6800 \
     -e LISTEN_PORT=6888 \
     -p 6888:6888 \
     -p 6888:6888/udp \
-    -v $PWD/appdata/aria2/aria2-config:/config \
-    -v $PWD/downloads:/downloads \
+    -v /usr/local/src/appdata/aria2/aria2-config:/config \
+    -v /home/pi/下载:/downloads \
     p3terx/aria2-pro
 ```
 ### aria2 webUi控制台
+[参考教程](https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html)
 ```
+# bridge 网络模式
+docker run -d \
+    --name ariang \
+    --restart unless-stopped \
+    --log-opt max-size=1m \
+    -p 6880:6880 \
+    p3terx/ariang
+
+# host 网络模式（如果你需要使用 IPv6 网络访问，这是最简单的方式）
 docker run -d \
     --name ariang \
     --log-opt max-size=1m \
     --restart unless-stopped \
-    -p 6880:6880 \
-    p3terx/ariang
+    --network host \
+    p3terx/ariang --port 6880 --ipv6
 ```
+
+### 安装nextcloud
+1. 先安装数据库mariadb：Docker拉取mariadb镜像并创建容器，进入终端，输入下面的命令并回车运行(先别直接复制输入，下方有说明);
+```
+docker run -d --name mariadb \
+    -p 3306:3306 \
+    -e MYSQL_ROOT_PASSWORD=752838157w \
+    -v /usr/local/src/appdata/mariadb:/var/lib/mysql \
+    --restart unless-stopped \	
+    mariadb:10.5.12
+```
+说明：
+
+MYSQL_ROOT_PASSWORD=123456 设置数据库root账户密码，设置为123456，按需修改。
+
+3344:3306 将mariadb数据库的3306端口映射为3344，按需修改。
+
+2. 再安装Nextcloud：Docker拉取nextcloud镜像并创建容器，进入终端，输入下面的命令并回车运行(先别直接复制输入，下方有说明);
+```
+docker run -d --name nextcloud \
+  -p 3333:80 \
+  -v /mnt/mmc0-4/nextcloud/html:/var/www/html \
+  -v /mnt/mmc0-4/nextcloud/data:/var/www/html/data \
+  -v /mnt/mmc0-4/nextcloud/apps:/var/www/html/custom_apps \
+  -v /mnt/mmc0-4/nextcloud/config:/var/www/html/config \
+  --restart unless-stopped \
+  nextcloud
+```
+说明：
+
+/root/nextcloud/html Nextcloud主文件夹的映射目录，按需修改。
+
+/root/nextcloud/data 实际数据的映射目录，按需修改。
+
+/root/nextcloud/apps 安装/修改的应用程序的映射目录，按需修改。
+
+/root/nextcloud/config 本地配置文件的映射目录，按需修改。
+
+3333:80 将nextcloud的访问端口映射为3333，按需修改。
 
 ### 安装迅雷
 默认端口2345
 ```
-docker run -d --name=xunlei --hostname=mynas --net=host -v /home/pi/appdata/xunlei:/xunlei/data -v /home/pi/downloads:/xunlei/downloads --restart=unless-stopped --privileged registry.cn-shenzhen.aliyuncs.com/cnk3x/xunlei:latest
+docker run -d --name=xunlei --hostname=mynas --net=host -v /usr/local/src/appdata/xunlei:/xunlei/data -v /usr/local/src/downloads:/xunlei/downloads --restart=unless-stopped --privileged registry.cn-shenzhen.aliyuncs.com/cnk3x/xunlei:latest
 
 ```
 ### 安装alist
 默认端口5244
 ```
-docker run -d --restart=always -v /home/pi/appdata/alist:/opt/alist/data -v /media/pi:/opt/alist/media/pi -v /home/pi/share:/opt/alist/share -p 5244:5244 -e PUID=0 -e PGID=0 -e UMASK=022 --name="alist" xhofe/alist:latest
+docker run -d --restart=always -v /usr/local/src/appdata/alist:/opt/alist/data -v /media/pi:/opt/alist/mnt  -p 5244:5244 -e PUID=0 -e PGID=0 -e UMASK=022 --name="alist" xhofe/alist:latest
+
 
 ```
 安装后查看密码：
@@ -374,7 +454,7 @@ docker exec -it alist ./alist admin
 + 安装
      ```shell
      sudo    docker run --name mysql \
-     -v /home/pi/mysql:/var/lib/mysql \
+     -v /usr/local/src/mysql:/var/lib/mysql \
      -e MYSQL_ROOT_PASSWORD=pi \
      -e MYSQL_DATABASE=nextcloud \
      -e MYSQL_USER=nextcloud \
@@ -442,6 +522,173 @@ docker exec -it alist ./alist admin
     ```shell
     apt install nextcloud-desktop-l10n nextcloud-desktop -y
     ```
+
+
+
+### emby
+```
+docker run \
+--network=bridge \
+-p '8097:8097' \
+-p '8920:8920' \
+-p '7359:7359/udp' \
+-v /usr/local/src/appdata/emby:/config \
+-v /mnt/sda1/media/:/data \
+-e TZ="Asia/Shanghai" \
+--device /dev/dri:/dev/dri \
+-e UID=0 \
+-e GID=0 \
+-e GIDLIST=0 \
+--restart always \
+--name emby \
+-d lovechen/embyserver:latest
+
+
+```
+`-p '1900:1900/udp' \`与xteve冲突
+### photoprism
+```
+docker run -d --name photoprism -e PHOTOPRISM_ADMIN_PASSWORD=752838157w -p 2342:2342 -v /usr/local/src/appdata/photoprism:/photoprism/storage -v /mnt/sda1/media/Photos:/photoprism/originals --restart unless-stopped photoprism/photoprism
+```
+
+### jackett
+```
+docker run -d \
+  --name=jackett \
+  -e PUID=0 \
+  -e PGID=0 \
+  -e TZ=Asia/Shanghai \
+  -e AUTO_UPDATE=true `#optional` \
+  -p 9117:9117 \
+  -v /usr/local/src/appdata/jacket:/config \
+  --restart unless-stopped \
+  linuxserver/jackett:latest
+```
+
+### qbittorrent
+```
+docker run -d \
+  --name=qbittorrent \
+  -e PUID=$UID \
+  -e PGID=$GID \
+  -e TZ=Asia/Shanghai \
+  -e WEBUI_PORT=8081 \
+  -p 6881:6881 \
+  -p 6881:6881/udp \
+  -p 8081:8081 \
+  -v /usr/local/src/appdata/qbittorrent/config:/etc/qBittorrent \
+  -v /mnt/sda1/Public/Downloads:/downloads \
+  --restart unless-stopped \
+  linuxserver/qbittorrent:latest
+```
+
+### jellyfin
+```
+  docker run -d --name=jellyfin -p 8096:8096 \
+	-p 8920:8920 -p 7359:7359/udp \
+	-v /usr/local/src/appdata/jellyfin/config:/config \
+    -v /mnt/sda1/media:/media \
+    -v /usr/local/src/appdata/jellyfin/cache:/cache  \
+	-e TZ=Asia/Shanghai -e PUID=0 -e PGID=0 \
+	--device=/dev/dri:/dev/dri \
+	--restart unless-stopped \
+	jellyfin/jellyfin:latest
+```
+
+可选配置
+```
+--add-host=api.themoviedb.org:13.224.161.90 \	#为容器增加 host 指向，加速海报与影视元数据的搜刮
+--add-host=api.themoviedb.org:13.35.8.65 \
+--add-host=api.themoviedb.org:13.35.8.93 \
+--add-host=api.themoviedb.org:13.35.8.6 \
+--add-host=api.themoviedb.org:13.35.8.54 \
+--add-host=image.tmdb.org:138.199.37.230 \
+--add-host=image.tmdb.org:108.138.246.49 \
+--add-host=api.thetvdb.org:13.225.89.239 \
+--add-host=api.thetvdb.org:192.241.234.54 
+#如果使用 linuxserver/jellyfin 镜像，就把最后一行替换为下行
+lscr.io/linuxserver/jellyfin:latest
+#如果使用 nyanmisaka/jellyfin  镜像，最把最后一行替换为下行
+nyanmisaka/jellyfin:latest
+```
+
+
+## jellyfin直接安装
+
+如果尚未安装APT的HTTPS传输，请执行以下操作：
+```
+sudo apt install apt-transport-https
+```
+
+导入GPG签名密钥（由Jellyfin团队签名）：
+```
+wget -O - https://repo.jellyfin.org/debian/jellyfin_team.gpg.key | sudo apt-key add -
+```
+
+在以下位置添加存储库配置`/etc/apt/sources.list.d/jellyfin.list`：
+
+```
+echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/debian $( lsb_release -c -s ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
+```
+
+也可以直接编辑 /etc/apt/sources.list.d/jellyfin.list
+```
+deb [arch=armhf] https://repo.jellyfin.org/debian buster main
+```
+
+
+注意：
+
+debian 支持的版本是stretch和buster。具体要根据你树莓派上的版本来设置（通过命令 lsb_release -c -s 查看）。
+
+更新APT存储库：
+```
+sudo apt update
+```
+
+安装Jellyfin：
+```
+sudo apt install jellyfin
+```
+
+使用您选择的工具管理Jellyfin系统服务：
+```
+sudo service jellyfin status
+sudo /etc/init.d/jellyfin stop
+sudo systemctl restart jellyfin
+```
+## ipv6 cloudflare ddns
+[参考链接](https://zhuanlan.zhihu.com/p/69379645)
+```
+curl -s -X GET "https://api.cloudflare.com/client/v4/zones/<刚才获取的 Zone ID>/dns_records?type=AAAA&name=<DDNS 域名>&content=127.0.0.1&page=1&per_page=100&order=type&direction=desc&match=any" \
+    -H "X-Auth-Email: <Cloudflare 账号的邮箱地址>" \
+    -H "X-Auth-Key: <刚才获取的 API Key>" \
+    -H "Content-Type: application/json" \
+    | python -m json.tool
+```
+
+```
+#!/bin/bash
+
+IP6=$(ip -6 addr show dev eth0 | grep global | awk '{print $2}' | awk -F "/" '{print $1}' | awk 'length < shortest || shortest == 0 {shortest = length; shortest_line = $0} END {print shortest_line}')
+echo $IP6
+API_KEY=""
+ZONE_ID=""
+RECORD_ID=""
+RECORD_NAME=""
+EMAIL=""
+curl -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$RECORD_ID" \
+     -H "X-Auth-Key: $API_KEY" \
+     -H "X-Auth-Email: $EMAIL" \
+     -H "Content-Type: application/json" \
+     --data "{\"type\":\"AAAA\",\"name\":\"$RECORD_NAME\",\"content\":\"$IP6\",\"ttl\":120,\"proxied\":false}"
+```
+定时执行
+```
+crontab -e
+* * * * * /etc/ipv6-ddns.sh > /dev/null 2>&1
+```
+
 
 ## 宝塔虚拟机
 ### 启动宝塔虚拟机：

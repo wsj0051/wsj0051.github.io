@@ -1,6 +1,6 @@
 # 光猫路由器
 
-## 光猫桥接
+## 光猫桥接ipv6开启
 
 设置光猫为桥接模式，打开`IPV4/IPV6`
 ### 移动光猫超级管理员
@@ -20,9 +20,32 @@
    + https://ipv6-test.com/
    + https://test-ipv6.com/index.html.zh_CN
 
+## 非桥接ipv6开启
+```
+config dhcp 'lan'
+        option interface 'lan'
+        option start '100'
+        option limit '150'
+        option leasetime '12h'
+        option dhcpv4 'server'
+        option ra_slaac '1'
+        list ra_flags 'managed-config'
+        list ra_flags 'other-config'
+        option ra 'relay'
+        option dhcpv6 'relay'
+        option ndp 'relay'
+        list dns '2001:4860:4860::8888'
+        list dns '2001:4860:4860::8844'
 
+config dhcp 'wan'
+        option interface 'wan'
+        option ignore '1'
+        option master '1'
+        option ra 'relay'
+        option dhcpv6 'relay'
+        option ndp 'relay'
+```
 ## 动态DNS
-
 ### 阿里云
 + 登陆阿里云——搜索：云解析DNS——选择对应的域名——添加记录——记录类型选择AAAA——记录值填上对应的IPV6地址
 + 创建一个`AccessKey`：点击`AccessKey管理`——点击`创建AccessKey`
@@ -55,3 +78,33 @@
    9.	保存&设置
 
 + 路由器管理界面设置IPV6端口转发，使用`网络`-`Socat`
+
+## Openwrt路由器
+
+### 查看openwrt设备的cpu架构
+```
+cat /etc/os-release |grep ARCH
+```
+### 查看openwrt已连接网络ip
+
+使用DHCP客户端查看mac地址、ip信息
+```
+cat /tmp/dhcp.leases
+```
+通过arp查看ip、mac地址、端口
+```
+cat /proc/net/arp
+```
+
+### openwrt关闭led灯
+
+保存为 `/etc/rc.d/S99turnoffled`
+
+```shell
+#!/bin/ash
+for i in `ls /sys/class/leds`
+do cd /sys/class/leds
+cd $i
+echo 0 > brightness
+done
+```

@@ -50,34 +50,6 @@ wifi3.key=********
       - 按遥控器的音量减键不放，然后通电。
 
 
-## Openwrt路由器
 
-### 查看openwrt设备的cpu架构
-```
-cat /etc/os-release |grep ARCH
-```
-### 查看openwrt已连接网络ip
-
-使用DHCP客户端查看mac地址、ip信息
-```
-cat /tmp/dhcp.leases
-```
-通过arp查看ip、mac地址、端口
-```
-cat /proc/net/arp
-```
-
-### openwrt关闭led灯
-
-保存为 `/etc/rc.d/S99turnoffled`
-
-```shell
-#!/bin/ash
-for i in `ls /sys/class/leds`
-do cd /sys/class/leds
-cd $i
-echo 0 > brightness
-done
-```
 
 
