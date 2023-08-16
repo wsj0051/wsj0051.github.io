@@ -573,14 +573,16 @@ docker exec -it alist ./alist admin
     ```
 
 
+### photoprism私人相册
+```
+docker run -d --name photoprism -e PHOTOPRISM_ADMIN_PASSWORD=******* -p 2342:2342 -v /usr/local/src/appdata/photoprism:/photoprism/storage -v /mnt/sda1/media/Photos:/photoprism/originals --restart unless-stopped photoprism/photoprism
+```
 
 ### emby
 ```
 docker run \
 --network=bridge \
--p '8097:8097' \
--p '8920:8920' \
--p '7359:7359/udp' \
+-p '8097:8096' \
 -v /usr/local/src/appdata/emby:/config \
 -v /mnt/sda1/media/:/data \
 -e TZ="Asia/Shanghai" \
@@ -592,11 +594,9 @@ docker run \
 --name emby \
 -d lovechen/embyserver:latest
 ```
-`-p '1900:1900/udp' \`与xteve端口1900冲突，不设置
-### photoprism私人相册
-```
-docker run -d --name photoprism -e PHOTOPRISM_ADMIN_PASSWORD=******* -p 2342:2342 -v /usr/local/src/appdata/photoprism:/photoprism/storage -v /mnt/sda1/media/Photos:/photoprism/originals --restart unless-stopped photoprism/photoprism
-```
+`1900`与xteve端口1900冲突
+`8920`,`7359`与jellyfin冲突
+
 
 ### jackett
 ```
@@ -694,7 +694,7 @@ debian 支持的版本是stretch和buster。具体要根据你树莓派上的版
 sudo apt update
 ```
 
-安装Jellyfin：
+安装Jellyfin
 ```
 sudo apt install jellyfin
 ```
