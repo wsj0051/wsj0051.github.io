@@ -21,4 +21,4 @@
 * [树莓派](other/raspberry.md)
 * [Termux](other/termux.md)
 * [未分类](other/unfiled.md)
-* [光猫路由器](other/catroute.md)
+* [光猫路由器](other/openwrt.md)

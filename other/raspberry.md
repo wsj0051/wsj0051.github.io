@@ -151,6 +151,8 @@ dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 
 
 ## 基地64位系统
+[基地64位系统](https://gitee.com/openfans-community/Debian-Pi-Aarch64?_from=gitee_search)
+
 ### 宝塔虚拟机
 #### 启动宝塔虚拟机：
 ```
