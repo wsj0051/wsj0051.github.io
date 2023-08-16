@@ -357,11 +357,16 @@ Portainer-CE是docker的图形化管理面板，提供一个后台页面方便�
 docker run -d --restart=always --name="portainer" -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data 6053537/portainer-ce:linux-arm64
 ```
 
-### 安装Alist
-```
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install
-```
 
+### code-server
+```
+docker run -it --name code-server -p 8090:8080 \
+  -v /usr/local/src/appdata/code-server/config:/home/coder/.config \
+  -v /home/pi:/home/coder/project \
+  -u "$(id -u):$(id -g)" \
+  -e "DOCKER_USER=$USER" \
+  codercom/code-server:latest
+```
 ### php docker环境
 ```
 docker run -d --restart unless-stopped --privileged=true -p 5678:80 --name php-env youshandefeiyang/php-env:arm64
@@ -698,6 +703,12 @@ sudo service jellyfin status
 sudo /etc/init.d/jellyfin stop
 sudo systemctl restart jellyfin
 ```
+
+## 安装Alist
+```
+curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install
+```
+
 ## ipv6 cloudflare ddns
 [参考链接](https://zhuanlan.zhihu.com/p/69379645)
 ```
