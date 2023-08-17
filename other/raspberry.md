@@ -366,7 +366,6 @@ docker run -d --restart always --name code-server -p 8090:8080 \
   -v /usr/local/src/appdata/code-server/config:/home/coder/.config \
   -v /home/pi/wsj0051:/home/coder/project \
   -u "$(id -u):$(id -g)" \
-  -v /home/root/.ssh:/home/root/.ssh \
   -e "DOCKER_USER=$USER" \
   -e PASSWORD=******** \
 codercom/code-server:latest
