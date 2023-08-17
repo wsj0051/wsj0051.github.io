@@ -362,12 +362,14 @@ docker run -d --restart=always --name="portainer" -p 9000:9000 -v /var/run/docke
 
 ### code-server
 ```
-docker run -it --name code-server -p 8090:8080 \
+docker run -d --restart always --name code-server -p 8080:8080 \
   -v /usr/local/src/appdata/code-server/config:/home/coder/.config \
-  -v /home/pi:/home/coder/project \
+  -v /home/pi/wsj0051:/home/coder/project \
   -u "$(id -u):$(id -g)" \
+  -v /home/root/.ssh:/home/root/.ssh \
   -e "DOCKER_USER=$USER" \
-  codercom/code-server:latest
+  -e PASSWORD=******** \
+codercom/code-server:latest
 ```
 ### php docker环境
 ```
@@ -484,15 +486,26 @@ docker run -d --name nextcloud \
 ### 安装迅雷
 默认端口2345
 ```
-docker run -d --name=xunlei --hostname=mynas --net=host -v /usr/local/src/appdata/xunlei:/xunlei/data -v /mnt/sda1/Public/Downloads:/xunlei/downloads --restart=unless-stopped --privileged registry.cn-shenzhen.aliyuncs.com/cnk3x/xunlei:latest
+docker run -d --name=xunlei --hostname=mynas --net=host \
+-v /usr/local/src/appdata/xunlei:/xunlei/data \
+-v /mnt/sda1/media/Movies:/xunlei/nas \
+-v /mnt/Public/Downloads:/xunlei/downloads \
+--restart=unless-stopped \
+--privileged \
+registry.cn-shenzhen.aliyuncs.com/cnk3x/xunlei:latest
 
 ```
 ### 安装alist
 默认端口5244
 ```
-docker run -d --restart=always -v /usr/local/src/appdata/alist:/opt/alist/data -v /media/pi:/opt/alist/mnt  -p 5244:5244 -e PUID=0 -e PGID=0 -e UMASK=022 --name="alist" xhofe/alist:latest
-
-
+docker run -d --restart=always \
+-v /usr/local/src/appdata/alist:/opt/alist/data \
+ -v /mnt/sda1:/opt/alist/mnt \ 
+ -p 5244:5244 \
+ -e PUID=0 -e PGID=0 \
+ -e UMASK=022 \
+  --name="alist" \
+  xhofe/alist:latest
 ```
 安装后查看密码：
 ```
@@ -575,7 +588,13 @@ docker exec -it alist ./alist admin
 
 ### photoprism私人相册
 ```
-docker run -d --name photoprism -e PHOTOPRISM_ADMIN_PASSWORD=******* -p 2342:2342 -v /usr/local/src/appdata/photoprism:/photoprism/storage -v /mnt/sda1/media/Photos:/photoprism/originals --restart unless-stopped photoprism/photoprism
+docker run -d --name photoprism \
+ -e PHOTOPRISM_ADMIN_PASSWORD=******* \
+ -p 2342:2342 \
+ -v /usr/local/src/appdata/photoprism:/photoprism/storage \
+ -v /mnt/sda1/media/Photos:/photoprism/originals \
+ --restart unless-stopped \
+photoprism/photoprism
 ```
 
 ### emby
@@ -594,8 +613,8 @@ docker run \
 --name emby \
 -d lovechen/embyserver:latest
 ```
-`1900`与xteve端口1900冲突
-`8920`,`7359`与jellyfin冲突
++ `1900`与xteve端口冲突
++ `8920`,`7359`与jellyfin冲突
 
 
 ### jackett
@@ -639,30 +658,54 @@ docker run -d --name=jellyfin -p 8096:8096 \
 	-e TZ=Asia/Shanghai -e PUID=0 -e PGID=0 \
 	--device=/dev/dri:/dev/dri \
 	--restart unless-stopped \
+    --add-host=api.themoviedb.org:13.224.161.90 \	
+    --add-host=api.themoviedb.org:13.35.8.65 \
+    --add-host=api.themoviedb.org:13.35.8.93 \
+    --add-host=api.themoviedb.org:13.35.8.6 \
+    --add-host=api.themoviedb.org:13.35.8.54 \
+    --add-host=image.tmdb.org:138.199.37.230 \
+    --add-host=image.tmdb.org:108.138.246.49 \
+    --add-host=api.thetvdb.org:13.225.89.239 \
+    --add-host=api.thetvdb.org:192.241.234.54 \
 jellyfin/jellyfin:latest
 ```
+说明：
++ `--add-host`为容器增加 host 指向，加速海报与影视元数据的搜刮
+    也可以在容器控制台输入：
+    ```
+    echo 13.224.161.90 api.themoviedb.org >> /etc/hosts
+    echo 104.16.61.155 image.themoviedb.org >> /etc/hosts
+    echo 13.35.67.86 api.themoviedb.org >> /etc/hosts
+    echo 54.192.151.79 www.themoviedb.org >> /etc/hosts
+    echo 13.225.89.239 api.thetvdb.com >> /etc/hosts
+    echo 13.249.175.212 api.thetvdb.com >> /etc/hosts
+    echo 13.35.161.120 api.thetvdb.com >> /etc/hosts
+    echo 13.226.238.76 api.themoviedb.org >> /etc/hosts
+    echo 13.35.7.102 api.themoviedb.org >> /etc/hosts
+    echo 13.225.103.26 api.themoviedb.org >> /etc/hosts
+    echo 13.226.191.85 api.themoviedb.org >> /etc/hosts
+    echo 13.225.103.110 api.themoviedb.org >> /etc/hosts
+    echo 52.85.79.89 api.themoviedb.org >> /etc/hosts
+    echo 13.225.41.40 api.themoviedb.org >> /etc/hosts
+    echo 13.226.251.88 api.themoviedb.org >> /etc/hosts
+    echo 185.199.111.133 raw.github.com >> /etc/hosts
+    echo 185.199.111.133 raw.githubusercontent.com >> /etc/hosts
+    echo 140.82.114.4    github.com >> /etc/hosts
+    ```
++ 如果使用 `linuxserver/jellyfin`` 镜像，就把最后一行替换为下行`lscr.io/linuxserver/jellyfin:latest``
++ 如果使用 `nyanmisaka/jellyfin`  镜像，最把最后一行替换为下行`nyanmisaka/jellyfin:latest`` #arm不支持
++ 下载字体改名后，字体替换
+    ```
+    docker cp DejaVuSans-Bold.ttf  jellyfin:/usr/share/fonts/truetype/dejavu/
+    docker cp DejaVuSansMono-Bold.ttf  jellyfin:/usr/share/fonts/truetype/dejavu/
+    docker cp DejaVuSansMono.ttf  jellyfin:/usr/share/fonts/truetype/dejavu/
+    docker cp DejaVuSans.ttf  jellyfin:/usr/share/fonts/truetype/dejavu/
+    docker cp DejaVuSerif.ttf  jellyfin:/usr/share/fonts/truetype/dejavu/
+    docker cp DejaVuSerif-Bold.ttf  jellyfin:/usr/share/fonts/truetype/dejavu/
+    ```
 
-可选配置
-```
-#为容器增加 host 指向，加速海报与影视元数据的搜刮
---add-host=api.themoviedb.org:13.224.161.90 \	
---add-host=api.themoviedb.org:13.35.8.65 \
---add-host=api.themoviedb.org:13.35.8.93 \
---add-host=api.themoviedb.org:13.35.8.6 \
---add-host=api.themoviedb.org:13.35.8.54 \
---add-host=image.tmdb.org:138.199.37.230 \
---add-host=image.tmdb.org:108.138.246.49 \
---add-host=api.thetvdb.org:13.225.89.239 \
---add-host=api.thetvdb.org:192.241.234.54 
-#如果使用 linuxserver/jellyfin 镜像，就把最后一行替换为下行
-lscr.io/linuxserver/jellyfin:latest
-#如果使用 nyanmisaka/jellyfin  镜像，最把最后一行替换为下行
-nyanmisaka/jellyfin:latest #arm不支持
-```
-
-
-## jellyfin直接安装
-
+## 直接安装
+### jellyfin
 如果尚未安装APT的HTTPS传输，请执行以下操作：
 ```
 sudo apt install apt-transport-https
@@ -706,7 +749,7 @@ sudo /etc/init.d/jellyfin stop
 sudo systemctl restart jellyfin
 ```
 
-## 安装Alist
+### 安装Alist
 ```
 curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install
 ```
