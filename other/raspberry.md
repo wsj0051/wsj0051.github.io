@@ -362,7 +362,7 @@ docker run -d --restart=always --name="portainer" -p 9000:9000 -v /var/run/docke
 
 ### code-server
 ```
-docker run -d --restart always --name code-server -p 8080:8080 \
+docker run -d --restart always --name code-server -p 8090:8080 \
   -v /usr/local/src/appdata/code-server/config:/home/coder/.config \
   -v /home/pi/wsj0051:/home/coder/project \
   -u "$(id -u):$(id -g)" \
