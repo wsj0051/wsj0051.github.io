@@ -42,8 +42,7 @@ sudo dd bs=4M if=2013-09-25-wheezy-raspbian.img of=/dev/sdb
 
 然后就是连接usb转串口,连接`PIN8->RX`(USB转TTL)，`PIN10->TX`(USB转TTL)，`PIN14-GND`
 
-![树莓派ttl端口](../../assets/images/
-raspttl.png)
+![树莓派ttl端口](../../assets/images/raspttl.png)
 
 
 ### 连接wifi
@@ -372,9 +371,11 @@ codercom/code-server:latest
 ```
 ### php docker环境
 ```
-docker run -d --restart unless-stopped --privileged=true -p 5678:80 --name php-env youshandefeiyang/php-env:arm64
-docker cp /usr/local/src/公共/yy.php php-env:/var/www/html/
-
+docker run -d --restart unless-stopped \
+--privileged=true -p 5678:80 \
+--name php-env \
+-v /usr/local/src/appdata/php-env:/var/www/html \
+youshandefeiyang/php-env:arm64
 ```
 
 ### ubuntu 
