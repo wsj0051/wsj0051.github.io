@@ -489,11 +489,10 @@ docker run -d --name nextcloud \
 docker run -d --name=xunlei --hostname=mynas --net=host \
 -v /usr/local/src/appdata/xunlei:/xunlei/data \
 -v /mnt/sda1/media/Movies:/xunlei/nas \
--v /mnt/Public/Downloads:/xunlei/downloads \
+-v /mnt/sda1/Public/Downloads:/xunlei/downloads \
 --restart=unless-stopped \
 --privileged \
 registry.cn-shenzhen.aliyuncs.com/cnk3x/xunlei:latest
-
 ```
 ### 安装alist
 默认端口5244
