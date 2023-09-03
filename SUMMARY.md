@@ -14,11 +14,12 @@
 * [C语言](notes/c.md)
 
 ## II 其他记录
-* [windows记录](other/windows.md)
-* [postgresql](other/pg.md)
+
+* [windows](other/windows.md)
+* [postgresql](other/postgresql.md)
 * [git](other/git.md)
 * [adb](other/adb.md)
 * [树莓派](other/raspberry.md)
 * [Termux](other/termux.md)
+* [OpenWrt](other/openwrt.md)
 * [未分类](other/unfiled.md)
-* [光猫路由器](other/openwrt.md)
