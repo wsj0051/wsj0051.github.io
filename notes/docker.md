@@ -1,8 +1,9 @@
-# wsl2 ubuntu docker
+# docker
 
 ## 安装
 
-### 修改默认源
+
+### wsl2 ubuntu修改默认源
 
 ```shell
 cp /etc/apt/sources.list /etc/apt/sourses.list.bak
@@ -315,12 +316,13 @@ docker run -di --name=mytomcat -p 8080:8080 -v /usr/local/webapps:/usr/local/tom
 ### nginx
 
 ```shell
-docker pull nginx
-docker run -di --name=nginx -p 80:80 nginx
-docker exec -it nginx /bin/bash
-docker cp html nginx:/usr/share/nginx/ --将本地的html文件夹复制到nginx下
+docker run -d -p 80:80 --name mynginx --restart unless-stopped nginx
 ```
 
+将本地的html文件夹复制到nginx下
+```
+docker cp html nginx:/usr/share/nginx/
+```
 ### redis
 
 ```shell
@@ -522,7 +524,10 @@ docker run -d --name nextcloud \
     ```txt
     1 => preg_match('/cli/i',php_sapi_name())?'127.0.0.1':$_SERVER['SERVER_NAME']
     ```
-
++ 安装nextcloud客户端
+    ```shell
+    apt install nextcloud-desktop-l10n nextcloud-desktop -y
+    ```
 
 
 ### 安装迅雷
@@ -538,7 +543,6 @@ registry.cn-shenzhen.aliyuncs.com/cnk3x/xunlei:latest
 ```
 
 ### 安装alist
-默认端口5244
 ```
 docker run -d --restart=always \
 -v /usr/local/src/appdata/alist:/opt/alist/data \
@@ -553,15 +557,6 @@ docker run -d --restart=always \
 ```
 docker exec -it alist ./alist admin
 ```
-
-
-
-
-3. 安装nextcloud客户端
-
-    ```shell
-    apt install nextcloud-desktop-l10n nextcloud-desktop -y
-    ```
 
 
 ### photoprism私人相册
@@ -731,7 +726,7 @@ docker build . \
 
 注意：无论是 docker run 还是 docker build，默认是网络隔绝的。如果代理使用的是 localhost:3128 这类，则会无效。这类仅限本地的代理，必须加上 --network host 才能正常使用。而一般则需要配置代理的外部IP，而且代理本身要开启 Gateway 模式。
 
-### 重启生效
+## 重启生效配置
 代理配置完成后，reboot 重启当然可以生效，但不重启也行。
 
 docker build 代理是在执行前设置的，所以修改后，下次执行立即生效。Container 代理的修改也是立即生效的，但是只针对以后启动的 Container，对已经启动的 Container 无效。
