@@ -401,6 +401,66 @@ sudo systemctl restart jellyfin
 curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install
 ```
 
+### qbittorrent
+```
+    apt update  
+    apt install qbittorrent-nox
+```
+使用下面的useradd命令来创建我们的新用户。在本指南中，把这个新用户称为qbittorrent。
+```
+sudo useradd -r -m qbittorrent
+```
+为了确保能够访问新的 “qbittorrent “用户创建的文件，我把 “pi “用户添加到它的组中。将使用usermod命令。在你的Raspberry Pi上运行下面的命令来添加pi用户到qbittorrent组。
+```
+sudo usermod -a -G qbittorrent pi
+```
+为了在Raspberry Pi上编写qBittorrent软件的这项服务，使用nano文本编辑器。
+```
+sudo nano /etc/systemd/system/qbittorrent.service
+```
+```
+[Unit]
+Description=qBittorrent
+After=network.target
+
+[Service]
+Type=forking
+User=qbittorrent
+Group=qbittorrent
+UMask=002
+ExecStart=/usr/bin/qbittorrent-nox -d --webui-port=8080
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
++ 使用”–webui-port “参数来传递希望Web UI的端口。
+
+启动新创建的qBittorrent服务
+```
+sudo systemctl start qbittorrent
+```
+验证qBittorrent现在是否在Raspberry Pi上运行。
+```
+sudo systemctl status qbittorrent
+```
+如果 torrent 客户端按计划运行，应该会看到此命令中出现以下文本。
+```
+Active: active (running)
+```
+在Raspberry Pi启动时启动。
+```
+sudo systemctl enable qbittorrent
+```
+### jackett插件安装
+```
+https://ghproxy.com/https://raw.githubusercontent.com/qbittorrent/search-plugins/master/nova3/engines/jackett.py
+```
+配置目录
+```
+/home/qbittorrent/.local/share/data/qBittorrent/nova3/engines
+```
+
 ## ipv6 cloudflare ddns
 [参考链接](https://zhuanlan.zhihu.com/p/69379645)
 ```
