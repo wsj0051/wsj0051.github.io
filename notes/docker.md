@@ -1,23 +1,13 @@
 # docker
 
-## 安装
-
-
-### wsl2 ubuntu修改默认源
-
+## apt默认源修改
+### 备份默认源
 ```shell
 cp /etc/apt/sources.list /etc/apt/sourses.list.bak
 ```
-
-编辑文件
-
+### wsl2 ubuntu修改默认源
+编辑文件`vim /etc/apt/sources.list`
 ```shell
-vim /etc/apt/sources.list
-```
-
-删除原有内容并替换为：
-
-```text
 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
@@ -30,13 +20,12 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted univer
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
 ```
 
-更新源
-
+### 更新源
 ```shell
 apt-get update
 apt-get upgrade
 ```
-
+## 安装docker
 ### 安装软件包以允许 apt 通过 HTTPS 使用存储库
 
 ```shell
@@ -123,7 +112,7 @@ docker rmi 镜像id
 docker rmi `docker images -q`
 ```
 
-## 容器相关
+## docker容器相关
 
 ### 查看容器
 
@@ -316,7 +305,7 @@ docker run -di --name=mytomcat -p 8080:8080 -v /usr/local/webapps:/usr/local/tom
 ### nginx
 
 ```shell
-docker run -d -p 80:80 --name mynginx --restart unless-stopped nginx
+docker run -d -p 80:80 --name nginx --restart unless-stopped nginx
 ```
 
 将本地的html文件夹复制到nginx下
@@ -359,7 +348,13 @@ youshandefeiyang/php-env:arm64
 
 ### ubuntu 
 ```
-docker run --restart=unless-stopped -d     --dns=172.17.0.1     -u=0:0     --shm-size=512m     -p 6901:6901     -e VNC_PW=password     -e VNC_USE_HTTP=0  -e TZ=Asia/Shanghai -v /mnt:/mnt:rslave --name ubuntu "linkease/desktop-ubuntu-standard-arm64:latest"
+docker run --restart=unless-stopped -d  \
+   --dns=172.17.0.1     -u=0:0     --shm-size=512m  \
+   -p 6901:6901     -e VNC_PW=password    \
+   -e VNC_USE_HTTP=0  -e TZ=Asia/Shanghai \
+   -v /mnt:/mnt:rslave \
+   --name ubuntu \
+   "linkease/desktop-ubuntu-standard-arm64:latest"
 ```
 
 ### xteve
@@ -424,44 +419,38 @@ docker run -d \
 ### 安装nextcloud
 #### 使用mariadb
 1. 先安装数据库mariadb：Docker拉取mariadb镜像并创建容器，进入终端，输入下面的命令并回车运行(先别直接复制输入，下方有说明);
-```
-docker run -d --name mariadb \
-    -p 3306:3306 \
-    -e MYSQL_ROOT_PASSWORD=****** \
-    -v /usr/local/src/appdata/mariadb:/var/lib/mysql \
-    --restart unless-stopped \	
-    mariadb:10.5.12
-```
-+ 说明：
-	+ MYSQL_ROOT_PASSWORD=123456 设置数据库root账户密码，设置为123456，按需修改。
-
-	+ 3344:3306 将mariadb数据库的3306端口映射为3344，按需修改
-
-	+ 连接命令同mysql`mysql -u root -p`
+    ```
+    docker run -d --name mariadb \
+        -p 3306:3306 \
+        -e MYSQL_ROOT_PASSWORD=****** \
+        -v /usr/local/src/appdata/mariadb:/var/lib/mysql \
+        --restart unless-stopped \
+        mariadb:10.5.12
+    ```
+    + 说明：
+        + `MYSQL_ROOT_PASSWORD=123456` 设置数据库`root`账户密码，设置为`123456`，按需修改。
+        + `3344:3306` 将`mariadb`数据库的`3306`端口映射为`3344`，按需修改
+        + 连接命令同mysql`mysql -u root -p`
 
 
 2. 再安装Nextcloud：Docker拉取nextcloud镜像并创建容器，进入终端，输入下面的命令并回车运行(先别直接复制输入，下方有说明);
-```
-docker run -d --name nextcloud \
-  -p 3333:80 \
-  -v /mnt/mmc0-4/nextcloud/html:/var/www/html \
-  -v /mnt/mmc0-4/nextcloud/data:/var/www/html/data \
-  -v /mnt/mmc0-4/nextcloud/apps:/var/www/html/custom_apps \
-  -v /mnt/mmc0-4/nextcloud/config:/var/www/html/config \
-  --restart unless-stopped \
-  nextcloud
-```
-说明：
+    ```
+    docker run -d --name nextcloud \
+    -p 3333:80 \
+    -v /usr/local/src/appdata/nextcloud/html:/var/www/html \
+    -v /usr/local/src/appdata/nextcloud/data:/var/www/html/data \
+    -v /usr/local/src/appdata/nextcloud/apps:/var/www/html/custom_apps \
+    -v /usr/local/src/appdata/nextcloud/config:/var/www/html/config \
+    --restart unless-stopped \
+    nextcloud
+    ```
+    + 说明：
+        + `/usr/local/src/appdata/nextcloud/html` Nextcloud主文件夹的映射目录，按需修改。
+        + `/usr/local/src/appdata/nextcloud/data` 实际数据的映射目录，按需修改。
+        + `/usr/local/src/appdata/nextcloud/apps` 安装/修改的应用程序的映射目录，按需修改。
+        + `/usr/local/src/appdata/nextcloud/config` 本地配置文件的映射目录，按需修改。
+        + `3333:80` 将nextcloud的访问端口映射为3333，按需修改。
 
-/root/nextcloud/html Nextcloud主文件夹的映射目录，按需修改。
-
-/root/nextcloud/data 实际数据的映射目录，按需修改。
-
-/root/nextcloud/apps 安装/修改的应用程序的映射目录，按需修改。
-
-/root/nextcloud/config 本地配置文件的映射目录，按需修改。
-
-3333:80 将nextcloud的访问端口映射为3333，按需修改。
 
 #### 使用mysql
 
@@ -534,26 +523,26 @@ docker run -d --name nextcloud \
 默认端口2345
 ```
 docker run -d --name=xunlei --hostname=mynas --net=host \
--v /usr/local/src/appdata/xunlei:/xunlei/data \
--v /mnt/sda1/media/Movies:/xunlei/nas \
--v /mnt/sda1/Public/Downloads:/xunlei/downloads \
---restart=unless-stopped \
---privileged \
+    -v /usr/local/src/appdata/xunlei:/xunlei/data \
+    -v /mnt/sda1/media/Movies:/xunlei/nas \
+    -v /mnt/sda1/Public/Downloads:/xunlei/downloads \
+    --restart=unless-stopped \
+    --privileged \
 registry.cn-shenzhen.aliyuncs.com/cnk3x/xunlei:latest
 ```
 
 ### 安装alist
 ```
 docker run -d --restart=always \
--v /usr/local/src/appdata/alist:/opt/alist/data \
- -v /mnt/sda1:/opt/alist/mnt \ 
- -p 5244:5244 \
- -e PUID=0 -e PGID=0 \
- -e UMASK=022 \
-  --name="alist" \
+    -v /usr/local/src/appdata/alist:/opt/alist/data \
+    -v /mnt/sda1:/opt/alist/mnt \
+    -p 5244:5244 \
+    -e PUID=0 -e PGID=0 \
+    -e UMASK=022 \
+    --name="alist" \
   xhofe/alist:latest
 ```
-安装后查看密码：
+安装后查看密码
 ```
 docker exec -it alist ./alist admin
 ```
@@ -573,18 +562,18 @@ photoprism/photoprism
 ### emby
 ```
 docker run \
---network=bridge \
--p '8097:8096' \
--v /usr/local/src/appdata/emby:/config \
--v /mnt/sda1/media/:/data \
--e TZ="Asia/Shanghai" \
---device /dev/dri:/dev/dri \
--e UID=0 \
--e GID=0 \
--e GIDLIST=0 \
---restart always \
---name emby \
--d lovechen/embyserver:latest
+    --network=bridge \
+    -p '8097:8096' \
+    -v /usr/local/src/appdata/emby:/config \
+    -v /mnt/sda1/media/:/data \
+    -e TZ="Asia/Shanghai" \
+    --device /dev/dri:/dev/dri \
+    -e UID=0 \
+    -e GID=0 \
+    -e GIDLIST=0 \
+    --restart always \
+    --name emby \
+    -d lovechen/embyserver:latest
 ```
 + `1900`与xteve端口冲突
 + `8920`,`7359`与jellyfin冲突
@@ -627,11 +616,11 @@ docker run -d --name=jellyfin -p 8096:8096 \
 	-p 8920:8920 -p 7359:7359/udp \
 	-v /usr/local/src/appdata/jellyfin/config:/config \
 	-v /mnt/sda1/media:/media \
-	-v /usr/local/src/appdata/jellyfin/cache:/cache  \
+	-v /mnt/sda1/cache:/cache  \
 	-e TZ=Asia/Shanghai -e PUID=0 -e PGID=0 \
 	--device=/dev/dri:/dev/dri \
 	--restart unless-stopped \
-    --add-host=api.themoviedb.org:13.224.161.90 \	
+    --add-host=api.themoviedb.org:13.224.161.90 \
     --add-host=api.themoviedb.org:13.35.8.65 \
     --add-host=api.themoviedb.org:13.35.8.93 \
     --add-host=api.themoviedb.org:13.35.8.6 \
@@ -724,13 +713,11 @@ docker build . \
     -t your/image:tag
 ```
 
-注意：无论是 docker run 还是 docker build，默认是网络隔绝的。如果代理使用的是 localhost:3128 这类，则会无效。这类仅限本地的代理，必须加上 --network host 才能正常使用。而一般则需要配置代理的外部IP，而且代理本身要开启 Gateway 模式。
++ 注意：
+  + 无论是 docker run 还是 docker build，默认是网络隔绝的。如果代理使用的是 localhost:3128 这类，则会无效。这类仅限本地的代理，必须加上 --network host 才能正常使用。而一般则需要配置代理的外部IP，而且代理本身要开启 Gateway 模式。
+  + docker build 代理是在执行前设置的，所以修改后，下次执行立即生效。Container 代理的修改也是立即生效的，但是只针对以后启动的 Container，对已经启动的 Container 无效。
 
-## 重启生效配置
-代理配置完成后，reboot 重启当然可以生效，但不重启也行。
-
-docker build 代理是在执行前设置的，所以修改后，下次执行立即生效。Container 代理的修改也是立即生效的，但是只针对以后启动的 Container，对已经启动的 Container 无效。
-
+### 重启生效配置
 dockerd 代理的修改比较特殊，它实际上是改 systemd 的配置，因此需要重载 systemd 并重启 dockerd 才能生效。
 ```
 sudo systemctl daemon-reload
