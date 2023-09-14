@@ -70,7 +70,7 @@
         "my-toolbar": {
             "buttons": [
                 {
-                    "label": "下载PDF",
+                    "label": "",
                     "icon": "fa fa-file-pdf-o",
                     "url": "/book.pdf",
                     "position": "left",
@@ -78,18 +78,18 @@
                     "target": "_blank"
                 },
                 {
-                    "label": "tools",
-                    "icon": "fal fa-tools",
+                    "label": "",
+                    "icon": "fa fa-home",
                     "url": "/tools",
                     "position": "right",
-                    "text": "工具",
+                    "text": "导航",
                     "target": "_blank"
                 }
             ]
         },
         "donate": {
-            "wechat": "https://cdn.jsdelivr.net/gh/wsj0051/files@main/qrcode/wechat_lp.jpg",
-            "button": "反馈",
+            "wechat": "/assets/images/wechat_pay.jpg",
+            "button": "打赏",
             "wechatText": "微信扫码"
         },
         "edit-link": {
