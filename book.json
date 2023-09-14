@@ -17,7 +17,7 @@
         "readme": "home.md"
     },
     "variables": {
-        "wsj0051": "大部分平台注册账号为wsj0051"
+        "wsj0051": "wsj0051"
     },
     "plugins": [
         "-lunr",
@@ -75,6 +75,14 @@
                     "url": "/book.pdf",
                     "position": "left",
                     "text": "下载PDF",
+                    "target": "_blank"
+                },
+                {
+                    "label": "tools",
+                    "icon": "fal fa-tools",
+                    "url": "/tools",
+                    "position": "right",
+                    "text": "工具",
                     "target": "_blank"
                 }
             ]
