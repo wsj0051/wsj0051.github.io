@@ -80,7 +80,7 @@
                 {
                     "label": "",
                     "icon": "fa fa-home",
-                    "url": "/tools",
+                    "url": "/home",
                     "position": "right",
                     "text": "导航",
                     "target": "_blank"
