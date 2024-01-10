@@ -22,4 +22,5 @@
 * [树莓派](other/raspberry.md)
 * [Termux](other/termux.md)
 * [OpenWrt](other/openwrt.md)
+* [TVBox](other/tvbox.md)
 * [未分类](other/unfiled.md)
