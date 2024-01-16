@@ -1,39 +1,79 @@
 # TVBox
+APP下载
+1. http://wmdz.com/jk.html
+2. https://xhdwc.tk/
 
-## IPTV直播源汇总重置版
+## IPTV直播源汇总
+### 接口
+新蚂蚁窝仓库：https://agit.ai/pinghui/xinghe/raw/branch/master/mayicang.txt
 
-### ① 电视直播搜索引擎
-⒈ http://tonkiang.us
-⒉ https://streamtest.in
-⒊ https://iptv-org.github.io
-⒋ https://www.foodieguide.com/iptvsearch/
-需要自行把能用的直播链接综合在一起需要一定耐心
+月光影视多线路：https://www.ywsj.cf/upload/2023/10/yyzq4k.json
 
-### ② IPTVindex
+玉玉软件：http://8.210.232.168/xc.json
+
+饭太硬：http://饭太硬.top/tv
+
+肥猫专用：http://我不是.肥猫.love:63/接口禁止贩卖
+
+神仙影视：https://gitee.com/shenxian2023/web/raw/master/sx.json
+
+小胡：http://www.xzam.cn/xiaohu
+
+太阳：https://tvbox.meitufu.com/TVBox/tv.json
+
+多多专线：https://yydsys.top/duo
+
+小盒酷玩：http://小盒酷玩.fun:66/禁止贩卖
+
+夜猫子：https://download.kstore.space/download/3313/app/ymzn 
+
+影探线路：https://jihulab.com/zhulr7765/tvbox/-/raw/main/tv.txt?ref_type=heads
+
+业余专源：https://raw.gitmirror.com/yydfys/yydf/main/yydf/yydf.json
+
+运输车主线：https://weixine.net/ysc.json
+
+运输车加速：https://cf.weixine.net/ysc.json
+
+月光宝盒 http://52bsj.vip:98/cl
+
+春盈：https://wds.ecsxs.com/230989.json
+
+猫技：https://agit.ai/ddx/nmys/raw/branch/master/feimao.json
+
+熊猫不叫猫  https://s2.pub/xmbjmxdc
+
+胖鸭https://agit.ai/cyl518/yl/raw/branch/master/pytv.json
+
+
+### 电视直播搜索引擎
+1. http://tonkiang.us
+2. https://streamtest.in
+3. https://iptv-org.github.io
+4. https://www.foodieguide.com/iptvsearch/
+
+### IPTVindex
 https://www.iptvindex.com
-需要在看电视分页寻找直播源
 
-### ③ IPTV直播源
-⒈ https://m3u.ibert.me/
-⒉ https://iptv.b2og.com/
-⒊ http://owen2000wy.github.io
-这是别人已经收集并整理好的IPTV源可以直接在软件上使用的
+### IPTV直播源
+1. https://m3u.ibert.me/
+2. https://iptv.b2og.com/
+3. http://owen2000wy.github.io
 
-### ④ github上IPTV源项目
-⒈https://github.com/iptv-org/iptv
-⒉https://github.com/Moexin/IPTV
-⒊https://github.com/Meroser/IPTV
-⒋https://github.com/YanG-1989/m3u
-⒌https://github.com/Ftindy/IPTV-URL 
-⒍https://github.com/Cyril0563/lanjing_live
-⒎https://github.com/imDazui/Tvlist-awesome-m3u-m3u8
-⒏https://github.com/biancangming/wtv
-一些github上，IPTV源项目或收集分享IPTV源的项目。
 
-### ⑤ pornIPTV
+### github上IPTV源项目
++ https://github.com/iptv-org/iptv
++ https://github.com/Moexin/IPTV
++ https://github.com/Meroser/IPTV
++ https://github.com/YanG-1989/m3u
++ https://github.com/Ftindy/IPTV-URL 
++ https://github.com/Cyril0563/lanjing_live
++ https://github.com/imDazui/Tvlist-awesome-m3u-m3u8
++ https://github.com/biancangming/wtv
+
+
+### pornIPTV
 http://adultiptv.net
-你懂的
 
-### ⑥ epg相关
-IPTV节目信息
+### epg相关
 https://epg.pw/
