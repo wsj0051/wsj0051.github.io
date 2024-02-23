@@ -1,0 +1,36 @@
+name: create release & package build result to zip
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: 1. Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.23.0
+    - name: 2. Cache node modules
+      uses: actions/cache@v1
+      with:
+       path: ~/.npm
+       key: ${{ runner.os }}-node10-${{ hashFiles('**/book.json') }}    
+       
+    - name: 3. build
+      run: |
+       sudo npm install -g gitbook-cli
+       gitbook install
+       gitbook build
+       mv book.pdf _book
+    
+    - name: 4. Deploy 🚀
+       uses: JamesIves/github-pages-deploy-action@4.1.4
+       with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: public # The folder the action should deploy.
+
+ 
