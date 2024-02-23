@@ -1,0 +1,665 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>C语言 · wsj0051的个人笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="wsj0051">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/style.css">
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../other/windows.html" />
+    
+    
+    <link rel="prev" href="docker.html" />
+    
+
+    
+        <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    
+    
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/apple-touch-icon-152.png">
+    
+    
+        
+    
+    
+        
+    
+
+    
+    <link rel="stylesheet" href="../gitbook/gitbook-plugin-chart/c3/c3.min.css">
+    <script src="../gitbook/gitbook-plugin-chart/c3/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-chart/c3/c3.min.js"></script>
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://wsj0051.tk" target="_blank" class="custom-link">我的博客</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">I 学习笔记</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="html5.html">
+            
+                <a href="html5.html">
+            
+                    
+                    HTML5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="css3.html">
+            
+                <a href="css3.html">
+            
+                    
+                    CSS3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="javascript.html">
+            
+                <a href="javascript.html">
+            
+                    
+                    JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="es6.html">
+            
+                <a href="es6.html">
+            
+                    
+                    ES6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="python.html">
+            
+                <a href="python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="linux.html">
+            
+                <a href="linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="docker.html">
+            
+                <a href="docker.html">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.8" data-path="c.html">
+            
+                <a href="c.html">
+            
+                    
+                    C语言
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">II 个人记录</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../other/windows.html">
+            
+                <a href="../other/windows.html">
+            
+                    
+                    windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../other/postgresql.html">
+            
+                <a href="../other/postgresql.html">
+            
+                    
+                    postgresql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../other/git.html">
+            
+                <a href="../other/git.html">
+            
+                    
+                    git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../other/adb.html">
+            
+                <a href="../other/adb.html">
+            
+                    
+                    adb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../other/raspberry.html">
+            
+                <a href="../other/raspberry.html">
+            
+                    
+                    树莓派
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../other/termux.html">
+            
+                <a href="../other/termux.html">
+            
+                    
+                    Termux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../other/openwrt.html">
+            
+                <a href="../other/openwrt.html">
+            
+                    
+                    OpenWrt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../other/tvbox.html">
+            
+                <a href="../other/tvbox.html">
+            
+                    
+                    TVBox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../other/unfiled.html">
+            
+                <a href="../other/unfiled.html">
+            
+                    
+                    未分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">III 经文</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../fojing/太上感应篇.html">
+            
+                <a href="../fojing/太上感应篇.html">
+            
+                    
+                    太上感应篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../fojing/药师经.html">
+            
+                <a href="../fojing/药师经.html">
+            
+                    
+                    药师经
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >C语言</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#c&#x8BED;&#x8A00;&#x5B66;&#x4E60;"><b></b>C&#x8BED;&#x8A00;&#x5B66;&#x4E60;</a></li><ul><li><span class="title-icon "></span><a href="#hello-world"><b></b>Hello World</a></li><li><span class="title-icon "></span><a href="#system&#x7CFB;&#x7EDF;&#x51FD;&#x6570;"><b></b>System&#x7CFB;&#x7EDF;&#x51FD;&#x6570;</a></li><li><span class="title-icon "></span><a href="#c&#x8BED;&#x8A00;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;"><b></b>C&#x8BED;&#x8A00;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;</a></li><li><span class="title-icon "></span><a href="#&#x6C47;&#x7F16;&#x8BED;&#x8A00;"><b></b>&#x6C47;&#x7F16;&#x8BED;&#x8A00;</a></li><li><span class="title-icon "></span><a href="#&#x5904;&#x7406;c&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x7684;&#x8B66;&#x544A;"><b></b>&#x5904;&#x7406;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x7684;&#x8B66;&#x544A;</a></li></ul></ul></div><a href="#c&#x8BED;&#x8A00;&#x5B66;&#x4E60;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="c&#x8BED;&#x8A00;&#x5B66;&#x4E60;"><a name="c&#x8BED;&#x8A00;&#x5B66;&#x4E60;" class="anchor-navigation-ex-anchor" href="#c&#x8BED;&#x8A00;&#x5B66;&#x4E60;"><i class="fa fa-link" aria-hidden="true"></i></a>C&#x8BED;&#x8A00;&#x5B66;&#x4E60;</h1>
+<h2 id="hello-world"><a name="hello-world" class="anchor-navigation-ex-anchor" href="#hello-world"><i class="fa fa-link" aria-hidden="true"></i></a>Hello World</h2>
+<p>&#x65B0;&#x5EFA;hello.c&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<pre><code class="lang-c">gcc -o hello.cgi hello.c
+</code></pre>
+<h2 id="system&#x7CFB;&#x7EDF;&#x51FD;&#x6570;"><a name="system&#x7CFB;&#x7EDF;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#system&#x7CFB;&#x7EDF;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>System&#x7CFB;&#x7EDF;&#x51FD;&#x6570;</h2>
+<ul>
+<li>&#x4F7F;&#x7528;system&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x5176;&#x4ED6;&#x7A0B;&#x5E8F;<ul>
+<li>&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x5E93;&#xFF1A;<code>&lt;stdlib.h&gt;</code></li>
+<li>&#x53EF;&#x4EE5;&#x7528;&#x5728;Linux&#x5E73;&#x53F0;&#x548C;windows&#x5E73;&#x53F0;&#xFF0C;&#x4F46;&#x662F;&#x8C03;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x4E0D;&#x540C;</li>
+</ul>
+</li>
+</ul>
+<h2 id="c&#x8BED;&#x8A00;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;"><a name="c&#x8BED;&#x8A00;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#c&#x8BED;&#x8A00;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>C&#x8BED;&#x8A00;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;</h2>
+<ol>
+<li>&#x9884;&#x5904;&#x7406; <code>gcc -E a.c -o a.i</code><ul>
+<li>&#x5B8F;&#x5B9A;&#x4E49;&#x5C55;&#x5F00;</li>
+<li>&#x5934;&#x6587;&#x4EF6;&#x5C55;&#x5F00;</li>
+<li>&#x5220;&#x9664;&#x6CE8;&#x91CA;</li>
+<li>&#x6761;&#x4EF6;&#x7F16;&#x8BD1;</li>
+</ul>
+</li>
+<li>&#x7F16;&#x8BD1; <code>gcc -S a.i -o a.s</code><ul>
+<li>&#x68C0;&#x67E5;&#x8BED;&#x6CD5;</li>
+<li>&#x8F6C;&#x5316;&#x6210;&#x6C47;&#x7F16;&#x8BED;&#x8A00;</li>
+</ul>
+</li>
+<li>&#x6C47;&#x7F16; <code>gcc -c a.s -o a.o</code><ul>
+<li>&#x5C06;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x8F6C;&#x5316;&#x4E3A;&#x673A;&#x5668;&#x8BED;&#x8A00;</li>
+</ul>
+</li>
+<li>&#x94FE;&#x63A5; <code>gcc a.o -o a.exe</code><ul>
+<li>&#x5C06;&#x5E93;&#x6587;&#x4EF6;&#x94FE;&#x63A5;&#x53D8;&#x6210;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;</li>
+</ul>
+</li>
+</ol>
+<h2 id="&#x6C47;&#x7F16;&#x8BED;&#x8A00;"><a name="&#x6C47;&#x7F16;&#x8BED;&#x8A00;" class="anchor-navigation-ex-anchor" href="#&#x6C47;&#x7F16;&#x8BED;&#x8A00;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6C47;&#x7F16;&#x8BED;&#x8A00;</h2>
+<ol>
+<li>&#x65B0;&#x5EFA;&#x9879;&#x76EE;&#x521B;&#x5EFA;&#x6587;&#x4EF6;</li>
+<li>&#x5199;c&#x8BED;&#x8A00;&#x6E90;&#x4EE3;&#x7801;&#x6DFB;&#x52A0;&#x65AD;&#x70B9;&#xFF0C;&#x8C03;&#x8BD5;&#x6267;&#x884C;</li>
+<li><p>&#x7A0B;&#x5E8F;&#x4F1A;&#x505C;&#x6B62;&#x5728;&#x65AD;&#x70B9;&#x5904;&#xFF0C;&#x5728;&#x8C03;&#x8BD5;&#x83DC;&#x5355;&#x680F;&#x4E2D;&#x9009;&#x62E9;&#x7A97;&#x53E3;&#xFF0C;&#x5728;&#x5217;&#x8868;&#x4E2D;&#x9009;&#x62E9;&#x53CD;&#x6C47;&#x7F16;&#xFF0C;&#x67E5;&#x770B;&#x6C47;&#x7F16;&#x6E90;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-c"> <span class="hljs-comment">//&#x6C47;&#x7F16;&#x4EE3;&#x7801;</span>
+     __asm
+     {
+             mov a, <span class="hljs-number">3</span>
+             mov b, <span class="hljs-number">4</span>
+             mov eax, a
+             add eax, b
+             mov c, eax
+     }
+</code></pre>
+</li>
+</ol>
+<h2 id="&#x5904;&#x7406;c&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x7684;&#x8B66;&#x544A;"><a name="&#x5904;&#x7406;c&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x7684;&#x8B66;&#x544A;" class="anchor-navigation-ex-anchor" href="#&#x5904;&#x7406;c&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x7684;&#x8B66;&#x544A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5904;&#x7406;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x7684;&#x8B66;&#x544A;</h2>
+<ol>
+<li><p>&#x653E;&#x5728;&#x7A0B;&#x5E8F;&#x7B2C;&#x4E00;&#x884C;</p>
+<pre><code class="lang-c"> <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _CRT_SECURE_NO_WARNINGS</span>
+</code></pre>
+</li>
+<li><p>&#x4EFB;&#x610F;&#x4F4D;&#x7F6E;<code>#pragma warning(disable:4996</code></p>
+</li>
+<li>&#x9879;&#x76EE;&#x53F3;&#x51FB;&#x9009;&#x62E9;&#x5C5E;&#x6027;&#xFF0C;&#x5728;&#x6253;&#x5F00;&#x5BF9;&#x8BDD;&#x6846;&#x4E2D;&#x9009;&#x62E9;C/C++&#x5904;&#x7406;&#x5668;&#xFF0C;&#x5728;&#x9884;&#x5904;&#x7406;&#x5668;&#x5B9A;&#x4E49;&#x4E2D;&#x7F16;&#x8F91; <code>_CRT_SECURE_NO_WARNINGS</code></li>
+<li>linux&#x4E0B;&#x6CA1;&#x6709;&#x8BE5;&#x9519;&#x8BEF;</li>
+</ol>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="docker.html" class="navigation navigation-prev " aria-label="Previous page: Docker">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../other/windows.html" class="navigation navigation-next " aria-label="Next page: windows">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"C语言","level":"2.8","depth":1,"next":{"title":"windows","level":"3.1","depth":1,"path":"other/windows.md","ref":"other/windows.md","articles":[]},"previous":{"title":"Docker","level":"2.7","depth":1,"path":"notes/docker.md","ref":"notes/docker.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-sharing","-livereload","edit-link@^2.0.2","my-toolbar","hide-element","donate","theme-comscore","anchor-navigation-ex","chart@^0.2.0","popup","code","image-captions","flexible-alerts","ace@^0.3.2","favicon-absolute","splitter","expandable-chapters","katex"],"root":".","styles":{"website":"styles/style.css"},"pluginsConfig":{"ace":{},"splitter":{},"popup":{},"code":{"copyButtons":true},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"/assets/images/wechat_pay.jpg","wechatText":"微信扫码"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"/assets/images/apple-touch-icon-152.png","appleTouchIconPrecomposedMore":{},"favicon":"/assets/images/favicon.ico"},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"my-toolbar":{"buttons":[{"label":"","icon":"fa fa-file-pdf-o","url":"/book.pdf","position":"left","text":"下载PDF","target":"_blank"},{"label":"","icon":"fa fa-home","url":"/home","position":"right","text":"导航","target":"_blank"}]},"edit-link":{"label":"Edit This Page","base":"https://github.com/wsj0051/gitbook/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"expandable-chapters":{},"search-plus":{},"image-captions":{"caption":"图 - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"wsj0051","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"home.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"wsj0051":"wsj0051","_pictures":[{"backlink":"notes/html5.html#fig2.1.1","level":"2.1","list_caption":"Figure: 矩形","alt":"矩形","nro":1,"url":"assets/1526470782861.png","index":1,"caption_template":"图 - _CAPTION_","label":"矩形","attributes":{},"skip":false,"key":"2.1.1"},{"backlink":"other/raspberry.html#fig3.5.1","level":"3.5","list_caption":"Figure: 树莓派ttl端口","alt":"树莓派ttl端口","nro":2,"url":"../../assets/images/raspttl.png","index":1,"caption_template":"图 - _CAPTION_","label":"树莓派ttl端口","attributes":{},"skip":false,"key":"3.5.1"}]},"title":"wsj0051的个人笔记","language":"zh-hans","links":{"sidebar":{"我的博客":"https://wsj0051.tk"}},"gitbook":"3.2.3","description":"个人笔记"},"file":{"path":"notes/c.md","mtime":"2024-02-23T03:44:22.980Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-02-23T03:45:12.706Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-my-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
