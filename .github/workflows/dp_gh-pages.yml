@@ -1,4 +1,4 @@
-name: create release & package build result to zip
+name: deploy github pages
 
 on:
   workflow_dispatch:
@@ -28,9 +28,9 @@ jobs:
        mv book.pdf _book
     
     - name: 4. Deploy 🚀
-       uses: JamesIves/github-pages-deploy-action@4.1.4
-       with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: public # The folder the action should deploy.
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: public # The folder the action should deploy.
 
  
