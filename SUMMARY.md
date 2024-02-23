@@ -13,7 +13,7 @@
 * [Docker](notes/docker.md)
 * [C语言](notes/c.md)
 
-## II 其他记录
+## II 个人记录
 
 * [windows](other/windows.md)
 * [postgresql](other/postgresql.md)
@@ -24,3 +24,7 @@
 * [OpenWrt](other/openwrt.md)
 * [TVBox](other/tvbox.md)
 * [未分类](other/unfiled.md)
+
+## III 经文
+* [太上感应篇](fojing/太上感应篇.md)
+* [药师经](fojing/药师经.md)

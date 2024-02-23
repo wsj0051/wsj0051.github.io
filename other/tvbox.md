@@ -4,6 +4,7 @@ APP下载
 2. https://xhdwc.tk/
 
 ## IPTV直播源汇总
+
 ### 接口
 新蚂蚁窝仓库：https://agit.ai/pinghui/xinghe/raw/branch/master/mayicang.txt
 
@@ -45,6 +46,7 @@ APP下载
 
 胖鸭https://agit.ai/cyl518/yl/raw/branch/master/pytv.json
 
+猫影视：https://627784800%40qq.com:an6biyr6hqhz6bd3@dav.jianguoyun.com/dav/%E7%8C%AB%E5%BD%B1%E8%A7%86/%E7%8C%AB%E6%BA%90.json
 
 ### 电视直播搜索引擎
 1. http://tonkiang.us
