@@ -7,7 +7,7 @@
     "gitbook": "3.2.3",
     "links": {
         "sidebar": {
-            "我的博客": "https://wsj0051.tk"
+            "导航": "https://wsj0051.gitee.io/home"
         }
     },
     "styles": {
@@ -49,7 +49,7 @@
             "printLog": false,
             "multipleH1": true,
             "mode": "float",
-            "showGoTop":true,
+            "showGoTop": true,
             "float": {
                 "floatIcon": "fa fa-navicon",
                 "showLevelIcon": false,
@@ -63,7 +63,7 @@
                 "level2Icon": "fa fa-hand-o-right",
                 "level3Icon": "fa fa-hand-o-right"
             }
-        },            
+        },
         "chart": {
             "type": "c3"
         },
@@ -80,7 +80,7 @@
                 {
                     "label": "",
                     "icon": "fa fa-home",
-                    "url": "/home",
+                    "url": "https://wsj0051.gitee.io/home",
                     "position": "right",
                     "text": "导航",
                     "target": "_blank"
@@ -93,13 +93,13 @@
             "wechatText": "微信扫码"
         },
         "edit-link": {
-            "base": "https://github.com/wsj0051/gitbook/edit/master",
+            "base": "https://github.com/wsj0051/wsj0051.github.io/edit/master",
             "label": "Edit This Page"
         },
         "image-captions": {
             "caption": "图 - _CAPTION_"
         },
-		"favicon-absolute":{
+        "favicon-absolute": {
             "favicon": "/assets/images/favicon.ico",
             "appleTouchIconPrecomposed152": "/assets/images/apple-touch-icon-152.png"
         },
@@ -108,6 +108,5 @@
                 ".gitbook-link"
             ]
         }
-       
     }
 }
