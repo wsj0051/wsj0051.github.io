@@ -41,7 +41,7 @@
     ```
 
 - 速度慢解决办法
-  - 修改淘宝源
+  - 修改淘宝源[^1]
 
     ```shell
     npm config set registry https://registry.npm.taobao.org
@@ -86,3 +86,5 @@ npm uninstall -g gitbook-cli
 ```shell
 npm cache clean -f
 ```
+
+[^1]: 淘宝源报错执行命令：`npm config set strict-ssl false`
