@@ -91,3 +91,9 @@ config dhcp 'wan'
    9.	保存&设置
 
 + 路由器管理界面设置IPV6端口转发，使用`网络`-`Socat`
+
+### 卸载插件
+```
+opkg list_installed | grep xteve
+opkg remove luci-app-xteve - git-25.054.68431-4e7d809
+```

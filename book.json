@@ -7,7 +7,7 @@
     "gitbook": "3.2.3",
     "links": {
         "sidebar": {
-            "导航": "https://wsj0051.gitee.io/home"
+            "导航": "home"
         }
     },
     "styles": {
@@ -80,7 +80,7 @@
                 {
                     "label": "",
                     "icon": "fa fa-home",
-                    "url": "https://wsj0051.gitee.io/home",
+                    "url": "home",
                     "position": "right",
                     "text": "导航",
                     "target": "_blank"

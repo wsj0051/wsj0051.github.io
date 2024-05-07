@@ -229,14 +229,14 @@ docker rm 容器名
 
 Dockerfile是一系列命令和参数构成的脚本，这些命令用于基础镜像并最终创建一个新的镜像。
 
-| 命令 | 作用 |
-|:--|---------|
-|FROM image_name:tag|定义了使用哪个基础镜像启动构建流程|
-|MAINTAINER user_name|声明镜像的创建者|
-|ENV key value|设置环境变量|
-|RUN command|Dockerfile的核心部分|
-|ADD source_dir/file dest_dir/file|将宿主机文件复制到容器内，压缩文件自动解压|
-|WORKDIR path_dir|设置工作目录|
+| 命令                              | 作用                                       |
+| :-------------------------------- | ------------------------------------------ |
+| FROM image_name:tag               | 定义了使用哪个基础镜像启动构建流程         |
+| MAINTAINER user_name              | 声明镜像的创建者                           |
+| ENV key value                     | 设置环境变量                               |
+| RUN command                       | Dockerfile的核心部分                       |
+| ADD source_dir/file dest_dir/file | 将宿主机文件复制到容器内，压缩文件自动解压 |
+| WORKDIR path_dir                  | 设置工作目录                               |
 
 以jdk8为例创建Dockerfile
 
@@ -654,8 +654,8 @@ jellyfin/jellyfin:latest
     echo 185.199.111.133 raw.githubusercontent.com >> /etc/hosts
     echo 140.82.114.4    github.com >> /etc/hosts
     ```
-+ 如果使用 `linuxserver/jellyfin`` 镜像，就把最后一行替换为下行`lscr.io/linuxserver/jellyfin:latest``
-+ 如果使用 `nyanmisaka/jellyfin`  镜像，最把最后一行替换为下行`nyanmisaka/jellyfin:latest`` #arm不支持
++ 如果使用 `linuxserver/jellyfin` 镜像，就把最后一行替换为下行`lscr.io/linuxserver/jellyfin:latest`
++ 如果使用 `nyanmisaka/jellyfin`  镜像，最把最后一行替换为下行`nyanmisaka/jellyfin:latest` #arm不支持
 + 下载字体改名后，字体替换
     ```
     docker cp DejaVuSans-Bold.ttf  jellyfin:/usr/share/fonts/truetype/dejavu/
