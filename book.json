@@ -22,7 +22,7 @@
     "plugins": [
         "-lunr",
         "-search",
-        "search-plus",
+        "search-pro",
         "-sharing",
         "-livereload",
         "edit-link@^2.0.2",
@@ -30,7 +30,6 @@
         "hide-element",
         "donate",
         "theme-comscore",
-        "anchor-navigation-ex",
         "chart@^0.2.0",
         "popup",
         "code",
@@ -40,7 +39,8 @@
         "favicon-absolute",
         "splitter",
         "expandable-chapters",
-        "katex"
+        "katex",
+        "anchor-navigation-ex"
     ],
     "pluginsConfig": {
         "anchor-navigation-ex": {
@@ -80,7 +80,7 @@
                 {
                     "label": "",
                     "icon": "fa fa-home",
-                    "url": "home",
+                    "url": "/home",
                     "position": "right",
                     "text": "导航",
                     "target": "_blank"

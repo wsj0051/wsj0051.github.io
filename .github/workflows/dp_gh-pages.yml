@@ -23,6 +23,7 @@ jobs:
     - name: 3. build
       run: |
        sudo npm install -g gitbook-cli
+       npm install gitbook-plugin-anchor-navigation-ex --save
        gitbook install
        gitbook build
        mv book.pdf _book
