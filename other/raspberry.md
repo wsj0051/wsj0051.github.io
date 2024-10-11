@@ -183,12 +183,12 @@ dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 ```
 默认参数值:
 
-|  项目   | 内容  |
-|  ----  | ----  |
-| 默认管理端口  | 28888 |
+| 项目                   | 内容              |
+| ---------------------- | ----------------- |
+| 默认管理端口           | 28888             |
 | 默认Web管理用户及密码  | openfans/openfans |
-| 宝塔虚拟机ssh端口 | 2222 |
-| 宝塔虚拟机root默认密码 | raspberry |
+| 宝塔虚拟机ssh端口      | 2222              |
+| 宝塔虚拟机root默认密码 | raspberry         |
 
 
 ### 程序快捷目录位置
@@ -215,44 +215,50 @@ dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
    
 ### 启用CecOS-CaaS容器云
 
-    ```
-    开机自动启动 CecOS CaaS容器云 服务
-    systemctl enable cecos-caas.service
+开机自动启动 CecOS CaaS容器云 服务
+```
+systemctl enable cecos-caas.service
+```
 
-    启动 CecOS CaaS容器云 服务
-    systemctl start cecos-caas.service
+启动 CecOS CaaS容器云 服务
+```
+systemctl start cecos-caas.service
+```
+停止 CecOS CaaS容器云 服务
+```
+systemctl stop cecos-caas.service
+```
 
-    ######
-
-    停止 CecOS CaaS容器云 服务
-    systemctl stop cecos-caas.service
-
-    禁止 CecOS CaaS容器云 服务开机启动
-    systemctl disable cecos-caas.service
-    ```
+禁止 CecOS CaaS容器云 服务开机启动
+```
+systemctl disable cecos-caas.service
+```
 
 ### 桌面版系统单声道改为立体声输出
-    编辑文件 /usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
+    
+编辑文件 `/usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf`
 
-    在下面的内容每行最前面添加 ";" 符号，以注释掉以下内容：
-    ```
-    [Mapping analog-mono]
-    device-strings = hw:%f
-    channel-map = mono
-    paths-output = analog-output analog-output-lineout analog-output-speaker analog-output-headphones analog-output-headphones-2 analog-output-mono
-    paths-input = analog-input-front-mic analog-input-rear-mic analog-input-internal-mic analog-input-dock-mic analog-input analog-input-mic analog-input-linein analog-input-aux analog-input-video analog-input-tvtuner analog-input-fm analog-input-mic-line analog-input-headset-mic
-    priority = 7
-    ```
-    下面是注释后的内容：
-    ```
-    ;[Mapping analog-mono]
-    ;device-strings = hw:%f
-    ;channel-map = mono
-    ;paths-output = analog-output analog-output-lineout analog-output-speaker analog-output-headphones analog-output-headphones-2 analog-output-mono
-    ;paths-input = analog-input-front-mic analog-input-rear-mic analog-input-internal-mic analog-input-dock-mic analog-input analog-input-mic analog-input-linein analog-input-aux analog-input-video analog-input-tvtuner analog-input-fm analog-input-mic-line analog-input-headset-mic
-    ;priority = 7
-    ```
-    最后重启系统生效。
+在下面的内容每行最前面添加 ";" 符号，以注释掉以下内容：
+```
+[Mapping analog-mono]
+device-strings = hw:%f
+channel-map = mono
+paths-output = analog-output analog-output-lineout analog-output-speaker analog-output-headphones analog-output-headphones-2 analog-output-mono
+paths-input = analog-input-front-mic analog-input-rear-mic analog-input-internal-mic analog-input-dock-mic analog-input analog-input-mic analog-input-linein analog-input-aux analog-input-video analog-input-tvtuner analog-input-fm analog-input-mic-line analog-input-headset-mic
+priority = 7
+```
+
+下面是注释后的内容：
+```
+;[Mapping analog-mono]
+;device-strings = hw:%f
+;channel-map = mono
+;paths-output = analog-output analog-output-lineout analog-output-speaker analog-output-headphones analog-output-headphones-2 analog-output-mono
+;paths-input = analog-input-front-mic analog-input-rear-mic analog-input-internal-mic analog-input-dock-mic analog-input analog-input-mic analog-input-linein analog-input-aux analog-input-video analog-input-tvtuner analog-input-fm analog-input-mic-line analog-input-headset-mic
+;priority = 7
+```
+
+最后重启系统生效。
 
 ## 安装软件
 ### 安装chromium
