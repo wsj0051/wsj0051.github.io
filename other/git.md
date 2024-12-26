@@ -1,6 +1,13 @@
 # git
 
 ## 配置git
+
+### Git 使用 UTF-8 编码
+```
+git config --global i18n.commitencoding utf-8
+git config --global i18n.logoutputencoding utf-8
+```
+
 ### 配置全局用户名邮箱信息
 
 ```shell

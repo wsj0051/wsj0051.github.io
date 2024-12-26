@@ -34,7 +34,7 @@
 
 ## 高分辨率远程桌面低分辨率屏幕内容过小解决办法
 
-1. 修改注册表：用`cmd`运行`regedit`编辑注册表，找到：`HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > Windows > CurrentVersion > SideBySide`新建`DWORD`，命名`PreferExternalManifest`，并双击设置值为`1`.
+1. 修改注册表：用`Windows+R`运行`regedit`编辑注册表，找到：`HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > Windows > CurrentVersion > SideBySide`新建`DWORD`，命名`PreferExternalManifest`，并双击设置值为`1`.
 2. 创建文件[mstsc.exe.manifest](../assets/mstsc.exe.manifest)，并放到该路径下：`C:\Windows\System32`
 
 
