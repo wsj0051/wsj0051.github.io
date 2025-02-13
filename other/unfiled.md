@@ -49,7 +49,11 @@ wifi3.key=********
     - 刷屏幕参数，包名： `M638PanelUpgrade.bin`
       - 按遥控器的音量减键不放，然后通电。
 
-
-
+## app开源
+1. 影视app [release](https://github.com/FongMi/Release/tree/okjack/apk/release)
+      + [蜂蜜影视tv版](https://github.com/FongMi/Release/blob/okjack/apk/release/leanback-python-armeabi_v7a.apk)
+      + [手机版](https://github.com/FongMi/Release/blob/okjack/apk/release/mobile-python-arm64_v8a.apk)
+2. musicFree [release](https://github.com/maotoumao/MusicFree/releases/)
+3. 阅读 [release](https://github.com/gedoor/legado/releases)
 
 
