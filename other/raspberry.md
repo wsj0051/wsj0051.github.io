@@ -500,6 +500,74 @@ crontab -e
 ```
 
 
+## BATOCERA
+
+### wifi配置文件
+
+```
+wifi.enabled=1
+wifi.ssid=wifi1-name
+wifi.key=********
+wifi2.ssid=wifi2-name
+wifi2.key=********
+wifi3.ssid=wifi1-name
+wifi3.key=********
+```
+### 修正时区 和 开启samba、ssh
+进入`/userdata/system/batocera.cfg` 修改时区和界面语言
+```
+system.timezone=Asia/Shanghai
+system.language=zh_CN
+# 顺便关闭更新提示，开启samba共享和SSH
+updates.enabled=0
+system.samba.enabled=1
+system.ssh.enabled=1
+```
+去掉#就是生效。batocera-save-overlay，保存overlay
+### 默认键盘映射
+1. 键盘按键对应：
+    ```
+    Z键：手柄B键
+    X键：手柄A键
+    A键：手柄Y键
+    S键：手柄X键
+    Q键：手柄L键
+    W键：手柄R键
+    右Shift键：手柄Select键
+    Enter键：手柄SATA键
+    ```
+
+1. 手柄按键对应：
+    ```
+    方向按键：键盘上下左右按键
+    F1键：资源管理器
+    PRINT键：屏幕截图
+    空格键：系统菜单
+    回退键：选项菜单
+    ENTER键：确认键
+    ESC键：取消或返回
+    ```
+    
+### 修改键位
+以下按键的修改对应端口1的配置。
+如果需要修改其他端口，只需将player1改为player2这样就是第二个端口输入了，右侧双引号中的文本为自定义按键的键代码。
+配置文件路径`userdata/system/batocera.conf`
+```
+global.retroarch.input_player1_y="j"
+global.retroarch.input_player1_x="k"
+global.retroarch.input_player1_l="l"
+global.retroarch.input_player1_b="u"
+global.retroarch.input_player1_a="i"
+global.retroarch.input_player1_r="o"
+global.retroarch.input_player1_select="space"
+global.retroarch.input_player1_start="enter"
+global.retroarch.input_player1_up="w"
+global.retroarch.input_player1_right="d"
+global.retroarch.input_player1_down="s"
+global.retroarch.input_player1_left="a"
+#如果加上这一句代码，那么当同时按住对应键“l”和“o”时，将呼出retroarch菜单
+global.retroarch.input_menu_toggle_gamepad_combo="6"
+```
 
 
 

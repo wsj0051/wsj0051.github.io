@@ -299,17 +299,17 @@ Termux 的 ssh 和常规 Linux 不太一样，连接的时候不需要指定用�
 
 ## 备份与恢复
 
-进入目录
+
+备份
 ```
 cd /data/data/com.termux/files
+tar -zcvf /storage/emulated/0/Download/termux-backup.tar.gz home usr
 ```
-备份配置文件为 `termux-backup.tar.gz`：
+恢复备份
 ```
-tar -zcf /sdcard/termux-backup.tar.gz home usr
-```
-解压提取之前备份的内容，覆盖现存的文件并删除之前的备份文件：
-```
-tar -zxf /sdcard/termux-backup.tar.gz --recursive-unlink --preserve-permissions
+cd /data/data/com.termux/files
+rm -rf home usr
+tar -zxvf /storage/emulated/0/Download/termux-backup.tar.gz
 ```
 
 ## 参考链接

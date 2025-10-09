@@ -20,25 +20,11 @@ mvn install:install-file -Dfile=junit-4.8.1.jar -DgroupId=junit -DartifactId=jun
 ^\s*(?=\r?$)\n
 ```
 
-## BATOCERA
-
-配置文件
-
-```text
-wifi.enabled=1
-wifi.ssid=wifi1-name
-wifi.key=********
-wifi2.ssid=wifi2-name
-wifi2.key=********
-wifi3.ssid=wifi1-name
-wifi3.key=********
-```
-
 ## 康佳电视 - LED55K36U 刷机
 
 1. 电视型号：
-    - 主程序软件：99015826
-    - 屏幕参数：99016671
+    - 主程序软件：`99015826`
+    - 屏幕参数：`99016671`
 
 2. 刷机步骤
     - 主程序软件，包名：`M638Upgrade.bin`
