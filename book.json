@@ -100,7 +100,7 @@
             "caption": "图 - _CAPTION_"
         },
         "favicon-absolute": {
-            "favicon": "/assets/images/favicon.ico",
+            "favicon": "./favicon.ico",
             "appleTouchIconPrecomposed152": "/assets/images/apple-touch-icon-152.png"
         },
         "hide-element": {
